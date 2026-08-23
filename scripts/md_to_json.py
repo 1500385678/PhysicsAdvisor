@@ -1,162 +1,191 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-md_to_json.py — 把 _PhysicsLib/ 下的主题 md 解析为结构化 JSON
+md_to_json.py — 物理知识资产解析器
 
-输入:
-  - _PhysicsLib/01_物理起源与演变/物理起源与演变.md
-  - _PhysicsLib/02_物理分支与特点/物理分支与特点.md
-  - ... (10 个主题文件夹,各 1 个 .md)
-  - _PhysicsLib/物理公式/*.md (待 Phase 0 公式库补充,本脚本已支持)
+扫描 _PhysicsLib/ 下所有主题 md 文件(01-10 各主题文件夹 + 物理公式/),
+解析为结构化 JSON,输出到 data/knowledge.json。
 
-输出:
-  - data/knowledge.json — {
-      "meta": {generated_at, total_files, total_words},
-      "topics": [
-        {
-          "id": "01_物理起源与演变",
-          "branch": "起源与演变",
-          "title": "物理起源与演变",
-          "file_path": "01_物理起源与演变/物理起源与演变.md",
-          "content": "...全文...",
-          "word_count": 1234,
-          "headings": [{"level": 1, "text": "..."}],
-          "first_heading": "...",
-          "tags": ["01_物理起源与演变", "branch:起源与演变"]
-        }
-      ]
+Schema 0.1.0:
+{
+  "meta": {
+    "schema": "0.1.0",
+    "generated_at": "2026-08-24T...",
+    "source_dir": "_PhysicsLib",
+    "total_files": 10,
+    "total_words": 29084
+  },
+  "topics": [
+    {
+      "id": "01-物理起源与演变",
+      "branch": "01",
+      "title": "物理起源与演变",
+      "file_path": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md",
+      "content": "...",
+      "word_count": 3193,
+      "headings": [{"level": 1, "text": "..."}],
+      "first_heading": "...",
+      "tags": ["物理起源", "演变"]
     }
-
-设计原则:
-  - 通用扫描,不写死主题(后续 Phase 0 公式库补充时直接复用)
-  - 一份 JSON 一份知识,Web 端 fetch 后按 branch / id 检索
-  - 不解析 LaTeX(留给公式库 LaTeX 化阶段),只取 H1/H2/H3 标题
-
-用法:
-  python3 scripts/md_to_json.py [--lib-dir ../] [--out data/knowledge.json]
+  ]
+}
 """
-import argparse
 import json
+import os
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
 
-# 匹配 Markdown 标题: # / ## / ###
-HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
-# 匹配前 30 个非空白字符作为 title fallback
-TITLE_FALLBACK_RE = re.compile(r"^#\s+(.+?)\s*$", re.MULTILINE)
+# 路径配置 —— 脚本在 PhysicsWeb/scripts/,工作目录是 PhysicsWeb/
+SCRIPT_DIR = Path(__file__).resolve().parent
+WEB_DIR = SCRIPT_DIR.parent  # PhysicsWeb/
+# PhysicsWeb/ 已经在 _PhysicsLib/ 下一级,源目录是 _PhysicsLib 本身
+SOURCE_DIR = WEB_DIR.parent  # _PhysicsLib/
+# 根视角(_PhysicsLib/),用于生成 file_path
+ROOT_DIR = WEB_DIR.parent
+OUTPUT_PATH = WEB_DIR / "data" / "knowledge.json"
+
+# 主题文件夹正则:01_xxx, 02_xxx, ..., 10_xxx(允许两位数)
+TOPIC_DIR_RE = re.compile(r"^(\d{1,2})_(.+)$")
+# 主题 md 文件名同目录名:01_xxx/01_xxx.md 或 01_xxx/中文.md
+HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
+WHITESPACE_RE = re.compile(r"\s+")
 
 
-def parse_md_file(md_path: Path, topic_id: str) -> dict:
-    """解析单个 md 文件为结构化 dict"""
-    text = md_path.read_text(encoding="utf-8")
+def count_words(text: str) -> int:
+    """中文字数:统计非空白字符数(兼容 ASCII 字母)。"""
+    return len(WHITESPACE_RE.sub("", text))
+
+
+def parse_headings(content: str) -> list:
+    """提取所有 markdown 标题 (H1-H6)。"""
     headings = []
-    for m in HEADING_RE.finditer(text):
-        headings.append({
-            "level": len(m.group(1)),
-            "text": m.group(2).strip(),
-        })
-    # 取第一个 H1 作为 title
-    h1 = next((h for h in headings if h["level"] == 1), None)
-    title = h1["text"] if h1 else md_path.stem
-    # 简单字数统计(中英混合,只数非空白)
-    word_count = len(re.sub(r"\s", "", text))
-    # 从 topic_id 解析 branch(去掉前缀数字_)
-    branch = re.sub(r"^\d+_", "", topic_id)
+    for line in content.splitlines():
+        m = HEADING_RE.match(line)
+        if m:
+            level = len(m.group(1))
+            text = m.group(2).strip()
+            if text:
+                headings.append({"level": level, "text": text})
+    return headings
 
+
+def extract_tags(branch_name: str, title: str) -> list:
+    """从主题名中提取 2-4 字标签。"""
+    # 简单分词:主题名通常为 4-8 字中文短语,提取 2-3 个标签
+    # 例:"物理起源与演变" → ["物理起源", "演变"]
+    # 规则:含"与"则按"与"拆,否则按 4 字一块拆
+    if "与" in title:
+        parts = title.split("与", 1)
+        tags = [part.strip() for part in parts if part.strip()]
+    else:
+        # 4 字一拆
+        tags = [title[i : i + 4] for i in range(0, len(title), 4) if title[i : i + 4]]
+    tags.append("物理")  # 全局标签
+    return tags
+
+
+def find_topic_files(source_dir: Path) -> list:
+    """扫描 _PhysicsLib/ 下所有主题 md 文件。
+
+    规则:
+      1. 顶层目录以 N_xxx 开头(N=1-2 位数字)的视为主题目录
+      2. 主题目录下的 *.md 全部纳入
+      3. 顶层"物理公式"目录(或其他非数字开头但有 md 的)也纳入
+    排除:
+      - PhysicsWeb/、README.md、PhysicsLibControl.md、.plan/、.git/
+    """
+    if not source_dir.exists():
+        raise FileNotFoundError(f"找不到源目录: {source_dir}")
+
+    files = []
+    for entry in sorted(source_dir.iterdir()):
+        if not entry.is_dir():
+            continue
+        name = entry.name
+        # 排除隐藏目录和非主题目录
+        if name.startswith("."):
+            continue
+        # 主题目录:N_xxx
+        m = TOPIC_DIR_RE.match(name)
+        is_topic = bool(m)
+        # 物理公式/等扩展库:非数字开头但有 md 也纳入
+        has_md = any(entry.glob("*.md"))
+
+        if is_topic:
+            branch = m.group(1).zfill(2)  # 1 → 01
+            for md in sorted(entry.glob("*.md")):
+                files.append((branch, name, md))
+        elif has_md and not name.startswith("PhysicsWeb"):
+            # 扩展库(如"物理公式"):用 99 前缀
+            for md in sorted(entry.glob("*.md")):
+                files.append(("99", name, md))
+
+    return files
+
+
+def build_topic(branch: str, dir_name: str, md_path: Path, source_root: Path) -> dict:
+    """从单个 md 文件构建 topic 字典。"""
+    rel_path = md_path.relative_to(source_root.parent)
+    content = md_path.read_text(encoding="utf-8")
+    word_count = count_words(content)
+    headings = parse_headings(content)
+    first_heading = headings[0]["text"] if headings else md_path.stem
+    title = dir_name.split("_", 1)[1] if "_" in dir_name else dir_name
+    topic_id = f"{branch}-{dir_name}"
+    tags = extract_tags(branch, title)
     return {
         "id": topic_id,
         "branch": branch,
         "title": title,
-        "file_path": str(md_path),
-        "content": text,
+        "file_path": str(rel_path),
+        "content": content,
         "word_count": word_count,
         "headings": headings,
-        "first_heading": title,
-        "tags": [topic_id, f"branch:{branch}"],
-    }
-
-
-def scan_lib(lib_dir: Path) -> list[dict]:
-    """扫描 _PhysicsLib/ 下所有主题 md(支持 01_xxx/*.md 与 物理公式/*.md)"""
-    topics: list[dict] = []
-    if not lib_dir.exists():
-        print(f"[WARN] lib_dir 不存在: {lib_dir}", file=sys.stderr)
-        return topics
-
-    # 模式 A: 01_物理起源与演变/物理起源与演变.md (10 主题)
-    for sub in sorted(lib_dir.iterdir()):
-        if not sub.is_dir():
-            continue
-        # 跳过 PhysicsWeb 自己
-        if sub.name == "PhysicsWeb":
-            continue
-        # 跳过隐藏目录
-        if sub.name.startswith("."):
-            continue
-        # 取该目录下第一个 .md
-        md_files = sorted(sub.glob("*.md"))
-        if not md_files:
-            continue
-        # 优先取与目录同名的 md,否则取第一个
-        target = next(
-            (m for m in md_files if m.stem == sub.name), md_files[0]
-        )
-        topics.append(parse_md_file(target, sub.name))
-
-    # 模式 B: 物理公式/*.md(待补,本脚本已支持)
-    formula_dir = lib_dir / "物理公式"
-    if formula_dir.exists():
-        for md in sorted(formula_dir.glob("*.md")):
-            # 公式文件以文件名作为 topic_id
-            topics.append(parse_md_file(md, f"formula_{md.stem}"))
-
-    return topics
-
-
-def build_knowledge(topics: list[dict]) -> dict:
-    return {
-        "meta": {
-            "generated_at": datetime.now().isoformat(timespec="seconds"),
-            "total_files": len(topics),
-            "total_words": sum(t["word_count"] for t in topics),
-            "schema_version": "0.1.0",
-        },
-        "topics": topics,
+        "first_heading": first_heading,
+        "tags": tags,
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="物理 md 资产 → JSON")
-    parser.add_argument(
-        "--lib-dir",
-        type=Path,
-        default=Path(__file__).resolve().parent.parent.parent,
-        help="_PhysicsLib 根目录(默认 ../)",
-    )
-    parser.add_argument(
-        "--out",
-        type=Path,
-        default=Path(__file__).resolve().parent.parent / "data" / "knowledge.json",
-        help="输出 JSON 路径",
-    )
-    args = parser.parse_args()
+    try:
+        files = find_topic_files(SOURCE_DIR)
+    except FileNotFoundError as e:
+        print(f"[ERROR] {e}", file=sys.stderr)
+        return 1
 
-    topics = scan_lib(args.lib_dir)
-    knowledge = build_knowledge(topics)
+    if not files:
+        print(f"[ERROR] 在 {SOURCE_DIR} 下未找到任何主题 md", file=sys.stderr)
+        return 1
 
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(
-        json.dumps(knowledge, ensure_ascii=False, indent=2),
+    # 解析
+    topics = [build_topic(b, d, p, ROOT_DIR) for b, d, p in files]
+    total_words = sum(t["word_count"] for t in topics)
+
+    payload = {
+        "meta": {
+            "schema": "0.1.0",
+            "generated_at": datetime.now().isoformat(timespec="seconds"),
+            "source_dir": "_PhysicsLib",
+            "total_files": len(topics),
+            "total_words": total_words,
+        },
+        "topics": topics,
+    }
+
+    # 输出
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_PATH.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
 
-    print(f"[OK] 解析 {len(topics)} 个主题 md → {args.out}")
-    print(f"     总字数: {knowledge['meta']['total_words']}")
-    for t in topics:
-        print(f"     - {t['id']:30s} | {t['word_count']:>5d} 字 | {t['title']}")
+    print(f"[OK] 解析 {len(topics)} 个主题 md")
+    print(f"     字数: {total_words}")
+    print(f"     输出: {OUTPUT_PATH.relative_to(WEB_DIR)}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())
