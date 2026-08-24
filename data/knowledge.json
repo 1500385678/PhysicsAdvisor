@@ -1,10 +1,11 @@
 {
   "meta": {
-    "schema": "0.1.0",
-    "generated_at": "2026-08-24T03:21:22",
+    "schema": "0.2.0",
+    "generated_at": "2026-08-25T03:21:39",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
-    "total_words": 29084
+    "total_words": 29084,
+    "total_concepts": 194
   },
   "topics": [
     {
@@ -981,6 +982,1754 @@
         "奇观",
         "物理"
       ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "01-01-001",
+      "name": "一、物理大师讲起源",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 2,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-002",
+      "name": "物理是什么？",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-003",
+      "name": "物理的起源",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-004",
+      "name": "二、古代物理思想",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 2,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-005",
+      "name": "古希腊自然哲学",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-006",
+      "name": "中国古代物理思想",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-007",
+      "name": "三、科学革命",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 2,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-008",
+      "name": "伽利略与实验物理学",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-009",
+      "name": "牛顿与经典力学",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-010",
+      "name": "四、现代物理学革命",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 2,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-011",
+      "name": "相对论",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-012",
+      "name": "量子力学",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-013",
+      "name": "五、物理起源与演变速查",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 2,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-014",
+      "name": "物理起源时间线",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-015",
+      "name": "古代物理思想",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-016",
+      "name": "科学革命",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-017",
+      "name": "现代物理学",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "01-01-018",
+      "name": "物理大师名言",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 3,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    },
+    {
+      "id": "02-02-001",
+      "name": "一、物理大师讲分支",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 2,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-002",
+      "name": "物理学的\"家谱\"",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-003",
+      "name": "经典物理 vs 现代物理",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-004",
+      "name": "二、经典力学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 2,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-005",
+      "name": "经典力学是什么？",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-006",
+      "name": "万有引力定律",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-007",
+      "name": "三、电磁学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 2,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-008",
+      "name": "电磁学是什么？",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-009",
+      "name": "电磁波谱",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-010",
+      "name": "四、热力学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 2,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-011",
+      "name": "热力学是什么？",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-012",
+      "name": "熵与不可逆过程",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-013",
+      "name": "五、量子力学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 2,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-014",
+      "name": "量子力学是什么？",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-015",
+      "name": "薛定谔方程",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-016",
+      "name": "六、物理分支与特点速查",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 2,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-017",
+      "name": "主要分支",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-018",
+      "name": "经典力学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-019",
+      "name": "电磁学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-020",
+      "name": "量子力学",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "02-02-021",
+      "name": "物理大师名言",
+      "branch": "02",
+      "branch_name": "物理分支与特点",
+      "topic_id": "02-02_物理分支与特点",
+      "level": 3,
+      "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
+    },
+    {
+      "id": "03-03-001",
+      "name": "一、物理大师讲逻辑",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 2,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-002",
+      "name": "什么是物理逻辑？",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-003",
+      "name": "物理推理的基本方法",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-004",
+      "name": "二、物理模型的建立",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 2,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-005",
+      "name": "什么是物理模型？",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-006",
+      "name": "经典模型举例",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-007",
+      "name": "三、物理定律的发现逻辑",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 2,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-008",
+      "name": "归纳法：从实验到定律",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-009",
+      "name": "演绎法：从理论到预言",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-010",
+      "name": "四、思想实验",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 2,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-011",
+      "name": "什么是思想实验？",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-012",
+      "name": "爱因斯坦的思想实验",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-013",
+      "name": "五、物理逻辑与推理速查",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 2,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-014",
+      "name": "物理推理方法",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-015",
+      "name": "物理建模",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-016",
+      "name": "经典模型",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-017",
+      "name": "思想实验",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "03-03-018",
+      "name": "物理大师名言",
+      "branch": "03",
+      "branch_name": "物理逻辑与推理",
+      "topic_id": "03-03_物理逻辑与推理",
+      "level": 3,
+      "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
+    },
+    {
+      "id": "04-04-001",
+      "name": "一、物理大师讲传奇故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 2,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-002",
+      "name": "牛顿与苹果的故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-003",
+      "name": "伽利略与比萨斜塔",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-004",
+      "name": "二、物理大师的传奇人生",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 2,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-005",
+      "name": "爱因斯坦的奇迹年",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-006",
+      "name": "费曼的传奇人生",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-007",
+      "name": "三、物理悖论与争论",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 2,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-008",
+      "name": "紫外灾难与量子假说",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-009",
+      "name": "爱因斯坦-玻尔争论",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-010",
+      "name": "四、物理竞赛与奖项",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 2,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-011",
+      "name": "诺贝尔物理学奖",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-012",
+      "name": "五、物趣闻",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 2,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-013",
+      "name": "物理大师的怪癖",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-014",
+      "name": "物理与艺术",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-015",
+      "name": "六、物理故事与传说速查",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 2,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-016",
+      "name": "著名物理故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-017",
+      "name": "物理大师传奇人生",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-018",
+      "name": "物理悖论与争论",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-019",
+      "name": "诺贝尔物理学奖",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-020",
+      "name": "物理与艺术",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "04-04-021",
+      "name": "物理大师名言",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "topic_id": "04-04_物理故事与传说",
+      "level": 3,
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
+    },
+    {
+      "id": "05-05-001",
+      "name": "一、物理大师讲趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-002",
+      "name": "物理不是枯燥的公式！",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-003",
+      "name": "二、力学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-004",
+      "name": "陀螺与角动量",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-005",
+      "name": "不倒翁",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-006",
+      "name": "三、热学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-007",
+      "name": "莱顿弗罗斯特效应",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-008",
+      "name": "四、电学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-009",
+      "name": "特斯拉线圈",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-010",
+      "name": "五、光学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-011",
+      "name": "彩虹的形成",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-012",
+      "name": "全反射与光纤",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-013",
+      "name": "六、量子趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-014",
+      "name": "量子隧穿",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-015",
+      "name": "量子纠缠",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-016",
+      "name": "七、物理趣味速查",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 2,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-017",
+      "name": "力学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-018",
+      "name": "热学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-019",
+      "name": "电学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-020",
+      "name": "光学趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-021",
+      "name": "量子趣味",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "05-05-022",
+      "name": "物理大师名言",
+      "branch": "05",
+      "branch_name": "物理趣味与游戏",
+      "topic_id": "05-05_物理趣味与游戏",
+      "level": 3,
+      "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
+    },
+    {
+      "id": "06-06-001",
+      "name": "一、古代物理大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 2,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-002",
+      "name": "阿基米德（Archimedes, 公元前287-212年）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-003",
+      "name": "伽利略（Galileo Galilei, 1564-1642）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-004",
+      "name": "二、经典物理大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 2,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-005",
+      "name": "牛顿（Isaac Newton, 1643-1727）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-006",
+      "name": "麦克斯韦（James Clerk Maxwell, 1831-1879）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-007",
+      "name": "三、现代物理大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 2,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-008",
+      "name": "爱因斯坦（Albert Einstein, 1879-1955）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-009",
+      "name": "玻尔（Niels Bohr, 1885-1962）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-010",
+      "name": "四、当代物理大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 2,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-011",
+      "name": "费曼（Richard Feynman, 1918-1988）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-012",
+      "name": "霍金（Stephen Hawking, 1942-2018）",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-013",
+      "name": "五、物理大师速查",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 2,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-014",
+      "name": "古代大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-015",
+      "name": "经典大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-016",
+      "name": "现代大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-017",
+      "name": "当代大师",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "06-06-018",
+      "name": "物理大师名言",
+      "branch": "06",
+      "branch_name": "物理大师与学者",
+      "topic_id": "06-06_物理大师与学者",
+      "level": 3,
+      "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
+    },
+    {
+      "id": "07-07-001",
+      "name": "一、物理大师讲思想",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 2,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-002",
+      "name": "什么是物理思想？",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-003",
+      "name": "二、物理方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 2,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-004",
+      "name": "理想化方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-005",
+      "name": "类比方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-006",
+      "name": "三、物理思维",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 2,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-007",
+      "name": "守恒思维",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-008",
+      "name": "场思维",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-009",
+      "name": "四、物理研究方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 2,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-010",
+      "name": "理论研究方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-011",
+      "name": "实验研究方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-012",
+      "name": "五、物理建模思想",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 2,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-013",
+      "name": "什么是物理建模？",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-014",
+      "name": "经典模型",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-015",
+      "name": "六、物理思想速查",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 2,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-016",
+      "name": "核心思想",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-017",
+      "name": "物理方法",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-018",
+      "name": "物理思维",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-019",
+      "name": "物理建模",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "07-07-020",
+      "name": "物理大师名言",
+      "branch": "07",
+      "branch_name": "物理思想与方法",
+      "topic_id": "07-07_物理思想与方法",
+      "level": 3,
+      "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
+    },
+    {
+      "id": "08-08-001",
+      "name": "〇、写在前面:应用物理到底是啥",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-002",
+      "name": "一、经典力学应用(工程力学的物理底座)",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-003",
+      "name": "二、热力学与统计物理应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-004",
+      "name": "三、电磁学应用(现代电子与通信的根)",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-005",
+      "name": "四、光学应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-006",
+      "name": "五、原子分子物理(AMO)应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-007",
+      "name": "六、量子力学应用(21 世纪的\"硬通货\")",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-008",
+      "name": "七、固体物理与凝聚态应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-009",
+      "name": "八、核物理应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-010",
+      "name": "九、粒子物理与高能物理应用(偏基础)",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-011",
+      "name": "十、声学应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-012",
+      "name": "十一、等离子体物理应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-013",
+      "name": "十二、计算物理与数值模拟",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-014",
+      "name": "十三、测量、传感与仪器物理",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-015",
+      "name": "十四、新兴/交叉方向(2020s 活跃区)",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-016",
+      "name": "十五、跨学科物理应用(可作为\"应用物理的延伸\")",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-017",
+      "name": "十六、学习路径建议",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-018",
+      "name": "十七、几个\"反常识\"的小提醒",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-019",
+      "name": "十八、参考资料与延伸阅读(精选)",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-020",
+      "name": "十九、关联文档(本知识库内)",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "08-08-021",
+      "name": "二十、变更记录",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "topic_id": "08-08_物理应用与建模",
+      "level": 2,
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
+    },
+    {
+      "id": "09-09-001",
+      "name": "一、物理大师讲物理美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 2,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-002",
+      "name": "什么是物理美？",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-003",
+      "name": "二、公式之美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 2,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-004",
+      "name": "爱因斯坦场方程",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-005",
+      "name": "麦克斯韦方程组",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-006",
+      "name": "三、对称之美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 2,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-007",
+      "name": "诺特定理",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-008",
+      "name": "规范对称性",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-009",
+      "name": "四、理论之美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 2,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-010",
+      "name": "广义相对论",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-011",
+      "name": "标准模型",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-012",
+      "name": "五、物理美速查",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 2,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-013",
+      "name": "公式之美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-014",
+      "name": "对称之美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-015",
+      "name": "理论之美",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "09-09-016",
+      "name": "物理大师名言",
+      "branch": "09",
+      "branch_name": "物理之美",
+      "topic_id": "09-09_物理之美",
+      "level": 3,
+      "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
+    },
+    {
+      "id": "10-10-001",
+      "name": "一、世界物理奇观",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 2,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-002",
+      "name": "黑洞",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-003",
+      "name": "引力波",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-004",
+      "name": "二、物理冷知识",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 2,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-005",
+      "name": "量子冷知识",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-006",
+      "name": "相对论冷知识",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-007",
+      "name": "三、物理纪录",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 2,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-008",
+      "name": "最高/最低温度",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-009",
+      "name": "最大/最小尺度",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-010",
+      "name": "四、物理趣闻",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 2,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-011",
+      "name": "物理学家的怪癖",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-012",
+      "name": "物理与艺术",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-013",
+      "name": "五、物理趣闻与奇观速查",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 2,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-014",
+      "name": "世界物理奇观",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-015",
+      "name": "物理冷知识",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-016",
+      "name": "物理纪录",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-017",
+      "name": "物理学家的怪癖",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-018",
+      "name": "物理与艺术",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    },
+    {
+      "id": "10-10-019",
+      "name": "物理大师名言",
+      "branch": "10",
+      "branch_name": "物理趣闻与奇观",
+      "topic_id": "10-10_物理趣闻与奇观",
+      "level": 3,
+      "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     }
   ]
 }

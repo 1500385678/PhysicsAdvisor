@@ -6,14 +6,15 @@ md_to_json.py — 物理知识资产解析器
 扫描 _PhysicsLib/ 下所有主题 md 文件(01-10 各主题文件夹 + 物理公式/),
 解析为结构化 JSON,输出到 data/knowledge.json。
 
-Schema 0.1.0:
+Schema 0.2.0:
 {
   "meta": {
-    "schema": "0.1.0",
-    "generated_at": "2026-08-24T...",
+    "schema": "0.2.0",
+    "generated_at": "2026-08-25T...",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
-    "total_words": 29084
+    "total_words": 29084,
+    "total_concepts": 194
   },
   "topics": [
     {
@@ -27,8 +28,23 @@ Schema 0.1.0:
       "first_heading": "...",
       "tags": ["物理起源", "演变"]
     }
+  ],
+  "concepts": [
+    {
+      "id": "01-01-001",
+      "name": "物理是什么",
+      "branch": "01",
+      "branch_name": "物理起源与演变",
+      "topic_id": "01-01_物理起源与演变",
+      "level": 2,
+      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+    }
   ]
 }
+
+变更记录:
+- 0.2.0 (2026-08-25): 新增 concepts 数组(从 10 主题 md 抽取 H2/H3 概念节点),
+                    为 Phase 0 知识图谱奠基;meta 加 total_concepts。
 """
 import json
 import os
@@ -148,6 +164,42 @@ def build_topic(branch: str, dir_name: str, md_path: Path, source_root: Path) ->
     }
 
 
+def extract_concepts(topics: list) -> list:
+    """从 topics 列表中抽取核心概念节点(基于 H2/H3 标题)。
+
+    规则:
+      - H1 视为文件主题(已在 topic.first_heading),不作为概念节点
+      - H2/H3 视为核心概念,生成扁平列表
+      - 同一 topic 内按出现顺序连续编号
+      - id 格式: {branch}-{dir_seq}-{NNNN} (如 01-01-001)
+
+    返回:概念节点列表,每项含 id / name / branch / branch_name / topic_id / level / source_file
+    """
+    concepts = []
+    for topic in topics:
+        topic_id = topic["id"]
+        branch = topic["branch"]
+        branch_name = topic["title"]
+        source_file = topic["file_path"]
+        # 从 topic_id 解析 dir_seq:形如 "01-01_物理起源与演变"
+        dir_seq = topic_id.split("-", 1)[1].split("_", 1)[0] if "-" in topic_id else "00"
+        seq = 0
+        for h in topic.get("headings", []):
+            if h["level"] not in (2, 3):
+                continue
+            seq += 1
+            concepts.append({
+                "id": f"{branch}-{dir_seq}-{seq:03d}",
+                "name": h["text"],
+                "branch": branch,
+                "branch_name": branch_name,
+                "topic_id": topic_id,
+                "level": h["level"],
+                "source_file": source_file,
+            })
+    return concepts
+
+
 def main() -> int:
     try:
         files = find_topic_files(SOURCE_DIR)
@@ -162,16 +214,20 @@ def main() -> int:
     # 解析
     topics = [build_topic(b, d, p, ROOT_DIR) for b, d, p in files]
     total_words = sum(t["word_count"] for t in topics)
+    # 概念层抽取(基于 H2/H3 标题)
+    concepts = extract_concepts(topics)
 
     payload = {
         "meta": {
-            "schema": "0.1.0",
+            "schema": "0.2.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "source_dir": "_PhysicsLib",
             "total_files": len(topics),
             "total_words": total_words,
+            "total_concepts": len(concepts),
         },
         "topics": topics,
+        "concepts": concepts,
     }
 
     # 输出
@@ -183,6 +239,7 @@ def main() -> int:
 
     print(f"[OK] 解析 {len(topics)} 个主题 md")
     print(f"     字数: {total_words}")
+    print(f"     概念: {len(concepts)} (H2+H3 标题)")
     print(f"     输出: {OUTPUT_PATH.relative_to(WEB_DIR)}")
     return 0
 
