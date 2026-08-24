@@ -1,5 +1,6 @@
 .DS_Store
-*.log
+# 只忽略根目录的 *.log(如 app.log / error.log),不忽略 .Log/ 巡检目录
+/*.log
 node_modules/
 .venv/
 __pycache__/
