@@ -1,11 +1,19 @@
 {
   "meta": {
-    "schema": "0.2.0",
-    "generated_at": "2026-08-25T03:21:39",
+    "schema": "0.3.0",
+    "generated_at": "2026-08-26T03:20:56",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
-    "total_concepts": 194
+    "total_concepts": 194,
+    "total_relations": 389,
+    "total_branches": 10,
+    "relation_breakdown": {
+      "branch_topic": 10,
+      "topic_concept": 194,
+      "parent_child": 123,
+      "cross_ref": 62
+    }
   },
   "topics": [
     {
@@ -992,6 +1000,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1001,6 +1011,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1010,6 +1022,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1019,6 +1033,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1028,6 +1044,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1037,6 +1055,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1046,6 +1066,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1055,6 +1077,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1064,6 +1088,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1073,6 +1099,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1082,6 +1110,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1091,6 +1121,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1100,6 +1132,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 2,
+      "parent_id": null,
+      "child_count": 5,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1109,6 +1143,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1118,6 +1154,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1127,6 +1165,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1136,6 +1176,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1145,6 +1187,8 @@
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 3,
+      "parent_id": "01-01-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
     },
     {
@@ -1154,6 +1198,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1163,6 +1209,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1172,6 +1220,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1181,6 +1231,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1190,6 +1242,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1199,6 +1253,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1208,6 +1264,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1217,6 +1275,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1226,6 +1286,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1235,6 +1297,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1244,6 +1308,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1253,6 +1319,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1262,6 +1330,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1271,6 +1341,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1280,6 +1352,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1289,6 +1363,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 2,
+      "parent_id": null,
+      "child_count": 5,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1298,6 +1374,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1307,6 +1385,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1316,6 +1396,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1325,6 +1407,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1334,6 +1418,8 @@
       "branch_name": "物理分支与特点",
       "topic_id": "02-02_物理分支与特点",
       "level": 3,
+      "parent_id": "02-02-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/02_物理分支与特点/物理分支与特点.md"
     },
     {
@@ -1343,6 +1429,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1352,6 +1440,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1361,6 +1451,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1370,6 +1462,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1379,6 +1473,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1388,6 +1484,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1397,6 +1495,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1406,6 +1506,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1415,6 +1517,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1424,6 +1528,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1433,6 +1539,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1442,6 +1550,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1451,6 +1561,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 2,
+      "parent_id": null,
+      "child_count": 5,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1460,6 +1572,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1469,6 +1583,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1478,6 +1594,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1487,6 +1605,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1496,6 +1616,8 @@
       "branch_name": "物理逻辑与推理",
       "topic_id": "03-03_物理逻辑与推理",
       "level": 3,
+      "parent_id": "03-03-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/03_物理逻辑与推理/物理逻辑与推理.md"
     },
     {
@@ -1505,6 +1627,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1514,6 +1638,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1523,6 +1649,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1532,6 +1660,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1541,6 +1671,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1550,6 +1682,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1559,6 +1693,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1568,6 +1704,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1577,6 +1715,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1586,6 +1726,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 2,
+      "parent_id": null,
+      "child_count": 1,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1595,6 +1737,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1604,6 +1748,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1613,6 +1759,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1622,6 +1770,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1631,6 +1781,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 2,
+      "parent_id": null,
+      "child_count": 6,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1640,6 +1792,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1649,6 +1803,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1658,6 +1814,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1667,6 +1825,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1676,6 +1836,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1685,6 +1847,8 @@
       "branch_name": "物理故事与传说",
       "topic_id": "04-04_物理故事与传说",
       "level": 3,
+      "parent_id": "04-04-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md"
     },
     {
@@ -1694,6 +1858,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 1,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1703,6 +1869,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1712,6 +1880,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1721,6 +1891,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-003",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1730,6 +1902,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-003",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1739,6 +1913,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 1,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1748,6 +1924,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-006",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1757,6 +1935,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 1,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1766,6 +1946,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-008",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1775,6 +1957,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1784,6 +1968,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1793,6 +1979,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1802,6 +1990,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1811,6 +2001,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1820,6 +2012,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1829,6 +2023,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 2,
+      "parent_id": null,
+      "child_count": 6,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1838,6 +2034,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1847,6 +2045,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1856,6 +2056,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1865,6 +2067,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1874,6 +2078,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1883,6 +2089,8 @@
       "branch_name": "物理趣味与游戏",
       "topic_id": "05-05_物理趣味与游戏",
       "level": 3,
+      "parent_id": "05-05-016",
+      "child_count": 0,
       "source_file": "_PhysicsLib/05_物理趣味与游戏/物理趣味与游戏.md"
     },
     {
@@ -1892,6 +2100,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1901,6 +2111,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1910,6 +2122,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1919,6 +2133,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1928,6 +2144,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1937,6 +2155,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1946,6 +2166,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1955,6 +2177,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1964,6 +2188,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1973,6 +2199,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1982,6 +2210,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -1991,6 +2221,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2000,6 +2232,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 2,
+      "parent_id": null,
+      "child_count": 5,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2009,6 +2243,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2018,6 +2254,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2027,6 +2265,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2036,6 +2276,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2045,6 +2287,8 @@
       "branch_name": "物理大师与学者",
       "topic_id": "06-06_物理大师与学者",
       "level": 3,
+      "parent_id": "06-06-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/06_物理大师与学者/物理大师与学者.md"
     },
     {
@@ -2054,6 +2298,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 2,
+      "parent_id": null,
+      "child_count": 1,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2063,6 +2309,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2072,6 +2320,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2081,6 +2331,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-003",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2090,6 +2342,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-003",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2099,6 +2353,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2108,6 +2364,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-006",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2117,6 +2375,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-006",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2126,6 +2386,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2135,6 +2397,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-009",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2144,6 +2408,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-009",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2153,6 +2419,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2162,6 +2430,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2171,6 +2441,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2180,6 +2452,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 2,
+      "parent_id": null,
+      "child_count": 5,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2189,6 +2463,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2198,6 +2474,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2207,6 +2485,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2216,6 +2496,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2225,6 +2507,8 @@
       "branch_name": "物理思想与方法",
       "topic_id": "07-07_物理思想与方法",
       "level": 3,
+      "parent_id": "07-07-015",
+      "child_count": 0,
       "source_file": "_PhysicsLib/07_物理思想与方法/物理思想与方法.md"
     },
     {
@@ -2234,6 +2518,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2243,6 +2529,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2252,6 +2540,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2261,6 +2551,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2270,6 +2562,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2279,6 +2573,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2288,6 +2584,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2297,6 +2595,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2306,6 +2606,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2315,6 +2617,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2324,6 +2628,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2333,6 +2639,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2342,6 +2650,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2351,6 +2661,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2360,6 +2672,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2369,6 +2683,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2378,6 +2694,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2387,6 +2705,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2396,6 +2716,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2405,6 +2727,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2414,6 +2738,8 @@
       "branch_name": "物理应用与建模",
       "topic_id": "08-08_物理应用与建模",
       "level": 2,
+      "parent_id": null,
+      "child_count": 0,
       "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md"
     },
     {
@@ -2423,6 +2749,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 2,
+      "parent_id": null,
+      "child_count": 1,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2432,6 +2760,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2441,6 +2771,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2450,6 +2782,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-003",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2459,6 +2793,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-003",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2468,6 +2804,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2477,6 +2815,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-006",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2486,6 +2826,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-006",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2495,6 +2837,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2504,6 +2848,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-009",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2513,6 +2859,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-009",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2522,6 +2870,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 2,
+      "parent_id": null,
+      "child_count": 4,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2531,6 +2881,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2540,6 +2892,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2549,6 +2903,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2558,6 +2914,8 @@
       "branch_name": "物理之美",
       "topic_id": "09-09_物理之美",
       "level": 3,
+      "parent_id": "09-09-012",
+      "child_count": 0,
       "source_file": "_PhysicsLib/09_物理之美/物理之美.md"
     },
     {
@@ -2567,6 +2925,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2576,6 +2936,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2585,6 +2947,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-001",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2594,6 +2958,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2603,6 +2969,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2612,6 +2980,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-004",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2621,6 +2991,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2630,6 +3002,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2639,6 +3013,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-007",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2648,6 +3024,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 2,
+      "parent_id": null,
+      "child_count": 2,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2657,6 +3035,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2666,6 +3046,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-010",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2675,6 +3057,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 2,
+      "parent_id": null,
+      "child_count": 6,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2684,6 +3068,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2693,6 +3079,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2702,6 +3090,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2711,6 +3101,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2720,6 +3112,8 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
     },
     {
@@ -2729,7 +3123,2110 @@
       "branch_name": "物理趣闻与奇观",
       "topic_id": "10-10_物理趣闻与奇观",
       "level": 3,
+      "parent_id": "10-10-013",
+      "child_count": 0,
       "source_file": "_PhysicsLib/10_物理趣闻与奇观/物理趣闻与奇观.md"
+    }
+  ],
+  "relations": [
+    {
+      "source": "01",
+      "target": "01-01_物理起源与演变",
+      "type": "branch_topic"
+    },
+    {
+      "source": "02",
+      "target": "02-02_物理分支与特点",
+      "type": "branch_topic"
+    },
+    {
+      "source": "03",
+      "target": "03-03_物理逻辑与推理",
+      "type": "branch_topic"
+    },
+    {
+      "source": "04",
+      "target": "04-04_物理故事与传说",
+      "type": "branch_topic"
+    },
+    {
+      "source": "05",
+      "target": "05-05_物理趣味与游戏",
+      "type": "branch_topic"
+    },
+    {
+      "source": "06",
+      "target": "06-06_物理大师与学者",
+      "type": "branch_topic"
+    },
+    {
+      "source": "07",
+      "target": "07-07_物理思想与方法",
+      "type": "branch_topic"
+    },
+    {
+      "source": "08",
+      "target": "08-08_物理应用与建模",
+      "type": "branch_topic"
+    },
+    {
+      "source": "09",
+      "target": "09-09_物理之美",
+      "type": "branch_topic"
+    },
+    {
+      "source": "10",
+      "target": "10-10_物理趣闻与奇观",
+      "type": "branch_topic"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "01-01-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-019",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-020",
+      "type": "topic_concept"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "02-02-021",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "03-03-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-019",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-020",
+      "type": "topic_concept"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "04-04-021",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-019",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-020",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-021",
+      "type": "topic_concept"
+    },
+    {
+      "source": "05-05_物理趣味与游戏",
+      "target": "05-05-022",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "06-06-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-019",
+      "type": "topic_concept"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "07-07-020",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-019",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-020",
+      "type": "topic_concept"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "08-08-021",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "09-09-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-001",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-002",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-003",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-004",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-005",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-006",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-007",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-008",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-009",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-010",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-011",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-012",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-013",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-014",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-015",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-016",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-017",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-018",
+      "type": "topic_concept"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "10-10-019",
+      "type": "topic_concept"
+    },
+    {
+      "source": "01-01-001",
+      "target": "01-01-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-001",
+      "target": "01-01-003",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-004",
+      "target": "01-01-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-004",
+      "target": "01-01-006",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-007",
+      "target": "01-01-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-007",
+      "target": "01-01-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-010",
+      "target": "01-01-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-010",
+      "target": "01-01-012",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-013",
+      "target": "01-01-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-013",
+      "target": "01-01-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-013",
+      "target": "01-01-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-013",
+      "target": "01-01-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01-013",
+      "target": "01-01-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-001",
+      "target": "02-02-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-001",
+      "target": "02-02-003",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-004",
+      "target": "02-02-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-004",
+      "target": "02-02-006",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-007",
+      "target": "02-02-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-007",
+      "target": "02-02-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-010",
+      "target": "02-02-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-010",
+      "target": "02-02-012",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-013",
+      "target": "02-02-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-013",
+      "target": "02-02-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-016",
+      "target": "02-02-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-016",
+      "target": "02-02-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-016",
+      "target": "02-02-019",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-016",
+      "target": "02-02-020",
+      "type": "parent_child"
+    },
+    {
+      "source": "02-02-016",
+      "target": "02-02-021",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-001",
+      "target": "03-03-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-001",
+      "target": "03-03-003",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-004",
+      "target": "03-03-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-004",
+      "target": "03-03-006",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-007",
+      "target": "03-03-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-007",
+      "target": "03-03-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-010",
+      "target": "03-03-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-010",
+      "target": "03-03-012",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-013",
+      "target": "03-03-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-013",
+      "target": "03-03-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-013",
+      "target": "03-03-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-013",
+      "target": "03-03-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "03-03-013",
+      "target": "03-03-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-001",
+      "target": "04-04-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-001",
+      "target": "04-04-003",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-004",
+      "target": "04-04-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-004",
+      "target": "04-04-006",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-007",
+      "target": "04-04-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-007",
+      "target": "04-04-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-010",
+      "target": "04-04-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-012",
+      "target": "04-04-013",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-012",
+      "target": "04-04-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-015",
+      "target": "04-04-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-015",
+      "target": "04-04-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-015",
+      "target": "04-04-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-015",
+      "target": "04-04-019",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-015",
+      "target": "04-04-020",
+      "type": "parent_child"
+    },
+    {
+      "source": "04-04-015",
+      "target": "04-04-021",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-001",
+      "target": "05-05-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-003",
+      "target": "05-05-004",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-003",
+      "target": "05-05-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-006",
+      "target": "05-05-007",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-008",
+      "target": "05-05-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-010",
+      "target": "05-05-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-010",
+      "target": "05-05-012",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-013",
+      "target": "05-05-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-013",
+      "target": "05-05-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-016",
+      "target": "05-05-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-016",
+      "target": "05-05-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-016",
+      "target": "05-05-019",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-016",
+      "target": "05-05-020",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-016",
+      "target": "05-05-021",
+      "type": "parent_child"
+    },
+    {
+      "source": "05-05-016",
+      "target": "05-05-022",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-001",
+      "target": "06-06-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-001",
+      "target": "06-06-003",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-004",
+      "target": "06-06-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-004",
+      "target": "06-06-006",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-007",
+      "target": "06-06-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-007",
+      "target": "06-06-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-010",
+      "target": "06-06-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-010",
+      "target": "06-06-012",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-013",
+      "target": "06-06-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-013",
+      "target": "06-06-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-013",
+      "target": "06-06-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-013",
+      "target": "06-06-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "06-06-013",
+      "target": "06-06-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-001",
+      "target": "07-07-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-003",
+      "target": "07-07-004",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-003",
+      "target": "07-07-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-006",
+      "target": "07-07-007",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-006",
+      "target": "07-07-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-009",
+      "target": "07-07-010",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-009",
+      "target": "07-07-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-012",
+      "target": "07-07-013",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-012",
+      "target": "07-07-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-015",
+      "target": "07-07-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-015",
+      "target": "07-07-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-015",
+      "target": "07-07-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-015",
+      "target": "07-07-019",
+      "type": "parent_child"
+    },
+    {
+      "source": "07-07-015",
+      "target": "07-07-020",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-001",
+      "target": "09-09-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-003",
+      "target": "09-09-004",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-003",
+      "target": "09-09-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-006",
+      "target": "09-09-007",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-006",
+      "target": "09-09-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-009",
+      "target": "09-09-010",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-009",
+      "target": "09-09-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-012",
+      "target": "09-09-013",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-012",
+      "target": "09-09-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-012",
+      "target": "09-09-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "09-09-012",
+      "target": "09-09-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-001",
+      "target": "10-10-002",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-001",
+      "target": "10-10-003",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-004",
+      "target": "10-10-005",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-004",
+      "target": "10-10-006",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-007",
+      "target": "10-10-008",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-007",
+      "target": "10-10-009",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-010",
+      "target": "10-10-011",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-010",
+      "target": "10-10-012",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-013",
+      "target": "10-10-014",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-013",
+      "target": "10-10-015",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-013",
+      "target": "10-10-016",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-013",
+      "target": "10-10-017",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-013",
+      "target": "10-10-018",
+      "type": "parent_child"
+    },
+    {
+      "source": "10-10-013",
+      "target": "10-10-019",
+      "type": "parent_child"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "02-02-006",
+      "type": "cross_ref",
+      "evidence": "万有引力定律"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "02-02-015",
+      "type": "cross_ref",
+      "evidence": "薛定谔方程"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "02-02-018",
+      "type": "cross_ref",
+      "evidence": "经典力学"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "02-02-019",
+      "type": "cross_ref",
+      "evidence": "电磁学"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "09-09-010",
+      "type": "cross_ref",
+      "evidence": "广义相对论"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "10-10-002",
+      "type": "cross_ref",
+      "evidence": "黑洞"
+    },
+    {
+      "source": "01-01_物理起源与演变",
+      "target": "10-10-003",
+      "type": "cross_ref",
+      "evidence": "引力波"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "05-05-015",
+      "type": "cross_ref",
+      "evidence": "量子纠缠"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "09-09-005",
+      "type": "cross_ref",
+      "evidence": "麦克斯韦方程组"
+    },
+    {
+      "source": "02-02_物理分支与特点",
+      "target": "10-10-002",
+      "type": "cross_ref",
+      "evidence": "黑洞"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "01-01-012",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "02-02-020",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "04-04-009",
+      "type": "cross_ref",
+      "evidence": "爱因斯坦-玻尔争论"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "05-05-015",
+      "type": "cross_ref",
+      "evidence": "量子纠缠"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "07-07-018",
+      "type": "cross_ref",
+      "evidence": "物理思维"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "09-09-005",
+      "type": "cross_ref",
+      "evidence": "麦克斯韦方程组"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "09-09-010",
+      "type": "cross_ref",
+      "evidence": "广义相对论"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "10-10-002",
+      "type": "cross_ref",
+      "evidence": "黑洞"
+    },
+    {
+      "source": "03-03_物理逻辑与推理",
+      "target": "10-10-003",
+      "type": "cross_ref",
+      "evidence": "引力波"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "01-01-012",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "02-02-020",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "09-09-007",
+      "type": "cross_ref",
+      "evidence": "诺特定理"
+    },
+    {
+      "source": "04-04_物理故事与传说",
+      "target": "10-10-002",
+      "type": "cross_ref",
+      "evidence": "黑洞"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "01-01-012",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "02-02-020",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "02-02-006",
+      "type": "cross_ref",
+      "evidence": "万有引力定律"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "02-02-018",
+      "type": "cross_ref",
+      "evidence": "经典力学"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "02-02-019",
+      "type": "cross_ref",
+      "evidence": "电磁学"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "04-04-009",
+      "type": "cross_ref",
+      "evidence": "爱因斯坦-玻尔争论"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "09-09-005",
+      "type": "cross_ref",
+      "evidence": "麦克斯韦方程组"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "09-09-010",
+      "type": "cross_ref",
+      "evidence": "广义相对论"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "10-10-002",
+      "type": "cross_ref",
+      "evidence": "黑洞"
+    },
+    {
+      "source": "06-06_物理大师与学者",
+      "target": "10-10-003",
+      "type": "cross_ref",
+      "evidence": "引力波"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "07-07_物理思想与方法",
+      "target": "09-09-007",
+      "type": "cross_ref",
+      "evidence": "诺特定理"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "01-01-012",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "02-02-020",
+      "type": "cross_ref",
+      "evidence": "量子力学"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "02-02-007",
+      "type": "cross_ref",
+      "evidence": "三、电磁学"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "02-02-015",
+      "type": "cross_ref",
+      "evidence": "薛定谔方程"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "02-02-018",
+      "type": "cross_ref",
+      "evidence": "经典力学"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "02-02-019",
+      "type": "cross_ref",
+      "evidence": "电磁学"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "03-03-015",
+      "type": "cross_ref",
+      "evidence": "物理建模"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "07-07-019",
+      "type": "cross_ref",
+      "evidence": "物理建模"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "07-07-017",
+      "type": "cross_ref",
+      "evidence": "物理方法"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "09-09-004",
+      "type": "cross_ref",
+      "evidence": "爱因斯坦场方程"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "09-09-005",
+      "type": "cross_ref",
+      "evidence": "麦克斯韦方程组"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "09-09-011",
+      "type": "cross_ref",
+      "evidence": "标准模型"
+    },
+    {
+      "source": "08-08_物理应用与建模",
+      "target": "10-10-003",
+      "type": "cross_ref",
+      "evidence": "引力波"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "02-02-019",
+      "type": "cross_ref",
+      "evidence": "电磁学"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "10-10-002",
+      "type": "cross_ref",
+      "evidence": "黑洞"
+    },
+    {
+      "source": "09-09_物理之美",
+      "target": "10-10-003",
+      "type": "cross_ref",
+      "evidence": "引力波"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "01-01-011",
+      "type": "cross_ref",
+      "evidence": "相对论"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "05-05-014",
+      "type": "cross_ref",
+      "evidence": "量子隧穿"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "05-05-015",
+      "type": "cross_ref",
+      "evidence": "量子纠缠"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "09-09-007",
+      "type": "cross_ref",
+      "evidence": "诺特定理"
+    },
+    {
+      "source": "10-10_物理趣闻与奇观",
+      "target": "09-09-010",
+      "type": "cross_ref",
+      "evidence": "广义相对论"
+    }
+  ],
+  "branches": [
+    {
+      "id": "01",
+      "name": "物理起源与演变",
+      "topic_count": 1,
+      "concept_count": 18,
+      "topic_ids": [
+        "01-01_物理起源与演变"
+      ]
+    },
+    {
+      "id": "02",
+      "name": "物理分支与特点",
+      "topic_count": 1,
+      "concept_count": 21,
+      "topic_ids": [
+        "02-02_物理分支与特点"
+      ]
+    },
+    {
+      "id": "03",
+      "name": "物理逻辑与推理",
+      "topic_count": 1,
+      "concept_count": 18,
+      "topic_ids": [
+        "03-03_物理逻辑与推理"
+      ]
+    },
+    {
+      "id": "04",
+      "name": "物理故事与传说",
+      "topic_count": 1,
+      "concept_count": 21,
+      "topic_ids": [
+        "04-04_物理故事与传说"
+      ]
+    },
+    {
+      "id": "05",
+      "name": "物理趣味与游戏",
+      "topic_count": 1,
+      "concept_count": 22,
+      "topic_ids": [
+        "05-05_物理趣味与游戏"
+      ]
+    },
+    {
+      "id": "06",
+      "name": "物理大师与学者",
+      "topic_count": 1,
+      "concept_count": 18,
+      "topic_ids": [
+        "06-06_物理大师与学者"
+      ]
+    },
+    {
+      "id": "07",
+      "name": "物理思想与方法",
+      "topic_count": 1,
+      "concept_count": 20,
+      "topic_ids": [
+        "07-07_物理思想与方法"
+      ]
+    },
+    {
+      "id": "08",
+      "name": "物理应用与建模",
+      "topic_count": 1,
+      "concept_count": 21,
+      "topic_ids": [
+        "08-08_物理应用与建模"
+      ]
+    },
+    {
+      "id": "09",
+      "name": "物理之美",
+      "topic_count": 1,
+      "concept_count": 16,
+      "topic_ids": [
+        "09-09_物理之美"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "物理趣闻与奇观",
+      "topic_count": 1,
+      "concept_count": 19,
+      "topic_ids": [
+        "10-10_物理趣闻与奇观"
+      ]
     }
   ]
 }

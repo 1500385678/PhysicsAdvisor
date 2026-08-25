@@ -6,15 +6,17 @@ md_to_json.py — 物理知识资产解析器
 扫描 _PhysicsLib/ 下所有主题 md 文件(01-10 各主题文件夹 + 物理公式/),
 解析为结构化 JSON,输出到 data/knowledge.json。
 
-Schema 0.2.0:
+Schema 0.3.0:
 {
   "meta": {
-    "schema": "0.2.0",
-    "generated_at": "2026-08-25T...",
+    "schema": "0.3.0",
+    "generated_at": "2026-08-26T...",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
-    "total_concepts": 194
+    "total_concepts": 194,
+    "total_relations": 416,
+    "total_branches": 10
   },
   "topics": [
     {
@@ -37,14 +39,34 @@ Schema 0.2.0:
       "branch_name": "物理起源与演变",
       "topic_id": "01-01_物理起源与演变",
       "level": 2,
-      "source_file": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md"
+      "parent_id": null,              // H2 顶层概念,无父
+      "child_count": 3,                // 直接子节点数(H3)
+      "source_file": "..."
     }
+  ],
+  "relations": [
+    {"source": "01", "target": "01-物理起源与演变", "type": "branch_topic"},
+    {"source": "01-物理起源与演变", "target": "01-01-001", "type": "topic_concept"},
+    {"source": "01-01-001", "target": "01-01-002", "type": "parent_child"},
+    {"source": "01-物理起源与演变", "target": "02-01-005", "type": "cross_ref",
+     "evidence": "牛顿"}
+  ],
+  "branches": [
+    {"id": "01", "name": "物理起源与演变", "topic_count": 1, "concept_count": 18}
   ]
 }
 
 变更记录:
+- 0.1.0 (2026-08-24): 扫描 _PhysicsLib/ 主题 md,输出 topics 数组(10 主题 / 29084 字)。
 - 0.2.0 (2026-08-25): 新增 concepts 数组(从 10 主题 md 抽取 H2/H3 概念节点),
                     为 Phase 0 知识图谱奠基;meta 加 total_concepts。
+- 0.3.0 (2026-08-26): 新增 relations 关系层 + branches 汇总:
+                    - branch_topic   (分支 → 主题) N 条
+                    - topic_concept  (主题 → 概念) N 条
+                    - parent_child   (H2 概念 → H3 概念) N 条
+                    - cross_ref      (主题 → 跨主题概念,基于名称共现) N 条
+                    概念新增 parent_id / child_count;meta 加 total_relations / total_branches。
+                    为 Phase 0 知识图谱可查询/可视化奠基。
 """
 import json
 import os
@@ -172,8 +194,10 @@ def extract_concepts(topics: list) -> list:
       - H2/H3 视为核心概念,生成扁平列表
       - 同一 topic 内按出现顺序连续编号
       - id 格式: {branch}-{dir_seq}-{NNNN} (如 01-01-001)
+      - parent_id:H3 指向同 topic 的上一个 H2;H2 为 null
 
-    返回:概念节点列表,每项含 id / name / branch / branch_name / topic_id / level / source_file
+    返回:概念节点列表,每项含 id / name / branch / branch_name /
+                       topic_id / level / parent_id / child_count / source_file
     """
     concepts = []
     for topic in topics:
@@ -184,20 +208,170 @@ def extract_concepts(topics: list) -> list:
         # 从 topic_id 解析 dir_seq:形如 "01-01_物理起源与演变"
         dir_seq = topic_id.split("-", 1)[1].split("_", 1)[0] if "-" in topic_id else "00"
         seq = 0
+        last_h2_id = None
         for h in topic.get("headings", []):
             if h["level"] not in (2, 3):
                 continue
             seq += 1
-            concepts.append({
-                "id": f"{branch}-{dir_seq}-{seq:03d}",
-                "name": h["text"],
-                "branch": branch,
-                "branch_name": branch_name,
-                "topic_id": topic_id,
-                "level": h["level"],
-                "source_file": source_file,
-            })
+            if h["level"] == 2:
+                # H2 顶层:parent 为 None
+                concepts.append({
+                    "id": f"{branch}-{dir_seq}-{seq:03d}",
+                    "name": h["text"],
+                    "branch": branch,
+                    "branch_name": branch_name,
+                    "topic_id": topic_id,
+                    "level": h["level"],
+                    "parent_id": None,
+                    "child_count": 0,  # 后处理
+                    "source_file": source_file,
+                })
+                last_h2_id = concepts[-1]["id"]
+            else:
+                # H3 子节点:parent 是同 topic 的上一个 H2
+                concepts.append({
+                    "id": f"{branch}-{dir_seq}-{seq:03d}",
+                    "name": h["text"],
+                    "branch": branch,
+                    "branch_name": branch_name,
+                    "topic_id": topic_id,
+                    "level": h["level"],
+                    "parent_id": last_h2_id,
+                    "child_count": 0,
+                    "source_file": source_file,
+                })
     return concepts
+
+
+def annotate_child_counts(concepts: list) -> list:
+    """为每个 H2 概念补 child_count(直接 H3 子节点数)。"""
+    counts = {}
+    for c in concepts:
+        if c["level"] == 3 and c["parent_id"]:
+            counts[c["parent_id"]] = counts.get(c["parent_id"], 0) + 1
+    for c in concepts:
+        if c["level"] == 2:
+            c["child_count"] = counts.get(c["id"], 0)
+    return concepts
+
+
+def normalize_concept_name(name: str) -> str:
+    """规范化概念名用于共现匹配:去尾部问号/句号/空白。"""
+    return name.strip().rstrip("？?。.!！").strip()
+
+
+def build_relations(topics: list, concepts: list) -> list:
+    """构建四类关系边。
+
+    1. branch_topic   (分支 → 主题)    N = sum(topic per branch)
+    2. topic_concept  (主题 → 概念)    N = total_concepts
+    3. parent_child   (H2 概念 → H3 概念)  N = H3 count
+    4. cross_ref      (主题 → 跨主题概念,基于概念名共现) N = 去重后
+
+    去重策略:cross_ref 同 (source_topic, target_concept) 只保留 1 条,
+              evidence 记录触发匹配的概念名。
+    """
+    relations = []
+    seen = set()  # 用于跨引用去重
+
+    # 1. branch → topic
+    for t in topics:
+        relations.append({
+            "source": t["branch"],
+            "target": t["id"],
+            "type": "branch_topic",
+        })
+
+    # 2. topic → concept
+    for c in concepts:
+        relations.append({
+            "source": c["topic_id"],
+            "target": c["id"],
+            "type": "topic_concept",
+        })
+
+    # 3. H2 → H3 父子边
+    for c in concepts:
+        if c["level"] == 3 and c["parent_id"]:
+            relations.append({
+                "source": c["parent_id"],
+                "target": c["id"],
+                "type": "parent_child",
+            })
+
+    # 4. 跨主题引用 —— 主题 A 的正文里出现概念 B 的名字 → cross_ref(A, B)
+    # 建索引:name_norm → [(concept_id, branch)]
+    name_index: dict = {}
+    for c in concepts:
+        norm = normalize_concept_name(c["name"])
+        # 过滤太短/太通用的名字,避免误匹配
+        if 2 <= len(norm) <= 12:
+            name_index.setdefault(norm, []).append(c["id"])
+
+    # 主题 → 自身概念 id 集合(避免自指)
+    topic_self_ids: dict = {}
+    for t in topics:
+        topic_self_ids[t["id"]] = {c["id"] for c in concepts if c["topic_id"] == t["id"]}
+
+    # 主题 → 自身所有概念名规范化集合(避免同主题内互引)
+    topic_self_names: dict = {}
+    for t in topics:
+        topic_self_names[t["id"]] = {
+            normalize_concept_name(c["name"])
+            for c in concepts
+            if c["topic_id"] == t["id"]
+        }
+
+    for t in topics:
+        content = t["content"]
+        topic_id = t["id"]
+        for norm_name, target_ids in name_index.items():
+            if norm_name in topic_self_names.get(topic_id, set()):
+                # 同主题内的名字不算跨主题引用(主题→概念已覆盖)
+                continue
+            if norm_name in content:
+                for target_id in target_ids:
+                    if target_id in topic_self_ids.get(topic_id, set()):
+                        continue
+                    key = (topic_id, target_id, "cross_ref")
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    relations.append({
+                        "source": topic_id,
+                        "target": target_id,
+                        "type": "cross_ref",
+                        "evidence": norm_name,
+                    })
+
+    return relations
+
+
+def build_branches(topics: list, concepts: list) -> list:
+    """汇总每个分支:topic 数 / 概念数 / 主题列表。"""
+    from collections import Counter
+
+    topic_per_branch: dict = {}
+    for t in topics:
+        topic_per_branch.setdefault(t["branch"], []).append(t["id"])
+
+    concept_per_branch: dict = Counter(c["branch"] for c in concepts)
+
+    # 标题映射:branch → branch_name(用第一个 topic 的 title)
+    branch_name_map: dict = {}
+    for t in topics:
+        branch_name_map.setdefault(t["branch"], t["title"])
+
+    branches = []
+    for b in sorted(topic_per_branch.keys()):
+        branches.append({
+            "id": b,
+            "name": branch_name_map.get(b, b),
+            "topic_count": len(topic_per_branch[b]),
+            "concept_count": concept_per_branch.get(b, 0),
+            "topic_ids": topic_per_branch[b],
+        })
+    return branches
 
 
 def main() -> int:
@@ -216,18 +390,32 @@ def main() -> int:
     total_words = sum(t["word_count"] for t in topics)
     # 概念层抽取(基于 H2/H3 标题)
     concepts = extract_concepts(topics)
+    concepts = annotate_child_counts(concepts)
+    # 关系层抽取(分支/主题/概念/跨引用)
+    relations = build_relations(topics, concepts)
+    # 分支汇总
+    branches = build_branches(topics, concepts)
+
+    # 关系按类型统计
+    from collections import Counter
+    rel_type_counts = Counter(r["type"] for r in relations)
 
     payload = {
         "meta": {
-            "schema": "0.2.0",
+            "schema": "0.3.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "source_dir": "_PhysicsLib",
             "total_files": len(topics),
             "total_words": total_words,
             "total_concepts": len(concepts),
+            "total_relations": len(relations),
+            "total_branches": len(branches),
+            "relation_breakdown": dict(rel_type_counts),
         },
         "topics": topics,
         "concepts": concepts,
+        "relations": relations,
+        "branches": branches,
     }
 
     # 输出
@@ -239,7 +427,10 @@ def main() -> int:
 
     print(f"[OK] 解析 {len(topics)} 个主题 md")
     print(f"     字数: {total_words}")
-    print(f"     概念: {len(concepts)} (H2+H3 标题)")
+    print(f"     概念: {len(concepts)} (H2={sum(1 for c in concepts if c['level']==2)}, "
+          f"H3={sum(1 for c in concepts if c['level']==3)})")
+    print(f"     关系: {len(relations)} {dict(rel_type_counts)}")
+    print(f"     分支: {len(branches)}")
     print(f"     输出: {OUTPUT_PATH.relative_to(WEB_DIR)}")
     return 0
 
