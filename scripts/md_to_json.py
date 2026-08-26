@@ -6,53 +6,37 @@ md_to_json.py — 物理知识资产解析器
 扫描 _PhysicsLib/ 下所有主题 md 文件(01-10 各主题文件夹 + 物理公式/),
 解析为结构化 JSON,输出到 data/knowledge.json。
 
-Schema 0.3.0:
+Schema 0.4.0:
 {
   "meta": {
-    "schema": "0.3.0",
-    "generated_at": "2026-08-26T...",
+    "schema": "0.4.0",
+    "generated_at": "2026-08-27T...",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
     "total_concepts": 194,
-    "total_relations": 416,
-    "total_branches": 10
+    "total_relations": 389,
+    "total_branches": 10,
+    "total_cases": 24,
+    "case_category_breakdown": {"故事": 9, "应用": 15}
   },
-  "topics": [
+  "topics": [...],
+  "concepts": [...],
+  "relations": [...],
+  "branches": [...],
+  "cases": [
     {
-      "id": "01-物理起源与演变",
-      "branch": "01",
-      "title": "物理起源与演变",
-      "file_path": "_PhysicsLib/01_物理起源与演变/物理起源与演变.md",
-      "content": "...",
-      "word_count": 3193,
-      "headings": [{"level": 1, "text": "..."}],
-      "first_heading": "...",
-      "tags": ["物理起源", "演变"]
+      "id": "case-04-01",
+      "name": "牛顿与苹果的故事",
+      "category": "故事",                  // 故事 / 应用
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "牛顿被苹果砸中,发现了万有引力——这个世界上最著名的科学故事...",
+      "word_count": 234,
+      "heading_level": 3,                  // 故事=H3,应用=H2
+      "section": "一、物理大师讲传奇故事"  // 所属 H2 段
     }
-  ],
-  "concepts": [
-    {
-      "id": "01-01-001",
-      "name": "物理是什么",
-      "branch": "01",
-      "branch_name": "物理起源与演变",
-      "topic_id": "01-01_物理起源与演变",
-      "level": 2,
-      "parent_id": null,              // H2 顶层概念,无父
-      "child_count": 3,                // 直接子节点数(H3)
-      "source_file": "..."
-    }
-  ],
-  "relations": [
-    {"source": "01", "target": "01-物理起源与演变", "type": "branch_topic"},
-    {"source": "01-物理起源与演变", "target": "01-01-001", "type": "topic_concept"},
-    {"source": "01-01-001", "target": "01-01-002", "type": "parent_child"},
-    {"source": "01-物理起源与演变", "target": "02-01-005", "type": "cross_ref",
-     "evidence": "牛顿"}
-  ],
-  "branches": [
-    {"id": "01", "name": "物理起源与演变", "topic_count": 1, "concept_count": 18}
   ]
 }
 
@@ -67,6 +51,12 @@ Schema 0.3.0:
                     - cross_ref      (主题 → 跨主题概念,基于名称共现) N 条
                     概念新增 parent_id / child_count;meta 加 total_relations / total_branches。
                     为 Phase 0 知识图谱可查询/可视化奠基。
+- 0.4.0 (2026-08-27): 新增 cases 案例层:
+                    - 04_物理故事与传说 H3 段 → 故事 cases(每位大师/经典故事 1 条)
+                    - 08_物理应用与建模 H2 段(排除元数据:〇/十六/十七/十八/十九/二十)→ 应用 cases
+                    - 每条 case 含 id/name/category/branch/summary/word_count/heading_level/section
+                    meta 加 total_cases / case_category_breakdown。
+                    为 Phase 0 "应用案例 + 物理故事"模块奠基,公式层之后可对接。
 """
 import json
 import os
@@ -74,6 +64,7 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 # 路径配置 —— 脚本在 PhysicsWeb/scripts/,工作目录是 PhysicsWeb/
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -374,6 +365,224 @@ def build_branches(topics: list, concepts: list) -> list:
     return branches
 
 
+# 08_物理应用与建模 主题 H2 中"非应用方向"的元数据段,需要排除
+# 这些是文档结构段,不是真正的应用案例
+APPLIED_PHYSICS_META_SECTIONS = {
+    "〇、写在前面:应用物理到底是啥",
+    "十六、学习路径建议",
+    "十七、几个\"反常识\"的小提醒",
+    "十八、参考资料与延伸阅读(精选)",
+    "十九、关联文档(本知识库内)",
+    "二十、变更记录",
+}
+
+
+def extract_section_text(content: str, start_heading: str, end_heading: Optional[str],
+                          level: int) -> str:
+    """从 markdown 内容中截取 [start_heading, end_heading) 之间的正文。
+
+    Args:
+        content: 整个 md 文件内容
+        start_heading: 起始 H2/H3 标题文本(不含 # 前缀)
+        end_heading: 下一个同级标题(不含 # 前缀),None 表示到文件末尾
+        level: 起始标题的级别(2 或 3)
+    """
+    lines = content.splitlines()
+    start_idx = None
+    prefix = "#" * level
+    for i, line in enumerate(lines):
+        m = HEADING_RE.match(line)
+        if m and len(m.group(1)) == level and m.group(2).strip() == start_heading:
+            start_idx = i + 1
+            break
+    if start_idx is None:
+        return ""
+    end_idx = len(lines)
+    if end_heading is not None:
+        for j in range(start_idx, len(lines)):
+            m = HEADING_RE.match(lines[j])
+            if m and len(m.group(1)) == level and m.group(2).strip() == end_heading:
+                end_idx = j
+                break
+    return "\n".join(lines[start_idx:end_idx]).strip()
+
+
+def make_summary(text: str, max_chars: int = 80) -> str:
+    """从正文里抽一句话作为摘要。
+
+    写作风格:正文第一个 `**...**` 段通常是"标签"(物理大师讲故事/故事版本/
+    物理大师的感悟/典型应用/代表人物等),真正的内容在它后面。
+    本函数:跳过标签行,优先取段落句;段落句缺时回退到第一条 `- **...** —— xxx` 列表。
+    """
+    if not text:
+        return ""
+    # 标签黑名单(短标签,看到就跳过)
+    LABEL_KEYWORDS = (
+        "物理大师讲故事", "物理大师的感悟", "故事版本",
+        "典型应用", "代表人物", "主要子方向",
+        "代表事件", "小贴士", "温馨提示",
+    )
+    list_fallback: list = []  # 收集首条 list item 备选
+
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        # 跳过纯分隔线
+        if stripped in ("---", "***", "==="):
+            continue
+        # 列表项:作为备选,放到 fallback 中。
+        # 注意:必须以 marker + 空格 开头,排除 `**xxx**` 加粗等误判。
+        if (len(stripped) >= 2
+                and stripped[0] in "-*+"
+                and stripped[1] == " "):
+            # 形如 "- **xxx** —— 内容" → 取 **xxx**: 内容
+            content = stripped.lstrip("-*+ ").strip()
+            # 提取 **xxx** 后的说明部分
+            if "——" in content:
+                tail = content.split("——", 1)[1].strip()
+                if len(tail) >= 10:
+                    list_fallback.append(tail[:max_chars])
+                    if list_fallback:
+                        break  # 找到第一条即可
+            elif "**" in content:
+                # 没 ——,就用整条
+                if len(content) >= 10:
+                    list_fallback.append(content[:max_chars])
+                    if list_fallback:
+                        break
+            continue
+        # 去掉全部 ** 标记(可能有多个) + 尾部冒号
+        cleaned = stripped.replace("**", "").rstrip(":：").strip()
+        # 标签短句(< 10 字)直接跳过
+        if len(cleaned) < 10:
+            continue
+        # 标签黑名单
+        if any(cleaned.startswith(kw) for kw in LABEL_KEYWORDS):
+            continue
+        return cleaned[:max_chars]
+    # fallback:第一条 list item
+    if list_fallback:
+        return list_fallback[0]
+    return ""
+
+
+def extract_cases(topics: list) -> list:
+    """从主题 md 抽取 cases(故事 / 应用方向)。
+
+    规则:
+      - 04_物理故事与传说:每个 H3 子段 → 1 条"故事" case
+        (牛顿与苹果 / 伽利略与比萨斜塔 / 爱因斯坦的奇迹年 / ...)
+      - 08_物理应用与建模:每个 H2 主段(排除元数据段) → 1 条"应用" case
+        (经典力学应用 / 热力学应用 / 电磁学应用 / ...)
+      - 其他 8 个主题:不抽 cases(留给后续主题专项 case 文件)
+
+    返回:cases 列表,每项含:
+        id / name / category / branch / branch_name / source_file /
+        summary / word_count / heading_level / section
+    """
+    cases = []
+    # 用于按 branch 累加 seq
+    seq_per_branch: dict = {}
+    # 用于过滤同 branch 内 H3 重名(去重)
+    seen_names: dict = {}
+
+    for topic in topics:
+        branch = topic["branch"]
+        branch_name = topic["title"]
+        content = topic["content"]
+        source_file = topic["file_path"]
+        headings = topic.get("headings", [])
+
+        # 收集 H2 标题序列(按 level 过滤)
+        h2_list = [h for h in headings if h["level"] == 2]
+
+        if branch == "04":
+            # 04: 抽所有 H3 → 故事 case,section 是其上层 H2
+            current_h2 = ""
+            for h in headings:
+                if h["level"] == 2:
+                    current_h2 = h["text"]
+                elif h["level"] == 3:
+                    name = h["text"].strip()
+                    if not name:
+                        continue
+                    if name.endswith("速查"):
+                        # 速查段是索引,跳过
+                        continue
+                    # 找正文
+                    next_h = _next_heading(headings, h, levels=(2, 3))
+                    body = extract_section_text(content, name, next_h, 3)
+                    # 表格-only 段过滤:正文第一个非空字符是 |
+                    first_real_line = next(
+                        (ln for ln in body.splitlines() if ln.strip()),
+                        ""
+                    )
+                    if first_real_line.strip().startswith("|"):
+                        continue
+                    # 同名去重(同一 branch 内)
+                    name_key = (branch, name)
+                    if name_key in seen_names:
+                        continue
+                    seen_names[name_key] = True
+                    seq = seq_per_branch.get(branch, 0) + 1
+                    seq_per_branch[branch] = seq
+                    cases.append({
+                        "id": f"case-{branch}-{seq:02d}",
+                        "name": name,
+                        "category": "故事",
+                        "branch": branch,
+                        "branch_name": branch_name,
+                        "source_file": source_file,
+                        "summary": make_summary(body),
+                        "word_count": count_words(body),
+                        "heading_level": 3,
+                        "section": current_h2,
+                    })
+
+        elif branch == "08":
+            # 08: 抽 H2 中"一"~"十五"等数字开头段 → 应用 case
+            for i, h in enumerate(h2_list):
+                name = h["text"].strip()
+                if not name:
+                    continue
+                if name in APPLIED_PHYSICS_META_SECTIONS:
+                    continue
+                # 排除非数字编号段(预防元数据漂移)
+                if not name[:1].isdigit() and name[:1] not in "一二三四五六七八九十":
+                    continue
+                # 找正文:H2 下一个 H2 之前
+                next_h_name = h2_list[i + 1]["text"] if i + 1 < len(h2_list) else None
+                body = extract_section_text(content, name, next_h_name, 2)
+                seq = seq_per_branch.get(branch, 0) + 1
+                seq_per_branch[branch] = seq
+                cases.append({
+                    "id": f"case-{branch}-{seq:02d}",
+                    "name": name,
+                    "category": "应用",
+                    "branch": branch,
+                    "branch_name": branch_name,
+                    "source_file": source_file,
+                    "summary": make_summary(body),
+                    "word_count": count_words(body),
+                    "heading_level": 2,
+                    "section": name,
+                })
+
+    return cases
+
+
+def _next_heading(headings: list, current: dict, levels: tuple) -> Optional[str]:
+    """找 headings 列表中 current 之后、属于 levels 同级的下一个标题文本。"""
+    found = False
+    for h in headings:
+        if found and h["level"] in levels:
+            return h["text"]
+        if h is current:
+            found = True
+    return None
+
+
 def main() -> int:
     try:
         files = find_topic_files(SOURCE_DIR)
@@ -395,14 +604,17 @@ def main() -> int:
     relations = build_relations(topics, concepts)
     # 分支汇总
     branches = build_branches(topics, concepts)
+    # 案例层抽取(故事 / 应用方向)
+    cases = extract_cases(topics)
 
     # 关系按类型统计
     from collections import Counter
     rel_type_counts = Counter(r["type"] for r in relations)
+    case_category_counts = Counter(c["category"] for c in cases)
 
     payload = {
         "meta": {
-            "schema": "0.3.0",
+            "schema": "0.4.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "source_dir": "_PhysicsLib",
             "total_files": len(topics),
@@ -410,12 +622,15 @@ def main() -> int:
             "total_concepts": len(concepts),
             "total_relations": len(relations),
             "total_branches": len(branches),
+            "total_cases": len(cases),
             "relation_breakdown": dict(rel_type_counts),
+            "case_category_breakdown": dict(case_category_counts),
         },
         "topics": topics,
         "concepts": concepts,
         "relations": relations,
         "branches": branches,
+        "cases": cases,
     }
 
     # 输出
@@ -431,6 +646,7 @@ def main() -> int:
           f"H3={sum(1 for c in concepts if c['level']==3)})")
     print(f"     关系: {len(relations)} {dict(rel_type_counts)}")
     print(f"     分支: {len(branches)}")
+    print(f"     案例: {len(cases)} {dict(case_category_counts)}")
     print(f"     输出: {OUTPUT_PATH.relative_to(WEB_DIR)}")
     return 0
 

@@ -1,18 +1,23 @@
 {
   "meta": {
-    "schema": "0.3.0",
-    "generated_at": "2026-08-26T03:20:56",
+    "schema": "0.4.0",
+    "generated_at": "2026-08-27T03:25:49",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
     "total_concepts": 194,
     "total_relations": 389,
     "total_branches": 10,
+    "total_cases": 24,
     "relation_breakdown": {
       "branch_topic": 10,
       "topic_concept": 194,
       "parent_child": 123,
       "cross_ref": 62
+    },
+    "case_category_breakdown": {
+      "故事": 9,
+      "应用": 15
     }
   },
   "topics": [
@@ -5227,6 +5232,296 @@
       "topic_ids": [
         "10-10_物理趣闻与奇观"
       ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "case-04-01",
+      "name": "牛顿与苹果的故事",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "牛顿被苹果砸中，发现了万有引力——这个世界上最著名的科学故事，可能是编的！",
+      "word_count": 183,
+      "heading_level": 3,
+      "section": "一、物理大师讲传奇故事"
+    },
+    {
+      "id": "case-04-02",
+      "name": "伽利略与比萨斜塔",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "伽利略在比萨斜塔上，同时扔下轻重两个不同的球，结果同时落地！",
+      "word_count": 2166,
+      "heading_level": 3,
+      "section": "一、物理大师讲传奇故事"
+    },
+    {
+      "id": "case-04-03",
+      "name": "爱因斯坦的奇迹年",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "1905年，爱因斯坦发表了4篇论文，改变了物理学！",
+      "word_count": 226,
+      "heading_level": 3,
+      "section": "二、物理大师的传奇人生"
+    },
+    {
+      "id": "case-04-04",
+      "name": "费曼的传奇人生",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "费曼（Richard Feynman，1918-1988）是20世纪最有趣的物理学家！",
+      "word_count": 1728,
+      "heading_level": 3,
+      "section": "二、物理大师的传奇人生"
+    },
+    {
+      "id": "case-04-05",
+      "name": "紫外灾难与量子假说",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "19世纪末，物理学家认为\"物理学的大厦已经建成\"，但有两个\"小乌云\"——其中一个，就是紫外灾难！",
+      "word_count": 169,
+      "heading_level": 3,
+      "section": "三、物理悖论与争论"
+    },
+    {
+      "id": "case-04-06",
+      "name": "爱因斯坦-玻尔争论",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "爱因斯坦和玻尔（Niels Bohr），关于量子力学的诠释，争论了一辈子！",
+      "word_count": 1287,
+      "heading_level": 3,
+      "section": "三、物理悖论与争论"
+    },
+    {
+      "id": "case-04-07",
+      "name": "诺贝尔物理学奖",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "诺贝尔物理学奖，是物理学界的最高荣誉！",
+      "word_count": 1060,
+      "heading_level": 3,
+      "section": "四、物理竞赛与奖项"
+    },
+    {
+      "id": "case-04-08",
+      "name": "物理大师的怪癖",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "很多物理学家，都有奇怪的癖好！",
+      "word_count": 124,
+      "heading_level": 3,
+      "section": "五、物趣闻"
+    },
+    {
+      "id": "case-04-09",
+      "name": "物理与艺术",
+      "category": "故事",
+      "branch": "04",
+      "branch_name": "物理故事与传说",
+      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
+      "summary": "物理学和 art，有深刻的联系！",
+      "word_count": 656,
+      "heading_level": 3,
+      "section": "五、物趣闻"
+    },
+    {
+      "id": "case-08-01",
+      "name": "一、经典力学应用(工程力学的物理底座)",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "力学是最古老的物理,也是工程师用得最频繁的物理。",
+      "word_count": 401,
+      "heading_level": 2,
+      "section": "一、经典力学应用(工程力学的物理底座)"
+    },
+    {
+      "id": "case-08-02",
+      "name": "二、热力学与统计物理应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "四大循环(卡诺、奥托、狄塞尔、朗肯)、焓、熵。一切热机和制冷机的理论基础。",
+      "word_count": 339,
+      "heading_level": 2,
+      "section": "二、热力学与统计物理应用"
+    },
+    {
+      "id": "case-08-03",
+      "name": "三、电磁学应用(现代电子与通信的根)",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "电磁学是应用物理的\"主战场\",没有之一。",
+      "word_count": 344,
+      "heading_level": 2,
+      "section": "三、电磁学应用(现代电子与通信的根)"
+    },
+    {
+      "id": "case-08-04",
+      "name": "四、光学应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "反射、折射、透镜、像差。望远镜、显微镜、相机镜头、眼镜。",
+      "word_count": 502,
+      "heading_level": 2,
+      "section": "四、光学应用"
+    },
+    {
+      "id": "case-08-05",
+      "name": "五、原子分子物理(AMO)应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "玻尔模型、能级跃迁、谱线。原子钟、激光冷却、光谱分析都靠它。",
+      "word_count": 360,
+      "heading_level": 2,
+      "section": "五、原子分子物理(AMO)应用"
+    },
+    {
+      "id": "case-08-06",
+      "name": "六、量子力学应用(21 世纪的\"硬通货\")",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "量子力学从基础物理变成了实际可用的工程语言。",
+      "word_count": 369,
+      "heading_level": 2,
+      "section": "六、量子力学应用(21 世纪的\"硬通货\")"
+    },
+    {
+      "id": "case-08-07",
+      "name": "七、固体物理与凝聚态应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "晶格、布里渊区、倒易点阵。X 射线衍射、电子背散射衍射。",
+      "word_count": 458,
+      "heading_level": 2,
+      "section": "七、固体物理与凝聚态应用"
+    },
+    {
+      "id": "case-08-08",
+      "name": "八、核物理应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "核子、核力、壳层模型、集体模型。",
+      "word_count": 344,
+      "heading_level": 2,
+      "section": "八、核物理应用"
+    },
+    {
+      "id": "case-08-09",
+      "name": "九、粒子物理与高能物理应用(偏基础)",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "夸克、轻子、规范玻色子、希格斯机制。已知基本粒子的\"全家福\"。",
+      "word_count": 289,
+      "heading_level": 2,
+      "section": "九、粒子物理与高能物理应用(偏基础)"
+    },
+    {
+      "id": "case-08-10",
+      "name": "十、声学应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "声压、声强、反射、吸收、混响。dB 是日常单位。",
+      "word_count": 289,
+      "heading_level": 2,
+      "section": "十、声学应用"
+    },
+    {
+      "id": "case-08-11",
+      "name": "十一、等离子体物理应用",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "托卡马克(ITER、东方超环 EAST)、仿星器。",
+      "word_count": 301,
+      "heading_level": 2,
+      "section": "十一、等离子体物理应用"
+    },
+    {
+      "id": "case-08-12",
+      "name": "十二、计算物理与数值模拟",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "有限元(FEM)、有限差分(FDM)、有限体积(FVM)。结构、流体、传热通用。",
+      "word_count": 435,
+      "heading_level": 2,
+      "section": "十二、计算物理与数值模拟"
+    },
+    {
+      "id": "case-08-13",
+      "name": "十三、测量、传感与仪器物理",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "应用物理的灵魂:把东西\"测出来\"。",
+      "word_count": 514,
+      "heading_level": 2,
+      "section": "十三、测量、传感与仪器物理"
+    },
+    {
+      "id": "case-08-14",
+      "name": "十四、新兴/交叉方向(2020s 活跃区)",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "硅微加工,加速度计、陀螺仪、麦克风。手机里就有几十个。",
+      "word_count": 677,
+      "heading_level": 2,
+      "section": "十四、新兴/交叉方向(2020s 活跃区)"
+    },
+    {
+      "id": "case-08-15",
+      "name": "十五、跨学科物理应用(可作为\"应用物理的延伸\")",
+      "category": "应用",
+      "branch": "08",
+      "branch_name": "物理应用与建模",
+      "source_file": "_PhysicsLib/08_物理应用与建模/物理应用与建模.md",
+      "summary": "应用物理不只服务于\"硬工程\",它和很多看似不相关的领域都有深度交叉。",
+      "word_count": 319,
+      "heading_level": 2,
+      "section": "十五、跨学科物理应用(可作为\"应用物理的延伸\")"
     }
   ]
 }
