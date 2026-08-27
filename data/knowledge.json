@@ -1,7 +1,7 @@
 {
   "meta": {
-    "schema": "0.4.0",
-    "generated_at": "2026-08-27T03:25:49",
+    "schema": "0.5.0",
+    "generated_at": "2026-08-28T03:24:24",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
@@ -9,6 +9,7 @@
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
+    "total_formulas": 14,
     "relation_breakdown": {
       "branch_topic": 10,
       "topic_concept": 194,
@@ -18,6 +19,9 @@
     "case_category_breakdown": {
       "故事": 9,
       "应用": 15
+    },
+    "formula_branch_breakdown": {
+      "力学": 14
     }
   },
   "topics": [
@@ -5522,6 +5526,349 @@
       "word_count": 319,
       "heading_level": 2,
       "section": "十五、跨学科物理应用(可作为\"应用物理的延伸\")"
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F-01-01",
+      "name": "牛顿第二定律",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "F = ma",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "合力",
+          "unit": "N"
+        },
+        {
+          "symbol": "m",
+          "name": "质量",
+          "unit": "kg"
+        },
+        {
+          "symbol": "a",
+          "name": "加速度",
+          "unit": "m/s²"
+        }
+      ],
+      "conditions": "宏观低速(< 0.1c)、惯性参考系",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-02",
+      "name": "万有引力定律",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "F = G \\frac{m_1 m_2}{r^2}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "引力",
+          "unit": "N"
+        },
+        {
+          "symbol": "G",
+          "name": "引力常数,$6.674 \\times 10^{-11}$ N·m²/kg²",
+          "unit": ""
+        },
+        {
+          "symbol": "r",
+          "name": "质心间距",
+          "unit": "m"
+        }
+      ],
+      "conditions": "质点或均匀球体;弱引力场",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-03",
+      "name": "动量定理",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "p = mv",
+      "expression_extra": [
+        "F = \\frac{dp}{dt}"
+      ],
+      "variables": [
+        {
+          "symbol": "p",
+          "name": "动量",
+          "unit": "kg·m/s"
+        },
+        {
+          "symbol": "m",
+          "name": "质量",
+          "unit": "kg"
+        },
+        {
+          "symbol": "v",
+          "name": "速度",
+          "unit": "m/s"
+        }
+      ],
+      "conditions": "经典力学;质量不变时 $F = ma$ 等价",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-04",
+      "name": "动能定理",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "E_k = \\frac{1}{2}mv^2",
+      "expression_extra": [
+        "W = \\Delta E_k"
+      ],
+      "variables": [
+        {
+          "symbol": "E_k",
+          "name": "动能",
+          "unit": "J"
+        },
+        {
+          "symbol": "W",
+          "name": "合外力做功",
+          "unit": "J"
+        }
+      ],
+      "conditions": "惯性参考系;功-能对应",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-05",
+      "name": "重力势能",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "E_p = mgh",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "E_p",
+          "name": "重力势能",
+          "unit": "J"
+        },
+        {
+          "symbol": "g",
+          "name": "重力加速度,$9.8$ m/s²",
+          "unit": ""
+        },
+        {
+          "symbol": "h",
+          "name": "相对参考面高度",
+          "unit": "m"
+        }
+      ],
+      "conditions": "地面附近,$g$ 视为常量",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-06",
+      "name": "机械能守恒",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "E_k + E_p = \\text{const}",
+      "expression_extra": [],
+      "variables": [],
+      "conditions": "无摩擦等非保守力;无外界能量交换",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-07",
+      "name": "单摆周期",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "T = 2\\pi \\sqrt{\\frac{L}{g}}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "T",
+          "name": "周期",
+          "unit": "s"
+        },
+        {
+          "symbol": "L",
+          "name": "摆长",
+          "unit": "m"
+        },
+        {
+          "symbol": "g",
+          "name": "重力加速度",
+          "unit": "m/s²"
+        }
+      ],
+      "conditions": "小角度(< 15°);无空气阻力",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-08",
+      "name": "胡克定律",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "F = -kx",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "弹性回复力",
+          "unit": "N"
+        },
+        {
+          "symbol": "k",
+          "name": "劲度系数",
+          "unit": "N/m"
+        },
+        {
+          "symbol": "x",
+          "name": "形变量(m),负号表示方向相反",
+          "unit": ""
+        }
+      ],
+      "conditions": "弹性限度内",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-09",
+      "name": "简谐振动",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "x(t) = A \\cos(\\omega t + \\varphi)",
+      "expression_extra": [
+        "\\omega = \\sqrt{\\frac{k}{m}}"
+      ],
+      "variables": [
+        {
+          "symbol": "A",
+          "name": "振幅",
+          "unit": "m"
+        },
+        {
+          "symbol": "\\omega",
+          "name": "角频率",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "\\varphi",
+          "name": "初相位",
+          "unit": "rad"
+        }
+      ],
+      "conditions": "无阻尼自由振动",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-10",
+      "name": "圆周运动向心力",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "F = \\frac{mv^2}{r} = m\\omega^2 r",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "向心力",
+          "unit": "N"
+        },
+        {
+          "symbol": "v",
+          "name": "线速度",
+          "unit": "m/s"
+        },
+        {
+          "symbol": "\\omega",
+          "name": "角速度",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "r",
+          "name": "圆周半径",
+          "unit": "m"
+        }
+      ],
+      "conditions": "匀速圆周运动",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-11",
+      "name": "开普勒第三定律",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "T^2 = \\frac{4\\pi^2}{GM} a^3",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "T",
+          "name": "轨道周期",
+          "unit": "s"
+        },
+        {
+          "symbol": "a",
+          "name": "椭圆轨道半长轴",
+          "unit": "m"
+        },
+        {
+          "symbol": "M",
+          "name": "中心天体质量",
+          "unit": "kg"
+        }
+      ],
+      "conditions": "中心天体质量 >> 环绕天体;圆轨道时 $a = r$",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-12",
+      "name": "冲量定理",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "J = F \\Delta t = \\Delta p",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "J",
+          "name": "冲量",
+          "unit": "N·s"
+        }
+      ],
+      "conditions": "恒力或短时冲击力",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-13",
+      "name": "弹性碰撞(一维)",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'",
+      "expression_extra": [
+        "\\frac{1}{2}m_1 v_1^2 + \\frac{1}{2}m_2 v_2^2 = \\frac{1}{2}m_1 v_1'^2 + \\frac{1}{2}m_2 v_2'^2"
+      ],
+      "variables": [],
+      "conditions": "两物体碰撞前后均为理想弹性",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-01-14",
+      "name": "力的分解(正交)",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "F_x = F \\cos\\theta",
+      "expression_extra": [
+        "F_y = F \\sin\\theta"
+      ],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "合力",
+          "unit": "N"
+        },
+        {
+          "symbol": "\\theta",
+          "name": "与 $x$ 轴夹角",
+          "unit": "rad"
+        }
+      ],
+      "conditions": "平面力系分析",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
     }
   ]
 }

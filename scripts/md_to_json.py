@@ -6,11 +6,11 @@ md_to_json.py — 物理知识资产解析器
 扫描 _PhysicsLib/ 下所有主题 md 文件(01-10 各主题文件夹 + 物理公式/),
 解析为结构化 JSON,输出到 data/knowledge.json。
 
-Schema 0.4.0:
+Schema 0.5.0:
 {
   "meta": {
-    "schema": "0.4.0",
-    "generated_at": "2026-08-27T...",
+    "schema": "0.5.0",
+    "generated_at": "2026-08-28T...",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
@@ -18,24 +18,29 @@ Schema 0.4.0:
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
-    "case_category_breakdown": {"故事": 9, "应用": 15}
+    "total_formulas": 14,
+    "formula_branch_breakdown": {"力学": 14}
   },
   "topics": [...],
   "concepts": [...],
   "relations": [...],
   "branches": [...],
-  "cases": [
+  "cases": [...],
+  "formulas": [
     {
-      "id": "case-04-01",
-      "name": "牛顿与苹果的故事",
-      "category": "故事",                  // 故事 / 应用
-      "branch": "04",
-      "branch_name": "物理故事与传说",
-      "source_file": "_PhysicsLib/04_物理故事与传说/物理故事与传说.md",
-      "summary": "牛顿被苹果砸中,发现了万有引力——这个世界上最著名的科学故事...",
-      "word_count": 234,
-      "heading_level": 3,                  // 故事=H3,应用=H2
-      "section": "一、物理大师讲传奇故事"  // 所属 H2 段
+      "id": "F-01-01",
+      "name": "牛顿第二定律",
+      "branch": "力学",
+      "branch_short": "01",
+      "expression": "F = ma",                 // 主公式(取第一个 $$ 块)
+      "expression_extra": [],                  // 同一公式的附加表达(联立/等价)
+      "variables": [                            // 从 **变量** 段解析
+        {"symbol": "F", "name": "合力", "unit": "N"},
+        {"symbol": "m", "name": "质量", "unit": "kg"},
+        {"symbol": "a", "name": "加速度", "unit": "m/s²"}
+      ],
+      "conditions": "宏观低速(< 0.1c)、惯性参考系",
+      "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
     }
   ]
 }
@@ -57,6 +62,15 @@ Schema 0.4.0:
                     - 每条 case 含 id/name/category/branch/summary/word_count/heading_level/section
                     meta 加 total_cases / case_category_breakdown。
                     为 Phase 0 "应用案例 + 物理故事"模块奠基,公式层之后可对接。
+- 0.5.0 (2026-08-28): 新增 formulas 公式层:
+                    - 扫描 _PhysicsLib/物理公式/ 下 NN_xxx公式.md
+                    - 每个 H2 段 → 1 条公式(含 name/expression/variables/conditions)
+                    - expression 抓首个 $$ ... $$ 块(LaTeX),其余放 expression_extra
+                    - variables 从 **变量** 段按 "- $sym$ — 说明 (单位)" 行解析
+                    - conditions 从 **适用条件** 段抓首句
+                    meta 加 total_formulas / formula_branch_breakdown。
+                    力学分支先发(01_力学公式.md 14 条);后续补电磁/热学/光学/近代物理。
+                    为 Phase 1 "公式速查"页奠基(分支浏览 + 全文搜索)。
 """
 import json
 import os
@@ -136,6 +150,9 @@ def find_topic_files(source_dir: Path) -> list:
         # 排除隐藏目录和非主题目录
         if name.startswith("."):
             continue
+        # 公式库目录:由 extract_formulas 单独处理,不在主题扫描范围
+        if name == "物理公式":
+            continue
         # 主题目录:N_xxx
         m = TOPIC_DIR_RE.match(name)
         is_topic = bool(m)
@@ -147,7 +164,7 @@ def find_topic_files(source_dir: Path) -> list:
             for md in sorted(entry.glob("*.md")):
                 files.append((branch, name, md))
         elif has_md and not name.startswith("PhysicsWeb"):
-            # 扩展库(如"物理公式"):用 99 前缀
+            # 扩展库:用 99 前缀(预留,目前只有 物理公式 已单独处理)
             for md in sorted(entry.glob("*.md")):
                 files.append(("99", name, md))
 
@@ -583,6 +600,168 @@ def _next_heading(headings: list, current: dict, levels: tuple) -> Optional[str]
     return None
 
 
+# ============================================================
+# Schema 0.5.0 · 公式层(formulas)
+# ============================================================
+# 公式文件命名:NN_分支名公式.md(例 01_力学公式.md / 02_电磁学公式.md)
+# 文件内格式:每个公式 1 个 H2 段(## 公式名),段内依次为
+#   $$ ... $$ 块(LaTeX 表达式,1 个或多个联立)
+#   **变量**:- $sym$ — 说明 (单位) 行列表
+#   **适用条件**:首句为条件说明
+FORMULA_FILE_RE = re.compile(r"^(\d{1,2})_(.+?公式)\.md$")
+LATEX_BLOCK_RE = re.compile(r"\$\$(.+?)\$\$", re.DOTALL)
+VARIABLE_LINE_RE = re.compile(
+    r"^-\s*\$?([A-Za-z0-9_^{}\\↑↓α-ωΑ-Ω]+)\$?\s*[—\-:：]\s*(.+?)\s*$"
+)
+UNIT_PAREN_RE = re.compile(r"[（(](.+?)[)）]\s*$")
+
+
+def find_formula_files(source_dir: Path) -> list:
+    """扫描公式 md 文件(物理公式库)。
+
+    优先来源:`_PhysicsLib/物理公式/NN_xxx公式.md`(workspace 源)
+    备选来源:`PhysicsWeb/data/formulas/NN_xxx公式.md`(随仓库携带的 seed)
+
+    Returns: [(branch_short, branch_name, md_path), ...]
+        branch_short: "01" / "02" / ...
+        branch_name:  "力学公式" / "电磁学公式" / ...
+    """
+    candidates = [
+        source_dir / "物理公式",                # workspace 源(优先)
+        WEB_DIR / "data" / "formulas",          # 仓库内 seed(备选)
+    ]
+    files = []
+    seen = set()
+    for d in candidates:
+        if not d.exists():
+            continue
+        for md in sorted(d.glob("*.md")):
+            if md.name in seen:
+                continue
+            m = FORMULA_FILE_RE.match(md.name)
+            if not m:
+                continue
+            seen.add(md.name)
+            branch_short = m.group(1).zfill(2)
+            # "力学公式" → "力学"(去掉末尾"公式")
+            branch_name = m.group(2).rstrip("公式").strip()
+            files.append((branch_short, branch_name, md))
+    return files
+
+
+def parse_variables(body: str) -> list:
+    """从 **变量** 段解析变量列表。
+
+    形如:
+        **变量**:
+        - $F$ — 合力 (N)
+        - $m$ — 质量 (kg)
+
+    返回: [{"symbol": "F", "name": "合力", "unit": "N"}, ...]
+    """
+    vars_ = []
+    in_var = False
+    for line in body.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("**变量**"):
+            in_var = True
+            continue
+        if in_var and stripped.startswith("**") and "**" in stripped[2:]:
+            # 进入下一个 **xxx** 段(如 **适用条件**),停止
+            in_var = False
+            continue
+        if not in_var:
+            continue
+        m = VARIABLE_LINE_RE.match(stripped)
+        if not m:
+            continue
+        sym = m.group(1).strip()
+        rest = m.group(2).strip()
+        # 提取尾部括号里的单位
+        unit = ""
+        um = UNIT_PAREN_RE.search(rest)
+        if um:
+            unit = um.group(1).strip()
+            name = rest[: um.start()].rstrip("，, ").strip()
+        else:
+            name = rest
+        vars_.append({"symbol": sym, "name": name, "unit": unit})
+    return vars_
+
+
+def parse_conditions(body: str) -> str:
+    """从 **适用条件** 段抓首句(去掉前导"**适用条件**:"标签和破折号)。"""
+    in_sec = False
+    for line in body.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("**适用条件**"):
+            in_sec = True
+            # 行内可能直接跟内容(单行格式)
+            tail = stripped[len("**适用条件**"):].lstrip(":：").strip()
+            if tail:
+                return tail
+            continue
+        if in_sec and stripped.startswith("**") and "**" in stripped[2:]:
+            return ""  # 进入下一段
+        if in_sec and stripped and not stripped.startswith("---"):
+            return stripped.lstrip("—–- ").strip()
+    return ""
+
+
+def extract_formulas(formula_files: list, source_root: Path) -> list:
+    """从公式 md 文件抽取公式列表。
+
+    规则:
+      - 每个 H2 段 → 1 条公式
+      - id 格式:F-{branch_short}-{seq:02d}(如 F-01-01)
+      - expression:首个 $$ ... $$ 块的 LaTeX(去掉前后空白)
+      - expression_extra:其余 $$ 块(联立/等价公式)
+      - variables:parse_variables(段内 **变量** 段)
+      - conditions:parse_conditions(段内 **适用条件** 段)
+
+    Args:
+        formula_files: [(branch_short, branch_name, md_path), ...]
+        source_root:   _PhysicsLib 目录(用于生成 source_file 相对路径)
+
+    Returns: formulas 列表
+    """
+    formulas = []
+    for branch_short, branch_name, md_path in formula_files:
+        content = md_path.read_text(encoding="utf-8")
+        rel_path = str(md_path.relative_to(source_root.parent))
+        headings = parse_headings(content)
+        h2_list = [h for h in headings if h["level"] == 2]
+
+        for i, h in enumerate(h2_list):
+            name = h["text"].strip()
+            if not name:
+                continue
+            # 找正文:H2 下一个 H2 之前
+            next_h_name = h2_list[i + 1]["text"] if i + 1 < len(h2_list) else None
+            body = extract_section_text(content, name, next_h_name, 2)
+            # 提取 LaTeX 块
+            latex_blocks = [m.strip() for m in LATEX_BLOCK_RE.findall(body)]
+            expression = latex_blocks[0] if latex_blocks else ""
+            expression_extra = latex_blocks[1:] if len(latex_blocks) > 1 else []
+            # 变量 & 条件
+            variables = parse_variables(body)
+            conditions = parse_conditions(body)
+            # 序号:按 H2 在文件内出现顺序
+            seq = i + 1
+            formulas.append({
+                "id": f"F-{branch_short}-{seq:02d}",
+                "name": name,
+                "branch": branch_name,
+                "branch_short": branch_short,
+                "expression": expression,
+                "expression_extra": expression_extra,
+                "variables": variables,
+                "conditions": conditions,
+                "source_file": rel_path,
+            })
+    return formulas
+
+
 def main() -> int:
     try:
         files = find_topic_files(SOURCE_DIR)
@@ -606,15 +785,19 @@ def main() -> int:
     branches = build_branches(topics, concepts)
     # 案例层抽取(故事 / 应用方向)
     cases = extract_cases(topics)
+    # 公式层抽取(物理公式/*.md)
+    formula_files = find_formula_files(SOURCE_DIR)
+    formulas = extract_formulas(formula_files, ROOT_DIR)
 
     # 关系按类型统计
     from collections import Counter
     rel_type_counts = Counter(r["type"] for r in relations)
     case_category_counts = Counter(c["category"] for c in cases)
+    formula_branch_counts = Counter(f["branch"] for f in formulas)
 
     payload = {
         "meta": {
-            "schema": "0.4.0",
+            "schema": "0.5.0",
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "source_dir": "_PhysicsLib",
             "total_files": len(topics),
@@ -623,14 +806,17 @@ def main() -> int:
             "total_relations": len(relations),
             "total_branches": len(branches),
             "total_cases": len(cases),
+            "total_formulas": len(formulas),
             "relation_breakdown": dict(rel_type_counts),
             "case_category_breakdown": dict(case_category_counts),
+            "formula_branch_breakdown": dict(formula_branch_counts),
         },
         "topics": topics,
         "concepts": concepts,
         "relations": relations,
         "branches": branches,
         "cases": cases,
+        "formulas": formulas,
     }
 
     # 输出
@@ -647,6 +833,7 @@ def main() -> int:
     print(f"     关系: {len(relations)} {dict(rel_type_counts)}")
     print(f"     分支: {len(branches)}")
     print(f"     案例: {len(cases)} {dict(case_category_counts)}")
+    print(f"     公式: {len(formulas)} {dict(formula_branch_counts)}")
     print(f"     输出: {OUTPUT_PATH.relative_to(WEB_DIR)}")
     return 0
 
