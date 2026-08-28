@@ -10,8 +10,8 @@
 - Gitee: https://gitee.com/architectzy/PhysicsAdvisor
 
 ## 自动化
-- T4 每日 02:00 检查项目并更新开发计划
-- T5 每日 03:00 完成小步开发并 commit + push
+- T4 每日 02:20 巡检项目 + 更新开发计划
+- T5 每日 03:20 完成小步开发并 commit + push
 
 ## 数据资产
 
@@ -25,16 +25,30 @@
 | 0.1.0 | 2026-08-24 | topics 数组(10 主题 / 29084 字) |
 | 0.2.0 | 2026-08-25 | + concepts 数组(194 节点,H2+H3 抽取) |
 | 0.3.0 | 2026-08-26 | + relations 关系层(389 条 4 类边) + branches 汇总 |
+| 0.4.0 | 2026-08-27 | + cases 案例层(24 条 2 类:故事 9 + 应用 15) |
+| 0.5.0 | 2026-08-28 | + formulas 公式层(14 条力学公式 from `_PhysicsLib/物理公式/`) |
 
-### 当前结构(0.3.0)
+### 当前结构(0.5.0)
 
 ```json
 {
-  "meta":   { schema, total_files, total_concepts, total_relations, relation_breakdown },
+  "meta":   {
+    "schema": "0.5.0",
+    "total_files": 10,
+    "total_concepts": 194,
+    "total_relations": 389,
+    "total_branches": 10,
+    "total_cases": 24,
+    "total_formulas": 14,
+    "formula_branch_breakdown": {"力学": 14},
+    "case_category_breakdown": {"故事": 9, "应用": 15}
+  },
   "branches":   [ {id, name, topic_count, concept_count, topic_ids} ],
   "topics":     [ {id, branch, title, content, word_count, headings, tags} ],
   "concepts":   [ {id, name, branch, topic_id, level, parent_id, child_count} ],
-  "relations":  [ {source, target, type, [evidence]} ]
+  "relations":  [ {source, target, type, [evidence]} ],
+  "cases":      [ {id, name, category, branch, summary, word_count, heading_level, section} ],
+  "formulas":   [ {id, name, branch, branch_short, expression, expression_extra, variables, conditions, source_file} ]
 }
 ```
 
@@ -46,6 +60,30 @@
 | `topic_concept` | 194 | 主题 → 概念         | `01-01_...` → `01-01-001` |
 | `parent_child`  | 123 | H2 概念 → H3 子概念  | `01-01-001` → `01-01-002` |
 | `cross_ref`     |  62 | 主题 → 跨主题被引用概念 | `01-01_...` → `02-02-006` (evidence: "万有引力定律") |
+
+### 公式层结构(formulas)
+
+每条公式:
+- `id` (如 `F-01-01`)
+- `name` (中文名,如 "牛顿第二定律")
+- `branch` / `branch_short` (如 "力学" / "01")
+- `expression` (主公式 LaTeX,取首个 `$$ ... $$` 块)
+- `expression_extra` (同一公式的附加表达 / 联立 / 等价)
+- `variables` ([{symbol, name, unit}])
+- `conditions` (适用条件)
+- `source_file` (来源 md)
+
+当前覆盖:**力学 14 条**(from `_PhysicsLib/物理公式/01_力学公式.md`),后续补电磁/热学/光学/近代物理到 100+。
+
+### 案例层结构(cases)
+
+每条案例:
+- `id` (如 `C-故事-01-01` / `C-应用-08-01`)
+- `name` (案例名)
+- `category` (`故事` from 04_物理故事与传说 / `应用` from 08_物理应用与建模)
+- `branch` / `summary` / `word_count` / `heading_level` / `section` / `source_file`
+
+当前覆盖:**24 条**(9 故事 + 15 应用)。
 
 ### 查询示例
 
@@ -63,5 +101,25 @@ print(c['parent_id'], '->', c['id'], c['name'])
 # 查某主题引用的所有跨主题概念
 refs = [r for r in d['relations'] if r['source']=='01-01_物理起源与演变' and r['type']=='cross_ref']
 print(len(refs), 'cross_refs')
+# 查某分支的公式
+formulas = [f for f in d['formulas'] if f['branch_short']=='01']
+print(len(formulas), 'mechanics formulas')
+# 查某类别的案例
+stories = [c for c in d['cases'] if c['category']=='故事']
+print(len(stories), 'stories')
+"
+
+# 列出所有公式(快速浏览)
+python3 -c "
+import json
+d = json.load(open('data/knowledge.json'))
+for f in d['formulas']:
+    print(f\"{f['id']:>8}  {f['branch_short']}  {f['name']:<12}  {f['expression']}\")
 "
 ```
+
+## 变更记录
+
+- **0829**:README 同步 schema 0.5.0(补 0.4.0 cases + 0.5.0 formulas 章节);删除冗余 `物理顾问开发架构与计划.md`(70% 重复 `项目开发计划.md`,🔴 阻塞级挂账 4 天解套),其"三件套讲解 / 现象库"独有理念已并入 `项目开发计划.md` 决策记录。
+- **0826**:`md_to_json.py` schema 0.2.0 → 0.3.0 关系层,README 同步。
+- **0824**:`md_to_json.py` 立项,schema 0.1.0。
