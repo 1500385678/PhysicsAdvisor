@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "0.5.0",
-    "generated_at": "2026-08-28T03:24:24",
+    "generated_at": "2026-08-31T03:21:21",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
@@ -9,7 +9,7 @@
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
-    "total_formulas": 14,
+    "total_formulas": 29,
     "relation_breakdown": {
       "branch_topic": 10,
       "topic_concept": 194,
@@ -21,7 +21,8 @@
       "应用": 15
     },
     "formula_branch_breakdown": {
-      "力学": 14
+      "力学": 14,
+      "电磁学": 15
     }
   },
   "topics": [
@@ -5869,6 +5870,464 @@
       ],
       "conditions": "平面力系分析",
       "source_file": "_PhysicsLib/物理公式/01_力学公式.md"
+    },
+    {
+      "id": "F-02-01",
+      "name": "库仑定律",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "F = k \\frac{q_1 q_2}{r^2} = \\frac{1}{4\\pi\\varepsilon_0} \\frac{q_1 q_2}{r^2}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "静电力",
+          "unit": "N"
+        },
+        {
+          "symbol": "r",
+          "name": "两点电荷间距",
+          "unit": "m"
+        },
+        {
+          "symbol": "k",
+          "name": "静电力常量,$8.99 \\times 10^9$ N·m²/C²",
+          "unit": ""
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "name": "真空介电常量,$8.85 \\times 10^{-12}$ F/m",
+          "unit": ""
+        }
+      ],
+      "conditions": "静止点电荷;真空或均匀介质",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-02",
+      "name": "电场强度",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "E = \\frac{F}{q} = k \\frac{Q}{r^2}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "E",
+          "name": "电场强度",
+          "unit": "N/C 或 V/m"
+        },
+        {
+          "symbol": "F",
+          "name": "试探电荷所受电场力",
+          "unit": "N"
+        },
+        {
+          "symbol": "q",
+          "name": "试探电荷电量",
+          "unit": "C"
+        },
+        {
+          "symbol": "Q",
+          "name": "场源点电荷电量",
+          "unit": "C"
+        },
+        {
+          "symbol": "r",
+          "name": "距场源距离",
+          "unit": "m"
+        }
+      ],
+      "conditions": "电场定义式;第二式仅对点电荷场源成立",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-03",
+      "name": "高斯定理",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "\\oint_S \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{\\text{enc}}}{\\varepsilon_0}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "\\vec{E}",
+          "name": "闭合曲面上电场强度矢量",
+          "unit": ""
+        },
+        {
+          "symbol": "d\\vec{A}",
+          "name": "面积元矢量",
+          "unit": "方向沿外法线"
+        },
+        {
+          "symbol": "Q_{\\text{enc}}",
+          "name": "闭合曲面内包围的净电荷",
+          "unit": "C"
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "name": "真空介电常量",
+          "unit": ""
+        }
+      ],
+      "conditions": "任意闭合曲面;对高度对称场(球/柱/板)最便捷",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-04",
+      "name": "电势(电势差)",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "U_{ab} = U_a - U_b = \\int_a^b \\vec{E} \\cdot d\\vec{l}",
+      "expression_extra": [
+        "V = k \\frac{Q}{r}"
+      ],
+      "variables": [
+        {
+          "symbol": "U_{ab}",
+          "name": "a 点相对 b 点的电势",
+          "unit": "V"
+        },
+        {
+          "symbol": "\\vec{E}",
+          "name": "电场强度",
+          "unit": ""
+        },
+        {
+          "symbol": "V",
+          "name": "点电荷场中某点电势",
+          "unit": "V"
+        },
+        {
+          "symbol": "Q",
+          "name": "场源点电荷",
+          "unit": "C"
+        },
+        {
+          "symbol": "r",
+          "name": "距场源距离",
+          "unit": "m"
+        }
+      ],
+      "conditions": "静电场;保守场(电场力做功与路径无关)",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-05",
+      "name": "电容定义",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "C = \\frac{Q}{U}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "C",
+          "name": "电容",
+          "unit": "F"
+        },
+        {
+          "symbol": "Q",
+          "name": "电容器一个极板所带电量",
+          "unit": "C"
+        },
+        {
+          "symbol": "U",
+          "name": "两极板间电压",
+          "unit": "V"
+        }
+      ],
+      "conditions": "线性电容器(电容与电压无关)",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-06",
+      "name": "平行板电容器",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "C = \\frac{\\varepsilon_0 \\varepsilon_r S}{d}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "C",
+          "name": "电容",
+          "unit": "F"
+        },
+        {
+          "symbol": "S",
+          "name": "极板正对面积",
+          "unit": "m²"
+        },
+        {
+          "symbol": "d",
+          "name": "极板间距",
+          "unit": "m"
+        },
+        {
+          "symbol": "\\varepsilon_r",
+          "name": "介质的相对介电常量",
+          "unit": "无量纲"
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "name": "真空介电常量",
+          "unit": ""
+        }
+      ],
+      "conditions": "极板线度 >> 间距;忽略边缘效应",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-07",
+      "name": "欧姆定律",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "U = IR",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "U",
+          "name": "导体两端电压",
+          "unit": "V"
+        },
+        {
+          "symbol": "I",
+          "name": "通过导体的电流",
+          "unit": "A"
+        },
+        {
+          "symbol": "R",
+          "name": "导体的电阻",
+          "unit": "Ω"
+        }
+      ],
+      "conditions": "线性电阻(电阻值不随电压/电流变化);金属/碳膜在常温下适用",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-08",
+      "name": "电阻定律",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "R = \\rho \\frac{L}{S}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "R",
+          "name": "电阻",
+          "unit": "Ω"
+        },
+        {
+          "symbol": "\\rho",
+          "name": "材料的电阻率",
+          "unit": "Ω·m"
+        },
+        {
+          "symbol": "L",
+          "name": "导体长度",
+          "unit": "m"
+        },
+        {
+          "symbol": "S",
+          "name": "导体横截面积",
+          "unit": "m²"
+        }
+      ],
+      "conditions": "均匀材料;温度恒定($\\rho$ 随温度变化)",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-09",
+      "name": "焦耳定律",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "Q = I^2 R t = U I t = \\frac{U^2}{R} t",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "Q",
+          "name": "电流产生的热量",
+          "unit": "J"
+        },
+        {
+          "symbol": "I",
+          "name": "电流",
+          "unit": "A"
+        },
+        {
+          "symbol": "R",
+          "name": "电阻",
+          "unit": "Ω"
+        },
+        {
+          "symbol": "U",
+          "name": "电压",
+          "unit": "V"
+        },
+        {
+          "symbol": "t",
+          "name": "通电时间",
+          "unit": "s"
+        }
+      ],
+      "conditions": "纯电阻电路;电能全部转化为内能",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-10",
+      "name": "基尔霍夫电流定律(KCL)",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "\\sum I_{\\text{in}} = \\sum I_{\\text{out}}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "I_{\\text{in}}",
+          "name": "流入节点的电流",
+          "unit": "A"
+        },
+        {
+          "symbol": "I_{\\text{out}}",
+          "name": "流出节点的电流",
+          "unit": "A"
+        }
+      ],
+      "conditions": "任意电路节点;电荷守恒",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-11",
+      "name": "基尔霍夫电压定律(KVL)",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "\\sum U = 0 \\quad (\\text{沿任一回路})",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "U",
+          "name": "回路中各元件的电压降",
+          "unit": "含电源电动势,绕行方向一致取正,反之取负)(V"
+        }
+      ],
+      "conditions": "任意闭合回路;能量守恒",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-12",
+      "name": "安培力(磁场对电流的作用力)",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "F = B I L \\sin\\theta",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "安培力",
+          "unit": "N"
+        },
+        {
+          "symbol": "B",
+          "name": "磁感应强度",
+          "unit": "T"
+        },
+        {
+          "symbol": "I",
+          "name": "电流",
+          "unit": "A"
+        },
+        {
+          "symbol": "L",
+          "name": "导线在磁场中的有效长度",
+          "unit": "m"
+        },
+        {
+          "symbol": "\\theta",
+          "name": "电流方向与磁场方向夹角",
+          "unit": "rad"
+        }
+      ],
+      "conditions": "匀强磁场;直导线;方向由左手定则判断",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-13",
+      "name": "洛伦兹力(磁场对运动电荷的作用力)",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "F = qvB\\sin\\theta",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "F",
+          "name": "洛伦兹力",
+          "unit": "N"
+        },
+        {
+          "symbol": "q",
+          "name": "电荷电量",
+          "unit": "C"
+        },
+        {
+          "symbol": "v",
+          "name": "电荷运动速度",
+          "unit": "m/s"
+        },
+        {
+          "symbol": "B",
+          "name": "磁感应强度",
+          "unit": "T"
+        },
+        {
+          "symbol": "\\theta",
+          "name": "速度方向与磁场方向夹角",
+          "unit": "rad"
+        }
+      ],
+      "conditions": "点电荷;方向由 $\\vec{v} \\times \\vec{B}$ 叉乘判断(正电荷与负电荷方向相反)",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-14",
+      "name": "法拉第电磁感应定律",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "\\varepsilon = -\\frac{d\\Phi_B}{dt}",
+      "expression_extra": [
+        "\\varepsilon = -N \\frac{\\Delta \\Phi_B}{\\Delta t}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\varepsilon",
+          "name": "感应电动势",
+          "unit": "V"
+        },
+        {
+          "symbol": "\\Phi_B",
+          "name": "磁通量",
+          "unit": "Wb"
+        },
+        {
+          "symbol": "N",
+          "name": "线圈匝数",
+          "unit": ""
+        },
+        {
+          "symbol": "t",
+          "name": "时间",
+          "unit": "s"
+        }
+      ],
+      "conditions": "变化的磁通量;负号体现楞次定律(感应电流方向阻碍磁通变化)",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
+    },
+    {
+      "id": "F-02-15",
+      "name": "楞次定律",
+      "branch": "电磁学",
+      "branch_short": "02",
+      "expression": "\\text{感应电流方向:阻碍引起它的磁通量变化}",
+      "expression_extra": [],
+      "variables": [],
+      "conditions": "任何电磁感应过程;与法拉第定律的负号对应(能量守恒)",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/02_电磁学公式.md"
     }
   ]
 }

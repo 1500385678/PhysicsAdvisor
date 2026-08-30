@@ -39,8 +39,8 @@
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
-    "total_formulas": 14,
-    "formula_branch_breakdown": {"力学": 14},
+    "total_formulas": 29,
+    "formula_branch_breakdown": {"力学": 14, "电磁学": 15},
     "case_category_breakdown": {"故事": 9, "应用": 15}
   },
   "branches":   [ {id, name, topic_count, concept_count, topic_ids} ],
@@ -73,7 +73,7 @@
 - `conditions` (适用条件)
 - `source_file` (来源 md)
 
-当前覆盖:**力学 14 条**(from `_PhysicsLib/物理公式/01_力学公式.md`),后续补电磁/热学/光学/近代物理到 100+。
+当前覆盖:**29 条**(力学 14 + 电磁学 15,from `_PhysicsLib/物理公式/01_力学公式.md` + `02_电磁学公式.md`),后续补热学/光学/近代物理到 100+。
 
 ### 案例层结构(cases)
 
@@ -120,6 +120,7 @@ for f in d['formulas']:
 
 ## 变更记录
 
+- **0831**:公式层扩到 02 电磁学分支(`data/formulas/02_电磁学公式.md` 15 条,覆盖库仑/电场/高斯/电势/电容/欧姆/电阻/焦耳/KCL/KVL/安培力/洛伦兹力/法拉第/楞次),公式数 14 → 29,`formula_branch_breakdown` 从 `{"力学": 14}` → `{"力学": 14, "电磁学": 15}`;🟡 P1 推进 1 步。
 - **0829**:README 同步 schema 0.5.0(补 0.4.0 cases + 0.5.0 formulas 章节);删除冗余 `物理顾问开发架构与计划.md`(70% 重复 `项目开发计划.md`,🔴 阻塞级挂账 4 天解套),其"三件套讲解 / 现象库"独有理念已并入 `项目开发计划.md` 决策记录。
 - **0826**:`md_to_json.py` schema 0.2.0 → 0.3.0 关系层,README 同步。
 - **0824**:`md_to_json.py` 立项,schema 0.1.0。
