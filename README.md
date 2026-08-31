@@ -39,8 +39,8 @@
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
-    "total_formulas": 29,
-    "formula_branch_breakdown": {"力学": 14, "电磁学": 15},
+    "total_formulas": 47,
+    "formula_branch_breakdown": {"力学": 14, "电磁学": 15, "热学": 18},
     "case_category_breakdown": {"故事": 9, "应用": 15}
   },
   "branches":   [ {id, name, topic_count, concept_count, topic_ids} ],
@@ -73,7 +73,7 @@
 - `conditions` (适用条件)
 - `source_file` (来源 md)
 
-当前覆盖:**29 条**(力学 14 + 电磁学 15,from `_PhysicsLib/物理公式/01_力学公式.md` + `02_电磁学公式.md`),后续补热学/光学/近代物理到 100+。
+当前覆盖:**47 条**(力学 14 + 电磁学 15 + 热学 18,from `data/formulas/01_力学公式.md` + `02_电磁学公式.md` + `03_热学公式.md`),后续补光学/近代物理到 100+。
 
 ### 案例层结构(cases)
 
@@ -120,6 +120,7 @@ for f in d['formulas']:
 
 ## 变更记录
 
+- **0901**:公式层扩到 03 热学分支(`data/formulas/03_热学公式.md` 18 条,覆盖状态方程/压强微观/平均动能/麦克斯韦分布/平均自由程/热一律/四过程/比热容/熵增/卡诺/玻尔兹曼熵/傅里叶/牛顿冷却/斯特藩-玻尔兹曼/维恩位移/杨-拉普拉斯/焦耳/麦克斯韦关系),公式数 29 → 47,`formula_branch_breakdown` 从 `{"力学": 14, "电磁学": 15}` → `{"力学": 14, "电磁学": 15, "热学": 18}`;🟡 P1 推进 1 步(距 100 差 53,后续 0902 光学 / 0903 近代物理)。
 - **0831**:公式层扩到 02 电磁学分支(`data/formulas/02_电磁学公式.md` 15 条,覆盖库仑/电场/高斯/电势/电容/欧姆/电阻/焦耳/KCL/KVL/安培力/洛伦兹力/法拉第/楞次),公式数 14 → 29,`formula_branch_breakdown` 从 `{"力学": 14}` → `{"力学": 14, "电磁学": 15}`;🟡 P1 推进 1 步。
 - **0829**:README 同步 schema 0.5.0(补 0.4.0 cases + 0.5.0 formulas 章节);删除冗余 `物理顾问开发架构与计划.md`(70% 重复 `项目开发计划.md`,🔴 阻塞级挂账 4 天解套),其"三件套讲解 / 现象库"独有理念已并入 `项目开发计划.md` 决策记录。
 - **0826**:`md_to_json.py` schema 0.2.0 → 0.3.0 关系层,README 同步。
