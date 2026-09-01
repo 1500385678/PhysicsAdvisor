@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "0.5.0",
-    "generated_at": "2026-09-01T03:21:03",
+    "generated_at": "2026-09-02T03:21:32",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
@@ -9,7 +9,7 @@
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
-    "total_formulas": 47,
+    "total_formulas": 67,
     "relation_breakdown": {
       "branch_topic": 10,
       "topic_concept": 194,
@@ -23,7 +23,8 @@
     "formula_branch_breakdown": {
       "力学": 14,
       "电磁学": 15,
-      "热学": 18
+      "热学": 18,
+      "光学": 20
     }
   },
   "topics": [
@@ -6857,6 +6858,592 @@
       "variables": [],
       "conditions": "平衡态热力学;连接可测量 $(P,V,T,C_p,C_V)$ 与不可直接测量(如 $S, U, H$)的桥梁",
       "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/03_热学公式.md"
+    },
+    {
+      "id": "F-04-01",
+      "name": "几何光学三大定律",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\text{(1) 直线传播: 光在均匀介质中沿直线传播}",
+      "expression_extra": [
+        "\\text{(2) 反射定律: 入射角 = 反射角} \\quad \\theta_i = \\theta_r",
+        "\\text{(3) 折射定律(斯涅尔定律):} \\quad n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2"
+      ],
+      "variables": [],
+      "conditions": "均匀、各向同性介质;反射定律对所有界面成立;折射定律对光从一种介质进入另一种介质成立",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-02",
+      "name": "斯涅尔定律(折射定律)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2 \\quad \\Leftrightarrow \\quad \\frac{\\sin\\theta_1}{\\sin\\theta_2} = \\frac{n_2}{n_1} = \\frac{v_1}{v_2}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "n",
+          "name": "介质折射率(无量纲),$n = c / v$",
+          "unit": ""
+        },
+        {
+          "symbol": "v",
+          "name": "介质中光速",
+          "unit": "m/s"
+        },
+        {
+          "symbol": "c",
+          "name": "真空中光速,$2.998 \\times 10^8$ m/s",
+          "unit": ""
+        },
+        {
+          "symbol": "\\theta",
+          "name": "与法线的夹角",
+          "unit": ""
+        }
+      ],
+      "conditions": "均匀介质界面;**光从光疏介质进入光密介质时,折射角小于入射角**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-03",
+      "name": "全反射与临界角",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\sin\\theta_c = \\frac{n_2}{n_1} \\quad (n_1 > n_2)",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "\\theta_c",
+          "name": "临界角",
+          "unit": "光从光密到光疏,折射角 90° 时的入射角"
+        },
+        {
+          "symbol": "n_1",
+          "name": "光密介质(入射侧)折射率",
+          "unit": ""
+        },
+        {
+          "symbol": "n_2",
+          "name": "光疏介质(出射侧)折射率",
+          "unit": ""
+        }
+      ],
+      "conditions": "$n_1 > n_2$;入射角 $\\geq \\theta_c$ 时发生全反射,**光导纤维 / 内窥镜 / 钻石火彩**的核心机制",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-04",
+      "name": "费马原理(光程最短)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\delta \\int n \\, ds = 0",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "n",
+          "name": "介质折射率",
+          "unit": "可随位置变化"
+        },
+        {
+          "symbol": "ds",
+          "name": "路径元",
+          "unit": ""
+        },
+        {
+          "symbol": "\\delta",
+          "name": "变分符号",
+          "unit": "对所有可能路径取极值"
+        }
+      ],
+      "conditions": "光在介质中传播时沿**光程**极值路径(通常为极小,某些情况为极大或稳定)行进;**几何光学三大定律的积分形式,统一反射/折射/直线传播**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-05",
+      "name": "菲涅尔反射率(正入射)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "R = \\left(\\frac{n_1 - n_2}{n_1 + n_2}\\right)^2 \\quad \\text{(垂直入射,强度反射率)}",
+      "expression_extra": [
+        "T = \\frac{4 n_1 n_2}{(n_1 + n_2)^2} \\quad \\text{(垂直入射,强度透射率)}",
+        "R + T = 1 \\quad \\text{(能量守恒,无吸收)}"
+      ],
+      "variables": [
+        {
+          "symbol": "R",
+          "name": "反射光强 / 入射光强",
+          "unit": ""
+        },
+        {
+          "symbol": "T",
+          "name": "透射光强 / 入射光强",
+          "unit": ""
+        }
+      ],
+      "conditions": "垂直入射;无吸收介质;**用于减反射膜 / 增透膜 / 高反镜设计**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-06",
+      "name": "薄透镜成像公式",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\frac{1}{s_o} + \\frac{1}{s_i} = \\frac{1}{f}",
+      "expression_extra": [
+        "M = -\\frac{s_i}{s_o} \\quad \\text{(横向放大率)}"
+      ],
+      "variables": [
+        {
+          "symbol": "s_o",
+          "name": "物距",
+          "unit": "正值,实物"
+        },
+        {
+          "symbol": "s_i",
+          "name": "像距",
+          "unit": "正值实像,负值虚像"
+        },
+        {
+          "symbol": "f",
+          "name": "焦距",
+          "unit": "正值凸透镜,负值凹透镜"
+        },
+        {
+          "symbol": "M",
+          "name": "横向放大率",
+          "unit": "$|M| > 1$ 放大,$|M| < 1$ 缩小,负号表示倒立"
+        }
+      ],
+      "conditions": "薄透镜(厚度 << 焦距);近轴近似(光线与光轴夹角小);**实物 / 虚物 / 凸 / 凹透镜通用**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-07",
+      "name": "透镜制造者方程",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\frac{1}{f} = (n - 1) \\left( \\frac{1}{R_1} - \\frac{1}{R_2} \\right)",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "f",
+          "name": "透镜焦距",
+          "unit": ""
+        },
+        {
+          "symbol": "n",
+          "name": "透镜材料的相对周围介质的折射率",
+          "unit": ""
+        }
+      ],
+      "conditions": "薄透镜近似;球面透镜;**由几何参数计算焦距(光学设计核心公式)**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-08",
+      "name": "显微镜分辨极限(瑞利判据)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\Delta x = 0.61 \\frac{\\lambda}{\\text{NA}} = 0.61 \\frac{\\lambda}{n \\sin\\theta}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "\\lambda",
+          "name": "波长",
+          "unit": ""
+        },
+        {
+          "symbol": "\\text{NA}",
+          "name": "数值孔径,$n \\sin\\theta$",
+          "unit": ""
+        },
+        {
+          "symbol": "n",
+          "name": "物方折射率",
+          "unit": ""
+        },
+        {
+          "symbol": "\\theta",
+          "name": "物镜半孔径角",
+          "unit": ""
+        }
+      ],
+      "conditions": "圆孔衍射(光学显微镜);**瑞利判据:一个点的衍射图样中心与另一点的衍射图样第一暗环重合时,两点恰可分辨**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-09",
+      "name": "单缝夫琅禾费衍射",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "a \\sin\\theta = k \\lambda \\quad (k = \\pm 1, \\pm 2, \\ldots) \\quad \\text{(暗纹条件)}",
+      "expression_extra": [
+        "I(\\theta) = I_0 \\left( \\frac{\\sin\\alpha}{\\alpha} \\right)^2, \\quad \\alpha = \\frac{\\pi a \\sin\\theta}{\\lambda}"
+      ],
+      "variables": [
+        {
+          "symbol": "a",
+          "name": "单缝宽度",
+          "unit": ""
+        },
+        {
+          "symbol": "\\theta",
+          "name": "衍射角",
+          "unit": ""
+        },
+        {
+          "symbol": "k",
+          "name": "暗纹级次",
+          "unit": ""
+        },
+        {
+          "symbol": "I_0",
+          "name": "中央明纹光强",
+          "unit": ""
+        }
+      ],
+      "conditions": "远场(夫琅禾费)近似;**中央明纹宽度 $2\\lambda/a$ 远大于其他明纹,衍射反比于缝宽**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-10",
+      "name": "双缝干涉(杨氏实验)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "d \\sin\\theta = k \\lambda \\quad (k = 0, \\pm 1, \\pm 2, \\ldots) \\quad \\text{(明纹条件)}",
+      "expression_extra": [
+        "d \\sin\\theta = (k + \\frac{1}{2}) \\lambda \\quad \\text{(暗纹条件)}",
+        "\\Delta y = \\frac{\\lambda L}{d} \\quad \\text{(屏上条纹间距)}"
+      ],
+      "variables": [
+        {
+          "symbol": "d",
+          "name": "双缝间距",
+          "unit": ""
+        },
+        {
+          "symbol": "L",
+          "name": "双缝到屏距离",
+          "unit": ""
+        },
+        {
+          "symbol": "\\lambda",
+          "name": "入射光波长",
+          "unit": ""
+        }
+      ],
+      "conditions": "远场近似;相干光源(同频同相位);**光的波动性最经典实验证据**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-11",
+      "name": "光栅衍射方程",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "d (\\sin\\theta_m - \\sin\\theta_i) = m \\lambda \\quad (m = 0, \\pm 1, \\pm 2, \\ldots)",
+      "expression_extra": [
+        "R = m N = \\frac{\\lambda}{\\Delta \\lambda} \\quad \\text{(分辨本领)}"
+      ],
+      "variables": [
+        {
+          "symbol": "d",
+          "name": "光栅常数(缝间距),典型 $d \\sim 10^{-6}$ m",
+          "unit": ""
+        },
+        {
+          "symbol": "\\theta_m",
+          "name": "第 $m$ 级主极大衍射角",
+          "unit": ""
+        },
+        {
+          "symbol": "\\theta_i",
+          "name": "入射角",
+          "unit": "垂直入射时 $\\theta_i = 0$"
+        },
+        {
+          "symbol": "m",
+          "name": "衍射级次",
+          "unit": ""
+        },
+        {
+          "symbol": "N",
+          "name": "光栅总缝数",
+          "unit": ""
+        },
+        {
+          "symbol": "R",
+          "name": "色分辨本领",
+          "unit": "能区分的最小波长差 $\\Delta \\lambda$ 的倒数"
+        }
+      ],
+      "conditions": "多缝干涉 + 单缝衍射调制;**光谱仪 / 单色仪 / 光通讯波分复用核心元件**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-12",
+      "name": "布拉格衍射(X 射线晶体衍射)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "2 d \\sin\\theta = n \\lambda \\quad (n = 1, 2, 3, \\ldots)",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "d",
+          "name": "晶面间距",
+          "unit": "m"
+        },
+        {
+          "symbol": "\\theta",
+          "name": "入射 X 射线与晶面夹角",
+          "unit": "布拉格角"
+        },
+        {
+          "symbol": "n",
+          "name": "衍射级次",
+          "unit": ""
+        },
+        {
+          "symbol": "\\lambda",
+          "name": "X 射线波长",
+          "unit": ""
+        }
+      ],
+      "conditions": "X 射线在晶体中相邻晶面散射的相长干涉;**X 射线晶体学 / 蛋白质结构 / 材料分析基础**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-13",
+      "name": "多普勒效应(光波)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "f' = f \\frac{\\sqrt{1 - v^2/c^2}}{1 - v \\cos\\theta / c} \\approx f (1 + v \\cos\\theta / c) \\quad (v \\ll c)",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "f",
+          "name": "静止波源频率",
+          "unit": ""
+        },
+        {
+          "symbol": "v",
+          "name": "波源相对观察者的径向速度",
+          "unit": "趋近为正,远离为负"
+        },
+        {
+          "symbol": "\\theta",
+          "name": "波源运动方向与观察方向的夹角",
+          "unit": ""
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速",
+          "unit": ""
+        }
+      ],
+      "conditions": "光波(无需介质);非相对论近似 $v \\ll c$ 时与声学多普勒形式相同;**雷达测速 / 天文红移 / 卫星通信基础**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-14",
+      "name": "马吕斯定律(偏振光强度)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "I = I_0 \\cos^2\\theta",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "I_0",
+          "name": "入射线偏振光强度",
+          "unit": ""
+        },
+        {
+          "symbol": "I",
+          "name": "通过偏振片后的光强",
+          "unit": ""
+        },
+        {
+          "symbol": "\\theta",
+          "name": "入射偏振方向与偏振片透光轴的夹角",
+          "unit": ""
+        }
+      ],
+      "conditions": "线偏振光入射;理想偏振片(完全吸收垂直分量);**偏振太阳镜 / LCD 显示 / 应力分析基础**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-15",
+      "name": "布儒斯特定律(偏振反射)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\tan\\theta_B = \\frac{n_2}{n_1}",
+      "expression_extra": [
+        "R_s = 0 \\quad \\text{($s$ 偏振分量在布儒斯特角反射率为 0)}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\theta_B",
+          "name": "布儒斯特角",
+          "unit": "起偏角"
+        },
+        {
+          "symbol": "n_1",
+          "name": "入射侧介质折射率",
+          "unit": ""
+        },
+        {
+          "symbol": "n_2",
+          "name": "出射侧介质折射率",
+          "unit": ""
+        },
+        {
+          "symbol": "R_s",
+          "name": "垂直入射面的 $s$ 偏振分量反射率",
+          "unit": ""
+        }
+      ],
+      "conditions": "光从一介质到另一介质;**在布儒斯特角下反射光完全偏振(只剩 $p$ 分量),激光器外腔窗片 / 偏振片设计**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-16",
+      "name": "双折射(光在晶体中的双折射)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "n_o, n_e \\quad \\text{(寻常光 / 非常光折射率)}",
+      "expression_extra": [
+        "\\Delta = d (n_e - n_o) \\quad \\text{(相位差)}"
+      ],
+      "variables": [
+        {
+          "symbol": "n_o",
+          "name": "寻常光(o 光)折射率,符合折射定律",
+          "unit": ""
+        },
+        {
+          "symbol": "n_e",
+          "name": "非常光(e 光)折射率,偏离折射定律,取决于传播方向",
+          "unit": ""
+        },
+        {
+          "symbol": "d",
+          "name": "晶体厚度",
+          "unit": ""
+        },
+        {
+          "symbol": "\\Delta",
+          "name": "o 光与 e 光通过晶体后的相位差",
+          "unit": ""
+        }
+      ],
+      "conditions": "各向异性晶体(方解石 / 石英 / BBO / KDP);**偏振棱镜(沃拉斯顿 / 尼科耳) / 波片 / 液晶调制基础**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-17",
+      "name": "普朗克黑体辐射公式",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "I(\\lambda, T) = \\frac{2 \\pi h c^2}{\\lambda^5} \\frac{1}{e^{hc/\\lambda k_B T} - 1}",
+      "expression_extra": [
+        "\\varepsilon = h \\nu = \\hbar \\omega"
+      ],
+      "variables": [
+        {
+          "symbol": "h",
+          "name": "普朗克常量,$6.626 \\times 10^{-34}$ J·s",
+          "unit": ""
+        },
+        {
+          "symbol": "k_B",
+          "name": "玻尔兹曼常量,$1.381 \\times 10^{-23}$ J/K",
+          "unit": ""
+        },
+        {
+          "symbol": "\\nu",
+          "name": "频率;$\\omega = 2\\pi\\nu$ — 角频率",
+          "unit": ""
+        }
+      ],
+      "conditions": "平衡辐射(黑体);**量子论诞生的标志公式,1900 年由普朗克提出,假设谐振子能量量子化 $\\varepsilon = h\\nu$**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-18",
+      "name": "爱因斯坦光电效应方程",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "h \\nu = W + \\frac{1}{2} m v_{\\max}^2 = W + e U_s",
+      "expression_extra": [
+        "K_{\\max} = h \\nu - W = h (\\nu - \\nu_0)"
+      ],
+      "variables": [
+        {
+          "symbol": "K_{\\max}",
+          "name": "光电子最大动能",
+          "unit": ""
+        }
+      ],
+      "conditions": "金属表面单光子电子发射;**光量子性最直接证据,1905 年爱因斯坦提出,获 1921 年诺贝尔奖**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-19",
+      "name": "康普顿散射",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "\\Delta \\lambda = \\lambda' - \\lambda = \\frac{h}{m_e c} (1 - \\cos\\theta) = \\frac{2 h}{m_e c} \\sin^2(\\theta/2)",
+      "expression_extra": [
+        "\\lambda_C = \\frac{h}{m_e c} = 2.426 \\times 10^{-12} \\text{ m} = 0.02426 \\text{ Å (康普顿波长)}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\theta",
+          "name": "散射角",
+          "unit": ""
+        },
+        {
+          "symbol": "m_e",
+          "name": "电子质量,$9.109 \\times 10^{-31}$ kg",
+          "unit": ""
+        },
+        {
+          "symbol": "\\lambda_C",
+          "name": "康普顿波长",
+          "unit": "特征长度"
+        }
+      ],
+      "conditions": "X 射线与自由电子(或弱束缚电子)的弹性散射;**光子动量 $p = h/\\lambda$ 与相对论动量守恒的实验证据,1923 年康普顿发现**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-04-20",
+      "name": "相对论速度叠加(光速不变)",
+      "branch": "光学",
+      "branch_short": "04",
+      "expression": "u' = \\frac{u - v}{1 - uv/c^2} \\quad \\text{(一维,沿运动方向)}",
+      "expression_extra": [
+        "c' = \\frac{c - v}{1 - cv/c^2} = \\frac{c(1 - v/c)}{1 - v/c} = c \\quad \\text{(光速不变)}"
+      ],
+      "variables": [
+        {
+          "symbol": "u",
+          "name": "物体在 S 系中的速度",
+          "unit": ""
+        },
+        {
+          "symbol": "v",
+          "name": "S' 相对 S 的速度",
+          "unit": ""
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速",
+          "unit": ""
+        }
+      ],
+      "conditions": "惯性系间速度变换;$v$ 任意,无需 $v \\ll c$;**当 $v \\ll c$ 时退化为伽利略叠加 $u' = u - v$;光速 $c$ 是所有惯性系的共同不变量**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
     }
   ]
 }
