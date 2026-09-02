@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "0.5.0",
-    "generated_at": "2026-09-02T03:21:32",
+    "generated_at": "2026-09-03T03:21:38",
     "source_dir": "_PhysicsLib",
     "total_files": 10,
     "total_words": 29084,
@@ -9,7 +9,7 @@
     "total_relations": 389,
     "total_branches": 10,
     "total_cases": 24,
-    "total_formulas": 67,
+    "total_formulas": 87,
     "relation_breakdown": {
       "branch_topic": 10,
       "topic_concept": 194,
@@ -24,7 +24,8 @@
       "力学": 14,
       "电磁学": 15,
       "热学": 18,
-      "光学": 20
+      "光学": 20,
+      "近代物理": 20
     }
   },
   "topics": [
@@ -7444,6 +7445,677 @@
       ],
       "conditions": "惯性系间速度变换;$v$ 任意,无需 $v \\ll c$;**当 $v \\ll c$ 时退化为伽利略叠加 $u' = u - v$;光速 $c$ 是所有惯性系的共同不变量**",
       "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/04_光学公式.md"
+    },
+    {
+      "id": "F-05-01",
+      "name": "普朗克黑体辐射(能量量子化)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "E = h\\nu = \\hbar\\omega",
+      "expression_extra": [
+        "\\rho(\\nu, T) \\, d\\nu = \\frac{8\\pi h \\nu^3}{c^3} \\cdot \\frac{1}{e^{h\\nu/k_B T} - 1} \\, d\\nu"
+      ],
+      "variables": [
+        {
+          "symbol": "E",
+          "name": "单个光子的能量",
+          "unit": "J"
+        },
+        {
+          "symbol": "h",
+          "name": "普朗克常数,$6.626 \\times 10^{-34}$ J·s",
+          "unit": ""
+        },
+        {
+          "symbol": "\\hbar",
+          "name": "约化普朗克常数,$h/2\\pi \\approx 1.055 \\times 10^{-34}$ J·s",
+          "unit": ""
+        },
+        {
+          "symbol": "\\nu",
+          "name": "光子频率",
+          "unit": "Hz"
+        },
+        {
+          "symbol": "\\omega",
+          "name": "角频率,$2\\pi\\nu$",
+          "unit": "rad/s"
+        },
+        {
+          "symbol": "k_B",
+          "name": "玻尔兹曼常数,$1.381 \\times 10^{-23}$ J/K",
+          "unit": ""
+        },
+        {
+          "symbol": "T",
+          "name": "黑体温度",
+          "unit": "K"
+        }
+      ],
+      "conditions": "热平衡黑体腔内的电磁辐射;**1900 年普朗克为解释紫外灾难引入能量量子化假设,标志着量子论诞生**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-02",
+      "name": "爱因斯坦光电效应",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "h\\nu = W + \\frac{1}{2} m_e v^2_{\\max}",
+      "expression_extra": [
+        "h\\nu_0 = W \\quad \\text{(红限频率,刚好逸出无动能)}"
+      ],
+      "variables": [
+        {
+          "symbol": "h\\nu",
+          "name": "入射光子能量",
+          "unit": "J"
+        },
+        {
+          "symbol": "W",
+          "name": "金属逸出功 (J),与材料相关",
+          "unit": ""
+        },
+        {
+          "symbol": "m_e",
+          "name": "电子质量,$9.109 \\times 10^{-31}$ kg",
+          "unit": ""
+        },
+        {
+          "symbol": "v_{\\max}",
+          "name": "逸出电子的最大速度",
+          "unit": "m/s"
+        },
+        {
+          "symbol": "\\nu_0",
+          "name": "红限频率,$\\nu < \\nu_0$ 时无电子逸出",
+          "unit": "Hz"
+        }
+      ],
+      "conditions": "金属表面单光子吸收;**1905 年爱因斯坦用光子假说解释(经典电磁理论无法解释截止频率依赖),1921 年诺贝尔物理奖**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-03",
+      "name": "康普顿散射",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "\\Delta \\lambda = \\lambda' - \\lambda = \\frac{h}{m_e c} (1 - \\cos\\theta) = \\frac{2h}{m_e c} \\sin^2\\frac{\\theta}{2}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "\\theta",
+          "name": "散射角",
+          "unit": "光子出射方向与入射方向夹角"
+        },
+        {
+          "symbol": "m_e",
+          "name": "电子静止质量",
+          "unit": ""
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速",
+          "unit": ""
+        }
+      ],
+      "conditions": "X 射线 / γ 射线与自由(或弱束缚)电子的弹性散射;**1923 年康普顿发现,光子具有动量 $p = h/\\lambda$ 的直接证据**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-04",
+      "name": "玻尔氢原子能级",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "E_n = -\\frac{m_e e^4}{8\\varepsilon_0^2 h^2} \\cdot \\frac{1}{n^2} = -\\frac{13.6 \\text{ eV}}{n^2} \\quad (n = 1, 2, 3, \\ldots)",
+      "expression_extra": [
+        "r_n = \\frac{n^2 a_0}{1}, \\quad a_0 = \\frac{4\\pi\\varepsilon_0 \\hbar^2}{m_e e^2} \\approx 5.29 \\times 10^{-11} \\text{ m}"
+      ],
+      "variables": [
+        {
+          "symbol": "E_n",
+          "name": "第 $n$ 能级的能量 (eV),基态 $E_1 = -13.6$ eV",
+          "unit": ""
+        },
+        {
+          "symbol": "n",
+          "name": "主量子数,$n = 1, 2, 3, \\ldots$",
+          "unit": ""
+        },
+        {
+          "symbol": "r_n",
+          "name": "第 $n$ 玻尔轨道半径",
+          "unit": "m),$r_1 = a_0$ (玻尔半径"
+        },
+        {
+          "symbol": "a_0",
+          "name": "玻尔半径,$\\approx 5.29 \\times 10^{-11}$ m",
+          "unit": ""
+        },
+        {
+          "symbol": "e",
+          "name": "元电荷,$1.602 \\times 10^{-19}$ C",
+          "unit": ""
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "name": "真空介电常数,$8.854 \\times 10^{-12}$ F/m",
+          "unit": ""
+        }
+      ],
+      "conditions": "类氢原子(单电子 + 核);**1913 年玻尔为解释氢原子光谱而引入(经典理论无法解释离散谱);基态电离能 13.6 eV**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-05",
+      "name": "玻尔频率条件(跃迁辐射)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "h\\nu = E_m - E_n \\quad (m > n, \\text{辐射})",
+      "expression_extra": [
+        "h\\nu = E_n - E_m \\quad (m < n, \\text{吸收})"
+      ],
+      "variables": [
+        {
+          "symbol": "h\\nu",
+          "name": "发射/吸收光子的能量",
+          "unit": "J"
+        },
+        {
+          "symbol": "\\nu",
+          "name": "光子频率",
+          "unit": "Hz"
+        }
+      ],
+      "conditions": "原子在离散能级间的跃迁;**结合玻尔能级公式得到里德伯公式 $1/\\lambda = R_H(1/n^2 - 1/m^2)$,$R_H$ 为里德伯常数**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-06",
+      "name": "德布罗意波(物质波)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "\\lambda = \\frac{h}{p} = \\frac{h}{mv} \\quad \\text{(非相对论)}",
+      "expression_extra": [
+        "\\lambda = \\frac{h}{p} = \\frac{h c}{\\sqrt{E^2 - m_0^2 c^4}} \\quad \\text{(相对论)}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\lambda",
+          "name": "物质波波长 (m),又称德布罗意波长",
+          "unit": ""
+        },
+        {
+          "symbol": "h",
+          "name": "普朗克常数",
+          "unit": ""
+        },
+        {
+          "symbol": "p",
+          "name": "粒子动量",
+          "unit": "kg·m/s"
+        },
+        {
+          "symbol": "m",
+          "name": "粒子质量",
+          "unit": ""
+        },
+        {
+          "symbol": "v",
+          "name": "粒子速度",
+          "unit": ""
+        },
+        {
+          "symbol": "E",
+          "name": "粒子总能量",
+          "unit": ""
+        }
+      ],
+      "conditions": "所有微观粒子(电子/质子/中子/原子)乃至宏观物体(波长太短不可观测);**1924 年德布罗意提出,1927 年戴维森-革末电子衍射实验证实**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-07",
+      "name": "海森堡不确定关系",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "\\Delta x \\cdot \\Delta p_x \\geq \\frac{\\hbar}{2}",
+      "expression_extra": [
+        "\\Delta E \\cdot \\Delta t \\geq \\frac{\\hbar}{2}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\hbar",
+          "name": "约化普朗克常数,$h/2\\pi$",
+          "unit": ""
+        }
+      ],
+      "conditions": "同一方向上的共轭物理量;**非测量误差,而是量子系统本征属性;宏观物体因 $\\hbar$ 极小,不确定度可忽略**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-08",
+      "name": "薛定谔方程(1D 时变)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "i\\hbar \\frac{\\partial \\psi(x,t)}{\\partial t} = -\\frac{\\hbar^2}{2m} \\frac{\\partial^2 \\psi(x,t)}{\\partial x^2} + V(x) \\psi(x,t)",
+      "expression_extra": [
+        "|\\psi(x,t)|^2 \\, dx = \\text{在 } [x, x+dx] \\text{ 内找到粒子的概率}"
+      ],
+      "variables": [
+        {
+          "symbol": "m",
+          "name": "粒子质量",
+          "unit": ""
+        },
+        {
+          "symbol": "i",
+          "name": "虚数单位",
+          "unit": ""
+        },
+        {
+          "symbol": "\\hbar",
+          "name": "约化普朗克常数",
+          "unit": ""
+        }
+      ],
+      "conditions": "单粒子低能(非相对论)系统;**1926 年薛定谔提出,量子力学基本方程;$\\psi$ 单值/连续/平方可积**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-09",
+      "name": "薛定谔方程(1D 定态)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "-\\frac{\\hbar^2}{2m} \\frac{d^2 \\psi(x)}{dx^2} + V(x) \\psi(x) = E \\psi(x)",
+      "expression_extra": [
+        "\\psi(x,t) = \\psi(x) \\, e^{-iEt/\\hbar}"
+      ],
+      "variables": [
+        {
+          "symbol": "E",
+          "name": "体系能量本征值",
+          "unit": "J"
+        },
+        {
+          "symbol": "m",
+          "name": "粒子质量",
+          "unit": ""
+        },
+        {
+          "symbol": "\\hbar",
+          "name": "约化普朗克常数",
+          "unit": ""
+        }
+      ],
+      "conditions": "势能 $V$ 不显含时间(保守系统);**分离变量后得到定态薛定谔方程,本征值 $E$ 离散或连续由边界条件决定**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-10",
+      "name": "一维无限深势阱",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "V(x) = \\begin{cases} 0, & 0 \\leq x \\leq L \\\\ \\infty, & \\text{otherwise} \\end{cases}",
+      "expression_extra": [
+        "E_n = \\frac{n^2 \\pi^2 \\hbar^2}{2mL^2} \\quad (n = 1, 2, 3, \\ldots)",
+        "\\psi_n(x) = \\sqrt{\\frac{2}{L}} \\sin\\frac{n\\pi x}{L}"
+      ],
+      "variables": [
+        {
+          "symbol": "L",
+          "name": "势阱宽度",
+          "unit": "m"
+        },
+        {
+          "symbol": "n",
+          "name": "量子数,$n = 1, 2, 3, \\ldots$",
+          "unit": ""
+        },
+        {
+          "symbol": "E_n",
+          "name": "第 $n$ 能级能量 (J),基态 $E_1 = \\pi^2 \\hbar^2 / 2mL^2$",
+          "unit": ""
+        },
+        {
+          "symbol": "m",
+          "name": "粒子质量",
+          "unit": ""
+        }
+      ],
+      "conditions": "理想化方势阱,阱外 $V = \\infty$ 概率为 0;**量子力学教学经典模型,演示能量量子化、零点能 $E_1 \\neq 0$**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-11",
+      "name": "一维谐振子",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "V(x) = \\frac{1}{2} m \\omega^2 x^2",
+      "expression_extra": [
+        "E_n = \\left(n + \\frac{1}{2}\\right) \\hbar \\omega \\quad (n = 0, 1, 2, \\ldots)",
+        "\\psi_0(x) = \\left(\\frac{m\\omega}{\\pi\\hbar}\\right)^{1/4} e^{-m\\omega x^2 / 2\\hbar}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\omega",
+          "name": "经典角频率 (rad/s),$\\omega = \\sqrt{k/m}$",
+          "unit": ""
+        },
+        {
+          "symbol": "k",
+          "name": "劲度系数",
+          "unit": "N/m"
+        },
+        {
+          "symbol": "m",
+          "name": "振子质量",
+          "unit": ""
+        },
+        {
+          "symbol": "n",
+          "name": "量子数,$n = 0$ 为基态",
+          "unit": ""
+        },
+        {
+          "symbol": "E_n",
+          "name": "第 $n$ 能级,等间距 $\\hbar\\omega$,零点能 $E_0 = \\hbar\\omega/2$",
+          "unit": ""
+        }
+      ],
+      "conditions": "小振动近似下的任意势能(泰勒展开保留二次项);**普朗克黑体辐射 / 晶格振动 / 分子振动 的基础模型**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-12",
+      "name": "玻尔磁子",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "\\mu_B = \\frac{e\\hbar}{2m_e} \\approx 9.274 \\times 10^{-24} \\text{ J/T}",
+      "expression_extra": [
+        "\\vec{\\mu}_L = -\\frac{e}{2m_e} \\vec{L} = -\\mu_B \\frac{\\vec{L}}{\\hbar}"
+      ],
+      "variables": [
+        {
+          "symbol": "\\mu_B",
+          "name": "玻尔磁子,原子磁矩的自然单位",
+          "unit": ""
+        },
+        {
+          "symbol": "e",
+          "name": "元电荷",
+          "unit": ""
+        },
+        {
+          "symbol": "\\hbar",
+          "name": "约化普朗克常数",
+          "unit": ""
+        },
+        {
+          "symbol": "m_e",
+          "name": "电子质量",
+          "unit": ""
+        },
+        {
+          "symbol": "\\vec{L}",
+          "name": "轨道角动量",
+          "unit": ""
+        },
+        {
+          "symbol": "\\vec{\\mu}_L",
+          "name": "轨道磁矩",
+          "unit": ""
+        }
+      ],
+      "conditions": "原子中电子的轨道磁矩;**反常磁矩 / 自旋磁矩需引入 $g$ 因子修正;顺磁共振 / 核磁共振的基础常数**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-13",
+      "name": "自旋角动量",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "|\\vec{S}| = \\sqrt{s(s+1)} \\, \\hbar \\quad (s = 0, 1/2, 1, 3/2, \\ldots)",
+      "expression_extra": [
+        "S_z = m_s \\hbar \\quad (m_s = -s, -s+1, \\ldots, s-1, s)",
+        "\\vec{\\mu}_S = -g_s \\frac{e}{2m_e} \\vec{S} = -g_s \\mu_B \\frac{\\vec{S}}{\\hbar} \\quad (g_s \\approx 2.0023)"
+      ],
+      "variables": [
+        {
+          "symbol": "\\vec{S}",
+          "name": "自旋角动量",
+          "unit": "J·s"
+        },
+        {
+          "symbol": "s",
+          "name": "自旋量子数",
+          "unit": "电子 $s = 1/2$,光子 $s = 1$"
+        },
+        {
+          "symbol": "m_s",
+          "name": "磁量子数,$-s \\leq m_s \\leq s$",
+          "unit": ""
+        },
+        {
+          "symbol": "S_z",
+          "name": "$\\vec{S}$ 在 $z$ 方向投影",
+          "unit": ""
+        },
+        {
+          "symbol": "g_s",
+          "name": "电子自旋 $g$ 因子",
+          "unit": ""
+        }
+      ],
+      "conditions": "基本粒子(电子/质子/中子)或复合粒子(原子核)的内禀角动量;**1925 年乌伦贝克-古兹密特提出,1928 年狄拉克方程自然导出**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-14",
+      "name": "泡利不相容原理(自旋统计)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "|\\psi(1, 2)\\rangle = -|\\psi(2, 1)\\rangle \\quad \\text{(费米子:波函数反对称)}",
+      "expression_extra": [
+        "|\\psi(1, 2)\\rangle = +|\\psi(2, 1)\\rangle \\quad \\text{(玻色子:波函数对称)}"
+      ],
+      "variables": [],
+      "conditions": "全同粒子系统;**1925 年泡利提出,解释元素周期表 / 金属导电 / 白矮星结构(电子简并压);玻色子则无此限制,允许多粒子同态(激光 / 玻色-爱因斯坦凝聚)**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-15",
+      "name": "费米-狄拉克分布(费米子)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "f_{FD}(E) = \\frac{1}{e^{(E - \\mu)/k_B T} + 1}",
+      "expression_extra": [
+        "\\int_0^\\infty f_{FD}(E) g(E) \\, dE = N \\quad \\text{(归一化,粒子数守恒)}"
+      ],
+      "variables": [
+        {
+          "symbol": "E",
+          "name": "单粒子能级",
+          "unit": "J"
+        },
+        {
+          "symbol": "\\mu",
+          "name": "化学势",
+          "unit": "J),$T \\to 0$ 时 $\\mu \\to E_F$ (费米能"
+        },
+        {
+          "symbol": "T",
+          "name": "体系温度",
+          "unit": "K"
+        },
+        {
+          "symbol": "N",
+          "name": "总粒子数",
+          "unit": ""
+        }
+      ],
+      "conditions": "自旋半整数费米子(电子/质子/中子)组成的近独立全同粒子系;**金属电子气 / 中子星 / 半导体载流子的统计描述**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-16",
+      "name": "玻色-爱因斯坦分布(玻色子)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "f_{BE}(E) = \\frac{1}{e^{(E - \\mu)/k_B T} - 1}",
+      "expression_extra": [],
+      "variables": [
+        {
+          "symbol": "E",
+          "name": "单粒子能级",
+          "unit": ""
+        },
+        {
+          "symbol": "\\mu",
+          "name": "化学势,$E - \\mu > 0$ 以保证 $f > 0$",
+          "unit": ""
+        },
+        {
+          "symbol": "T",
+          "name": "体系温度",
+          "unit": ""
+        }
+      ],
+      "conditions": "自旋整数玻色子(光子/声子/氦-4 原子/碱金属 BEC)组成的近独立全同粒子系;**黑体辐射 / 晶格振动 / 激光 / 玻色-爱因斯坦凝聚(1995 年实验实现)**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-17",
+      "name": "狭义相对论·时间膨胀",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "\\Delta t' = \\frac{\\Delta t}{\\sqrt{1 - v^2/c^2}} = \\gamma \\Delta t \\quad (\\gamma \\geq 1)",
+      "expression_extra": [
+        "\\gamma = \\frac{1}{\\sqrt{1 - \\beta^2}}, \\quad \\beta = v/c"
+      ],
+      "variables": [
+        {
+          "symbol": "v",
+          "name": "物体相对实验室的速度",
+          "unit": "m/s"
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速,$2.998 \\times 10^8$ m/s",
+          "unit": ""
+        },
+        {
+          "symbol": "\\gamma",
+          "name": "洛伦兹因子",
+          "unit": ""
+        }
+      ],
+      "conditions": "惯性系间 $v$ 接近 $c$ 时;**μ 子寿命延长(宇宙射线 μ 子可穿透大气到达地面)/ GPS 卫星时钟修正**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-18",
+      "name": "狭义相对论·长度收缩",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "L' = L \\sqrt{1 - v^2/c^2} = L / \\gamma",
+      "expression_extra": [
+        "L = L_0 \\quad \\text{(固有长度,物体静止参考系)}"
+      ],
+      "variables": [
+        {
+          "symbol": "L_0",
+          "name": "固有长度",
+          "unit": "物体静止参考系测量的长度) (m"
+        },
+        {
+          "symbol": "v",
+          "name": "物体相对实验室的速度",
+          "unit": ""
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速",
+          "unit": ""
+        },
+        {
+          "symbol": "\\gamma",
+          "name": "洛伦兹因子",
+          "unit": ""
+        }
+      ],
+      "conditions": "惯性系间高速运动物体;**只在运动方向上收缩,垂直方向不变;长度测量需同时记录两端位置**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-19",
+      "name": "质能等价(质能方程)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "E = mc^2",
+      "expression_extra": [
+        "E^2 = (m_0 c^2)^2 + (pc)^2 \\quad \\text{(运动粒子总能量)}"
+      ],
+      "variables": [
+        {
+          "symbol": "E",
+          "name": "粒子总能量",
+          "unit": "包括静止能) (J"
+        },
+        {
+          "symbol": "m",
+          "name": "相对论质量,$m = \\gamma m_0$",
+          "unit": ""
+        },
+        {
+          "symbol": "m_0",
+          "name": "静止质量",
+          "unit": ""
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速",
+          "unit": ""
+        },
+        {
+          "symbol": "p",
+          "name": "相对论动量,$p = \\gamma m_0 v$",
+          "unit": ""
+        }
+      ],
+      "conditions": "所有惯性系;**1905 年爱因斯坦提出;核反应 / 粒子对撞(湮灭 / 产生)的能量计算基础;1 g 物质 $\\approx 9 \\times 10^{13}$ J**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
+    },
+    {
+      "id": "F-05-20",
+      "name": "洛伦兹变换(坐标)",
+      "branch": "近代物理",
+      "branch_short": "05",
+      "expression": "x' = \\gamma (x - v t)",
+      "expression_extra": [
+        "y' = y, \\quad z' = z",
+        "t' = \\gamma \\left(t - \\frac{v x}{c^2}\\right)",
+        "\\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}",
+        "x = \\gamma (x' + v t'), \\quad t = \\gamma \\left(t' + \\frac{v x'}{c^2}\\right)"
+      ],
+      "variables": [
+        {
+          "symbol": "v",
+          "name": "S' 相对 S 的速度",
+          "unit": ""
+        },
+        {
+          "symbol": "c",
+          "name": "真空光速",
+          "unit": ""
+        },
+        {
+          "symbol": "\\gamma",
+          "name": "洛伦兹因子",
+          "unit": ""
+        }
+      ],
+      "conditions": "两惯性系 S 与 S' 的坐标变换;**$v \\ll c$ 时退化为伽利略变换;同时性是相对的($t' \\neq t$),是相对论效应的根源**",
+      "source_file": "_PhysicsLib/PhysicsWeb/data/formulas/05_近代物理公式.md"
     }
   ]
 }
