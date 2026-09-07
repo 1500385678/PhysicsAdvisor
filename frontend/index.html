@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>PhysicsAdvisor · 物理顾问</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:20px;background:#fafafa;color:#222}
+h1{margin:0 0 8px;font-size:22px}
+.meta{color:#666;font-size:13px;margin-bottom:12px}
+#stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.tag{background:#e8f0fe;border:1px solid #c5d8f7;padding:4px 10px;border-radius:12px;font-size:12px}
+svg{background:#fff;border:1px solid #e0e0e0;border-radius:6px}
+.node circle{fill:#4f8bf9;stroke:#1a4789;stroke-width:1.5px;cursor:pointer}
+.node text{font-size:10px;fill:#222;pointer-events:none}
+.link{stroke:#ccc;stroke-width:1px;fill:none}
+</style>
+</head>
+<body>
+<h1>🌌 PhysicsAdvisor · 知识图谱</h1>
+<div class="meta" id="meta">加载中…</div>
+<div id="stats"></div>
+<svg id="graph" width="100%" height="600"></svg>
+
+<script>
+const API = "http://localhost:8000";
+
+async function load() {
+  const [health, graph] = await Promise.all([
+    fetch(API+"/health").then(r=>r.json()),
+    fetch(API+"/graph?limit=60").then(r=>r.json()),
+  ]);
+  document.getElementById("meta").textContent =
+    `schema ${health.schema} · ${health.concepts} 概念 · ${health.formulas} 公式 · ${health.cases} 案例`;
+  const stats = document.getElementById("stats");
+  for (const [k,v] of Object.entries(health)) {
+    if (typeof v === "number" || typeof v === "string") {
+      const t = document.createElement("span");
+      t.className="tag"; t.textContent = `${k}: ${v}`; stats.appendChild(t);
+    }
+  }
+  render(graph);
+}
+
+function render(g) {
+  const svg = d3.select("#graph");
+  const w = svg.node().clientWidth, h = 600;
+  const sim = d3.forceSimulation(g.nodes)
+    .force("link", d3.forceLink(g.edges).id(d=>d.id).distance(60))
+    .force("charge", d3.forceManyBody().strength(-80))
+    .force("center", d3.forceCenter(w/2, h/2));
+  const link = svg.append("g").selectAll("line").data(g.edges).enter()
+    .append("line").attr("class","link");
+  const node = svg.append("g").selectAll("g").data(g.nodes).enter()
+    .append("g").attr("class","node");
+  node.append("circle").attr("r", d => d.level === 2 ? 8 : 5);
+  node.append("text").attr("dx",10).attr("dy",3).text(d => d.name.length>12?d.name.slice(0,12)+"…":d.name);
+  sim.on("tick", () => {
+    link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+        .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+    node.attr("transform", d => `translate(${d.x},${d.y})`);
+  });
+}
+
+load().catch(e => {
+  document.getElementById("meta").textContent = "❌ 后端未启动 — 请先 `cd backend && uvicorn app:app --reload --port 8000`";
+  console.error(e);
+});
+</script>
+</body>
+</html>

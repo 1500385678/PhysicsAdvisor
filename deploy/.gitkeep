@@ -1,0 +1,4 @@
+# PhysicsAdvisor · Deploy 占位
+
+> 启动日期:2026-09-08 · Phase 1 路线图占位
+> 后续: Docker Compose 一键启动(backend + frontend + Caddy 反代)
