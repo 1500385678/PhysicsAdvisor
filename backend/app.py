@@ -47,6 +47,31 @@ def formulas(branch: Optional[str] = None):
     return {"count": len(items), "items": items}
 
 
+@app.get("/formulas/search")
+def formulas_search(q: str = Query("", description="关键词:匹配公式名 / 变量符号 / 变量名"),
+                    branch: Optional[str] = Query(None, description="分支过滤,如 力学")):
+    """公式全文检索(2026-09-12 公式速查页配套)
+    命中规则(任一满足):
+      - 公式名(name) 包含 q(不区分大小写)
+      - 变量符号(symbol) 包含 q(不区分大小写)
+      - 变量名(name) 包含 q(不区分大小写)
+    """
+    items = KNOWLEDGE["formulas"]
+    if branch:
+        items = [f for f in items if f.get("branch") == branch]
+    q_lower = q.strip().lower()
+    if not q_lower:
+        return {"q": q, "branch": branch, "count": len(items), "items": items}
+    hits = []
+    for f in items:
+        if q_lower in f.get("name", "").lower():
+            hits.append(f); continue
+        for v in f.get("variables", []):
+            if q_lower in v.get("symbol", "").lower() or q_lower in v.get("name", "").lower():
+                hits.append(f); break
+    return {"q": q, "branch": branch, "count": len(hits), "items": hits}
+
+
 @app.get("/cases")
 def cases(category: Optional[str] = None):
     """应用案例,支持 ?category=故事 / 应用 过滤"""

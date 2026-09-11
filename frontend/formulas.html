@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>公式速查 · PhysicsAdvisor</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;margin:0;padding:0;background:#fafafa;color:#222}
+header{background:#1a4789;color:#fff;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header h1{font-size:18px;margin:0}
+header nav a{color:#cfe0ff;text-decoration:none;margin-right:14px;font-size:13px}
+header nav a:hover{color:#fff;text-decoration:underline}
+header nav a.active{color:#fff;font-weight:600;border-bottom:2px solid #4f8bf9;padding-bottom:2px}
+.meta{color:#666;font-size:13px;margin-bottom:12px;padding:0 24px}
+.wrap{padding:0 24px 32px}
+#stats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px;align-items:center}
+.btn{background:#fff;border:1px solid #c5d8f7;padding:6px 14px;border-radius:14px;font-size:13px;cursor:pointer;user-select:none}
+.btn:hover{background:#e8f0fe}
+.btn.active{background:#1a4789;color:#fff;border-color:#1a4789}
+.btn .count{opacity:.7;margin-left:4px;font-size:11px}
+#search{flex:1;min-width:220px;padding:8px 12px;border:1px solid #c5d8f7;border-radius:14px;font-size:14px;outline:none}
+#search:focus{border-color:#1a4789}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:18px 22px;margin-bottom:14px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card h3{margin:0 0 10px;font-size:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.card h3 .name{color:#1a4789}
+.card h3 .branch{background:#e8f0fe;color:#1a4789;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:500}
+.card h3 .fid{color:#999;font-size:11px;font-family:Menlo,monospace;font-weight:400}
+.expr{background:#f5f7fb;border-left:3px solid #4f8bf9;padding:10px 14px;margin:10px 0;font-size:15px;overflow-x:auto}
+table.vars{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}
+table.vars th,table.vars td{border:1px solid #e0e0e0;padding:6px 10px;text-align:left}
+table.vars th{background:#f5f7fb;font-weight:600}
+table.vars td.sym{font-family:Menlo,monospace;color:#1a4789}
+.cond{color:#555;font-size:13px;margin-top:6px;line-height:1.6}
+.cond::before{content:"📌 适用条件:";font-weight:600;margin-right:4px}
+.empty{color:#999;text-align:center;padding:40px 0;font-size:14px}
+.loading{color:#999;text-align:center;padding:20px 0;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📐 公式速查</h1>
+  <nav>
+    <a href="index.html">知识图谱</a>
+    <a href="formulas.html" class="active">公式速查</a>
+  </nav>
+</header>
+
+<div class="meta" id="meta">加载中…</div>
+
+<div class="wrap">
+  <div id="stats">
+    <input id="search" type="text" placeholder="🔍 搜公式名 / 变量符号 / 变量名(如 动量、F、能量)"/>
+    <span class="btn active" data-branch="">全部 <span class="count" id="cnt-all">…</span></span>
+    <span class="btn" data-branch="力学">力学 <span class="count" id="cnt-力学">…</span></span>
+    <span class="btn" data-branch="电磁学">电磁学 <span class="count" id="cnt-电磁学">…</span></span>
+    <span class="btn" data-branch="热学">热学 <span class="count" id="cnt-热学">…</span></span>
+    <span class="btn" data-branch="光学">光学 <span class="count" id="cnt-光学">…</span></span>
+    <span class="btn" data-branch="近代物理">近代物理 <span class="count" id="cnt-近代物理">…</span></span>
+  </div>
+  <div id="results" class="loading">加载中…</div>
+</div>
+
+<script>
+const API = "http://localhost:8000";
+
+const state = { q: "", branch: "" };
+
+function escapeHtml(s) {
+  return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+function renderCard(f) {
+  let varsHtml = "";
+  if (f.variables && f.variables.length) {
+    varsHtml = '<table class="vars"><thead><tr><th>符号</th><th>名称</th><th>单位</th></tr></thead><tbody>';
+    for (const v of f.variables) {
+      varsHtml += `<tr><td class="sym">$${escapeHtml(v.symbol || "")}$</td><td>${escapeHtml(v.name || "")}</td><td>${escapeHtml(v.unit || "")}</td></tr>`;
+    }
+    varsHtml += "</tbody></table>";
+  }
+  const cond = f.conditions ? `<div class="cond">${escapeHtml(f.conditions)}</div>` : "";
+  // expression 字段来自 schema 0.5.0,已是 LaTeX 风格(无 $$ 包裹),这里用 $...$ 行间
+  return `<div class="card">
+    <h3><span class="name">${escapeHtml(f.name || "")}</span>
+        <span class="branch">${escapeHtml(f.branch || "")}</span>
+        <span class="fid">${escapeHtml(f.id || "")}</span></h3>
+    <div class="expr">$$${escapeHtml(f.expression || "")}$$</div>
+    ${varsHtml}
+    ${cond}
+  </div>`;
+}
+
+async function loadCounts() {
+  const all = await fetch(API + "/formulas").then(r => r.json());
+  document.getElementById("cnt-all").textContent = all.count;
+  const breakdown = {};
+  for (const f of all.items) breakdown[f.branch] = (breakdown[f.branch] || 0) + 1;
+  for (const k of ["力学","电磁学","热学","光学","近代物理"]) {
+    const el = document.getElementById("cnt-" + k);
+    if (el) el.textContent = breakdown[k] || 0;
+  }
+}
+
+async function loadResults() {
+  const res = document.getElementById("results");
+  res.className = "loading";
+  res.textContent = "加载中…";
+  let url = API + "/formulas/search?q=" + encodeURIComponent(state.q);
+  if (state.branch) url += "&branch=" + encodeURIComponent(state.branch);
+  const data = await fetch(url).then(r => r.json());
+  if (!data.items || !data.items.length) {
+    res.className = "empty";
+    res.textContent = state.q ? `🔍 无匹配:「${state.q}」${state.branch ? " in " + state.branch : ""}` : "暂无数据";
+    return;
+  }
+  res.className = "";
+  res.innerHTML = data.items.map(renderCard).join("");
+  // KaTeX auto-render 已经 deferred,这里手动触发新插入节点
+  if (window.renderMathInElement) {
+    renderMathInElement(res, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});
+  }
+  document.getElementById("meta").textContent =
+    `公式速查 · ${data.count} 条结果` + (state.q ? ` · 搜索「${state.q}」` : "") + (state.branch ? ` · ${state.branch}分支` : "");
+}
+
+function bindEvents() {
+  document.getElementById("search").addEventListener("input", e => {
+    state.q = e.target.value.trim();
+    loadResults();
+  });
+  document.querySelectorAll(".btn[data-branch]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".btn[data-branch]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.branch = btn.dataset.branch;
+      loadResults();
+    });
+  });
+}
+
+(async () => {
+  bindEvents();
+  try {
+    await loadCounts();
+    await loadResults();
+  } catch (e) {
+    document.getElementById("meta").textContent = "❌ 后端未启动 — 请先 `cd backend && uvicorn app:app --reload --port 8000`";
+    document.getElementById("results").textContent = "";
+    console.error(e);
+  }
+})();
+</script>
+
+</body>
+</html>
