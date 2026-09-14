@@ -24,6 +24,7 @@ uvicorn app:app --reload --port 8000
 # 2. 前端(单页,直接 file:// 打开或用任意静态服务器)
 open ../frontend/index.html         # 知识图谱(D3 v7 力导向图)
 open ../frontend/formulas.html      # 公式速查(KaTeX 渲染,2026-09-12 上线)
+open ../frontend/visuals.html       # 概念可视化(SVG 动画 × 5,2026-09-15 上线,纯前端无需后端)
 ```
 
 ## API 路由

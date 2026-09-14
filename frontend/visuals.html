@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>概念可视化 · PhysicsAdvisor</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;margin:0;padding:0;background:#fafafa;color:#222}
+header{background:#1a4789;color:#fff;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header h1{font-size:18px;margin:0}
+header nav a{color:#cfe0ff;text-decoration:none;margin-right:14px;font-size:13px}
+header nav a:hover{color:#fff;text-decoration:underline}
+header nav a.active{color:#fff;font-weight:600;border-bottom:2px solid #4f8bf9;padding-bottom:2px}
+.meta{color:#666;font-size:13px;padding:0 24px 12px}
+.wrap{padding:0 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:16px 20px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card h3{margin:0 0 6px;font-size:15px;color:#1a4789;display:flex;align-items:center;gap:8px}
+.card h3 .branch{background:#e8f0fe;color:#1a4789;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:500}
+.card .formula{background:#f5f7fb;border-left:3px solid #4f8bf9;padding:8px 12px;margin:8px 0;font-size:13px}
+.card .desc{color:#555;font-size:13px;line-height:1.6;margin:6px 0}
+.card .ctrl{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;align-items:center}
+.card .ctrl button{background:#fff;border:1px solid #c5d8f7;padding:4px 10px;border-radius:12px;font-size:12px;cursor:pointer}
+.card .ctrl button:hover{background:#e8f0fe}
+.card .ctrl button.active{background:#1a4789;color:#fff;border-color:#1a4789}
+.card .ctrl label{font-size:12px;color:#666;display:flex;align-items:center;gap:6px}
+.card .ctrl input[type=range]{width:120px}
+.card svg{display:block;background:#fdfdfd;border:1px solid #ececec;border-radius:6px;width:100%;height:280px}
+.legend{font-size:11px;color:#888;margin-top:4px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎨 概念可视化</h1>
+  <nav>
+    <a href="index.html">知识图谱</a>
+    <a href="formulas.html">公式速查</a>
+    <a href="visuals.html" class="active">概念可视化</a>
+  </nav>
+</header>
+
+<div class="meta">首批 5 个 SVG 动画(0915 Phase 1 3/8 破冰)· 纯前端 · 无需后端 · 调速/重置按钮已就位</div>
+
+<div class="wrap">
+
+  <!-- 1. 力的合成 -->
+  <div class="card">
+    <h3>力的合成(平行四边形法则) <span class="branch">力学</span></h3>
+    <div class="formula">$$\vec{F}_{\text{合}} = \vec{F}_1 + \vec{F}_2,\quad |\vec{F}_{\text{合}}| = \sqrt{F_1^2 + F_2^2 + 2F_1 F_2 \cos\theta}$$</div>
+    <div class="desc">两共点力的合力大小等于以两力为邻边的平行四边形对角线。拖动滑块改变两力夹角,观察合力矢量实时变化。</div>
+    <div class="ctrl">
+      <label>夹角 θ: <span id="v-angle">60°</span>
+        <input id="i-angle" type="range" min="0" max="180" value="60"></label>
+      <button onclick="reset('force')">重置</button>
+    </div>
+    <svg id="svg-force" viewBox="0 0 400 280"></svg>
+    <div class="legend">🔵 F₁ · 🟢 F₂ · 🔴 F合 · 灰虚线:平行四边形</div>
+  </div>
+
+  <!-- 2. 简谐振动 -->
+  <div class="card">
+    <h3>简谐振动(SHM) <span class="branch">力学</span></h3>
+    <div class="formula">$$x(t) = A\cos(\omega t + \varphi),\quad \omega = \sqrt{k/m},\quad T = 2\pi/\omega$$</div>
+    <div class="desc">弹簧振子在回复力 $F=-kx$ 下的位移时间曲线。点击"播放/暂停"观察振动,滑块改变振幅 A 与角频率 ω。</div>
+    <div class="ctrl">
+      <label>振幅 A: <span id="v-amp">30</span>
+        <input id="i-amp" type="range" min="10" max="50" value="30"></label>
+      <label>ω: <span id="v-omega">2.0</span>
+        <input id="i-omega" type="range" min="0.5" max="4" step="0.1" value="2"></label>
+      <button id="b-shm" onclick="toggleShm()">暂停</button>
+      <button onclick="reset('shm')">重置</button>
+    </div>
+    <svg id="svg-shm" viewBox="0 0 400 280"></svg>
+    <div class="legend">● 振子位置 · 曲线:位移-时间 · 中线为平衡位置</div>
+  </div>
+
+  <!-- 3. 电场线 -->
+  <div class="card">
+    <h3>电场线(正/负电荷) <span class="branch">电磁学</span></h3>
+    <div class="formula">$$\vec{E} = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\hat{r},\quad \text{电力线:沿 }\vec{E}\text{ 方向}$$</div>
+    <div class="desc">点电荷的电场线分布:正电荷向外辐射,负电荷向内汇聚。点击 SVG 任意位置放置一个 +q(红)或 -q(蓝)试探电荷。</div>
+    <div class="ctrl">
+      <button id="b-pos" class="active" onclick="setMode('pos')">+ 正电荷</button>
+      <button id="b-neg" onclick="setMode('neg')">− 负电荷</button>
+      <button onclick="reset('field')">清空</button>
+    </div>
+    <svg id="svg-field" viewBox="0 0 400 280"></svg>
+    <div class="legend">点击画布放置电荷 · 箭头方向为 $\vec{E}$ 方向</div>
+  </div>
+
+  <!-- 4. 双缝干涉 -->
+  <div class="card">
+    <h3>双缝干涉(杨氏实验) <span class="branch">光学</span></h3>
+    <div class="formula">$$I = I_0\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right),\quad \Delta y = \frac{\lambda L}{d}$$</div>
+    <div class="desc">相干光经双缝后干涉,屏上出现明暗相间条纹。拖动滑块改变缝间距 d,条纹间距随之变化。</div>
+    <div class="ctrl">
+      <label>缝间距 d: <span id="v-d">0.5</span> mm
+        <input id="i-d" type="range" min="0.2" max="1.5" step="0.05" value="0.5"></label>
+      <button onclick="reset('slit')">重置</button>
+    </div>
+    <svg id="svg-slit" viewBox="0 0 400 280"></svg>
+    <div class="legend">亮纹中心:$\Delta = d\sin\theta = k\lambda$ · 中央最亮</div>
+  </div>
+
+  <!-- 5. 抛体运动 -->
+  <div class="card">
+    <h3>抛体运动(平抛) <span class="branch">力学</span></h3>
+    <div class="formula">$$x = v_0 t,\quad y = \tfrac{1}{2}gt^2,\quad \text{轨迹}:y = \frac{g}{2v_0^2}x^2$$</div>
+    <div class="desc">水平抛出后,水平匀速 + 竖直自由落体的合成。改变初速度 v₀ 与重力 g,观察抛物线轨迹变化。</div>
+    <div class="ctrl">
+      <label>v₀: <span id="v-v0">60</span>
+        <input id="i-v0" type="range" min="20" max="120" value="60"></label>
+      <label>g: <span id="v-g">9.8</span>
+        <input id="i-g" type="range" min="1.6" step="0.1" max="20" value="9.8"></label>
+      <button id="b-proj" onclick="toggleProj()">开始</button>
+      <button onclick="reset('proj')">重置</button>
+    </div>
+    <svg id="svg-proj" viewBox="0 0 400 280"></svg>
+    <div class="legend">🔴 抛体 · 蓝虚线:水平分量 · 红虚线:竖直分量 · 灰曲线:完整轨迹</div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// 1. 力的合成
+// ============================================================
+function drawForce() {
+  const svg = document.getElementById("svg-force");
+  svg.innerHTML = "";
+  const W=400, H=280, cx=80, cy=140;
+  const angDeg = +document.getElementById("i-angle").value;
+  document.getElementById("v-angle").textContent = angDeg + "°";
+  const ang = angDeg * Math.PI / 180;
+  const F1 = 100, F2 = 80;
+  const x1 = F1, y1 = 0;
+  const x2 = F2*Math.cos(ang), y2 = F2*Math.sin(ang);
+  const Rx = x1+x2, Ry = y2;
+  // 坐标轴
+  svg.innerHTML += `<line x1="40" y1="${H-30}" x2="${W-20}" y2="${H-30}" stroke="#ddd"/>`;
+  svg.innerHTML += `<line x1="40" y1="${H-30}" x2="40" y2="20" stroke="#ddd"/>`;
+  // 平行四边形虚线
+  svg.innerHTML += `<line x1="${cx+x1}" y1="${cy-y1}" x2="${cx+Rx}" y2="${cy-Ry}" stroke="#bbb" stroke-dasharray="4 3"/>`;
+  svg.innerHTML += `<line x1="${cx+x2}" y1="${cy-y2}" x2="${cx+Rx}" y2="${cy-Ry}" stroke="#bbb" stroke-dasharray="4 3"/>`;
+  // F1
+  svg.innerHTML += `<line x1="${cx}" y1="${cy}" x2="${cx+x1}" y2="${cy-y1}" stroke="#4f8bf9" stroke-width="2"/>`;
+  svg.innerHTML += `<polygon points="${cx+x1-6},${cy-y1} ${cx+x1+2},${cy-y1-5} ${cx+x1+2},${cy-y1+5}" fill="#4f8bf9"/>`;
+  svg.innerHTML += `<text x="${cx+x1/2-10}" y="${cy+18}" fill="#4f8bf9" font-size="12">F₁=${F1}N</text>`;
+  // F2
+  svg.innerHTML += `<line x1="${cx}" y1="${cy}" x2="${cx+x2}" y2="${cy-y2}" stroke="#34a853" stroke-width="2"/>`;
+  svg.innerHTML += `<polygon points="${cx+x2},${cy-y2} ${cx+x2-5*Math.sin(ang)-6*Math.cos(ang)},${cy-y2+5*Math.cos(ang)-6*Math.sin(ang)} ${cx+x2+5*Math.sin(ang)-6*Math.cos(ang)},${cy-y2-5*Math.cos(ang)-6*Math.sin(ang)}" fill="#34a853"/>`;
+  svg.innerHTML += `<text x="${cx+x2/2-20}" y="${cy-y2/2-4}" fill="#34a853" font-size="12">F₂=${F2}N</text>`;
+  // F合
+  svg.innerHTML += `<line x1="${cx}" y1="${cy}" x2="${cx+Rx}" y2="${cy-Ry}" stroke="#e74c3c" stroke-width="2.5"/>`;
+  svg.innerHTML += `<polygon points="${cx+Rx},${cy-Ry} ${cx+Rx-6*Math.cos(Math.atan2(Ry,Rx))-4*Math.sin(Math.atan2(Ry,Rx))},${cy-Ry+6*Math.sin(Math.atan2(Ry,Rx))-4*Math.cos(Math.atan2(Ry,Rx))} ${cx+Rx-6*Math.cos(Math.atan2(Ry,Rx))+4*Math.sin(Math.atan2(Ry,Rx))},${cy-Ry-6*Math.sin(Math.atan2(Ry,Rx))-4*Math.cos(Math.atan2(Ry,Rx))}" fill="#e74c3c"/>`;
+  const mag = Math.sqrt(Rx*Rx+Ry*Ry);
+  svg.innerHTML += `<text x="${cx+Rx/2+10}" y="${cy-Ry/2-6}" fill="#e74c3c" font-size="13" font-weight="bold">F合=${mag.toFixed(1)}N</text>`;
+}
+
+// ============================================================
+// 2. 简谐振动
+// ============================================================
+let shmT = 0, shmRunning = true, shmLast = 0;
+function loopShm(ts) {
+  if (!shmLast) shmLast = ts;
+  const dt = (ts - shmLast) / 1000; shmLast = ts;
+  if (shmRunning) shmT += dt;
+  drawShm();
+  requestAnimationFrame(loopShm);
+}
+function drawShm() {
+  const svg = document.getElementById("svg-shm");
+  const W=400, H=280, cy=140;
+  const A = +document.getElementById("i-amp").value;
+  const omega = +document.getElementById("i-omega").value;
+  document.getElementById("v-amp").textContent = A;
+  document.getElementById("v-omega").textContent = omega.toFixed(1);
+  const phase = omega * shmT;
+  const x = A * Math.cos(phase);
+  // 画位移-时间曲线 + 当前位置
+  let path = `M 40 ${cy}`;
+  for (let px = 40; px <= 380; px += 2) {
+    const t = (px-40)/340 * (4*Math.PI/omega);
+    const y = A * Math.cos(omega*t);
+    path += ` L ${px} ${cy - y}`;
+  }
+  svg.innerHTML = "";
+  svg.innerHTML += `<line x1="40" y1="${cy}" x2="380" y2="${cy}" stroke="#ddd" stroke-dasharray="3 3"/>`;
+  svg.innerHTML += `<path d="${path}" fill="none" stroke="#4f8bf9" stroke-width="1.5"/>`;
+  // 振子
+  svg.innerHTML += `<line x1="220" y1="60" x2="220" y2="${cy-x-8}" stroke="#888"/>`;
+  svg.innerHTML += `<circle cx="220" cy="${cy-x}" r="10" fill="#e74c3c" stroke="#1a4789" stroke-width="1.5"/>`;
+  svg.innerHTML += `<text x="220" y="${cy-x+4}" text-anchor="middle" fill="#fff" font-size="10">m</text>`;
+  // 弹簧(简化)
+  const springTop = 60, springBot = cy-x-10;
+  const segs = 12, dy = (springBot-springTop)/segs;
+  let spring = `M 220 ${springTop}`;
+  for (let i=0; i<segs; i++) {
+    const yo = springTop + (i+0.5)*dy;
+    spring += ` L ${i%2?215:225} ${yo}`;
+  }
+  spring += ` L 220 ${springBot}`;
+  svg.innerHTML += `<path d="${spring}" fill="none" stroke="#666" stroke-width="1"/>`;
+  // 顶端固定
+  svg.innerHTML += `<line x1="200" y1="50" x2="240" y2="50" stroke="#333" stroke-width="2"/>`;
+  svg.innerHTML += `<line x1="200" y1="50" x2="195" y2="60" stroke="#333" stroke-width="2"/>`;
+  svg.innerHTML += `<line x1="240" y1="50" x2="245" y2="60" stroke="#333" stroke-width="2"/>`;
+  // 当前位移数值
+  svg.innerHTML += `<text x="380" y="30" text-anchor="end" fill="#1a4789" font-size="12">x = ${(A*Math.cos(phase)).toFixed(1)} px</text>`;
+  svg.innerHTML += `<text x="380" y="46" text-anchor="end" fill="#666" font-size="11">t = ${shmT.toFixed(2)} s</text>`;
+}
+function toggleShm() {
+  shmRunning = !shmRunning;
+  document.getElementById("b-shm").textContent = shmRunning ? "暂停" : "播放";
+}
+
+// ============================================================
+// 3. 电场线
+// ============================================================
+let charges = [];
+let fieldMode = "pos";
+function setMode(m) {
+  fieldMode = m;
+  document.getElementById("b-pos").classList.toggle("active", m==="pos");
+  document.getElementById("b-neg").classList.toggle("active", m==="neg");
+}
+function drawField() {
+  const svg = document.getElementById("svg-field");
+  const W=400, H=280;
+  svg.innerHTML = "";
+  // 画电场线(从每个正电荷向外,到负电荷或边界)
+  for (const c of charges) {
+    const N = 16; // 每个电荷画 16 条
+    for (let i = 0; i < N; i++) {
+      const phi = (i / N) * 2 * Math.PI;
+      let pts = [[c.x, c.y]];
+      let x = c.x, y = c.y;
+      const step = 4;
+      const dir = c.q > 0 ? 1 : -1;
+      for (let k = 0; k < 60; k++) {
+        // 算合场方向
+        let ex = 0, ey = 0;
+        for (const cc of charges) {
+          const dx = x - cc.x, dy = y - cc.y;
+          const r2 = dx*dx + dy*dy + 100;
+          const inv = cc.q / (r2 * Math.sqrt(r2));
+          ex += dx * inv; ey += dy * inv;
+        }
+        const m = Math.sqrt(ex*ex + ey*ey);
+        if (m < 1e-6) break;
+        x += dir * ex/m * step;
+        y += dir * ey/m * step;
+        pts.push([x, y]);
+        if (x < 5 || x > W-5 || y < 5 || y > H-5) break;
+      }
+      const path = "M " + pts.map(p => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" L ");
+      svg.innerHTML += `<path d="${path}" fill="none" stroke="${c.q>0?'#e74c3c':'#4f8bf9'}" stroke-width="1" opacity="0.6"/>`;
+      // 箭头
+      if (pts.length > 5) {
+        const a = pts[Math.floor(pts.length*0.6)];
+        const b = pts[Math.floor(pts.length*0.6)+1];
+        const ang = Math.atan2(b[1]-a[1], b[0]-a[0]);
+        svg.innerHTML += `<polygon points="${a[0]},${a[1]} ${a[0]-6*Math.cos(ang-0.4)},${a[1]-6*Math.sin(ang-0.4)} ${a[0]-6*Math.cos(ang+0.4)},${a[1]-6*Math.sin(ang+0.4)}" fill="${c.q>0?'#e74c3c':'#4f8bf9'}"/>`;
+      }
+    }
+    // 电荷本体
+    const color = c.q>0?"#e74c3c":"#4f8bf9";
+    const sign = c.q>0?"+":"−";
+    svg.innerHTML += `<circle cx="${c.x}" cy="${c.y}" r="14" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+    svg.innerHTML += `<text x="${c.x}" y="${c.y+5}" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">${sign}</text>`;
+  }
+  if (charges.length === 0) {
+    svg.innerHTML += `<text x="200" y="140" text-anchor="middle" fill="#999" font-size="14">点击画布放置电荷</text>`;
+  }
+}
+document.getElementById("svg-field").addEventListener("click", e => {
+  const r = e.target.getBoundingClientRect();
+  const sx = 400 / r.width, sy = 280 / r.height;
+  charges.push({ x: (e.clientX-r.left)*sx, y: (e.clientY-r.top)*sy, q: fieldMode==="pos"?1:-1 });
+  drawField();
+});
+
+// ============================================================
+// 4. 双缝干涉
+// ============================================================
+function drawSlit() {
+  const svg = document.getElementById("svg-slit");
+  const W=400, H=280;
+  const d = +document.getElementById("i-d").value;
+  document.getElementById("v-d").textContent = d.toFixed(2);
+  svg.innerHTML = "";
+  // 双缝 + 屏
+  svg.innerHTML += `<rect x="20" y="100" width="6" height="80" fill="#1a4789"/>`; // 缝1
+  svg.innerHTML += `<rect x="20" y="${100 + d*40}" width="6" height="80" fill="#1a4789"/>`; // 缝2
+  svg.innerHTML += `<rect x="320" y="40" width="6" height="200" fill="#aaa"/>`; // 屏
+  // 入射波
+  for (let k=0; k<6; k++) {
+    svg.innerHTML += `<line x1="${30+k*8}" y1="80" x2="${30+k*8}" y2="200" stroke="#4f8bf9" stroke-width="0.5" opacity="0.4"/>`;
+  }
+  // 屏上干涉条纹
+  const lambda = 0.5; // 单位 mm
+  for (let py = 40; py < 240; py++) {
+    // 屏上点的 y 决定双缝到该点的光程差
+    const y = (py - 140) / 200; // 归一化到 ±0.5
+    const theta = Math.atan(y);
+    const delta = d * Math.sin(theta);
+    const I = Math.pow(Math.cos(Math.PI * delta / lambda), 2);
+    const brightness = Math.round(I * 200 + 30);
+    svg.innerHTML += `<rect x="326" y="${py}" width="6" height="1" fill="rgb(${brightness},${brightness},255)" opacity="${I}"/>`;
+  }
+  // 中央亮纹标记
+  svg.innerHTML += `<line x1="326" y1="140" x2="332" y2="140" stroke="#e74c3c" stroke-width="1.5"/>`;
+  svg.innerHTML += `<text x="340" y="143" fill="#e74c3c" font-size="11">中央亮纹</text>`;
+  // 缝间距标注
+  svg.innerHTML += `<line x1="6" y1="140" x2="6" y2="${100 + d*40 + 40}" stroke="#666" stroke-width="1"/>`;
+  svg.innerHTML += `<line x1="3" y1="140" x2="9" y2="140" stroke="#666" stroke-width="1"/>`;
+  svg.innerHTML += `<line x1="3" y1="${100 + d*40 + 40}" x2="9" y2="${100 + d*40 + 40}" stroke="#666" stroke-width="1"/>`;
+  svg.innerHTML += `<text x="6" y="${100 + d*40 + 60}" fill="#666" font-size="10" text-anchor="middle">d=${d.toFixed(2)}mm</text>`;
+}
+
+// ============================================================
+// 5. 抛体运动
+// ============================================================
+let projT = 0, projRunning = false, projLast = 0, projTrail = [];
+function loopProj(ts) {
+  if (!projLast) projLast = ts;
+  const dt = (ts - projLast) / 1000; projLast = ts;
+  if (projRunning) {
+    projT += dt;
+    drawProj();
+  }
+  requestAnimationFrame(loopProj);
+}
+function drawProj() {
+  const svg = document.getElementById("svg-proj");
+  const W=400, H=280;
+  const v0 = +document.getElementById("i-v0").value;
+  const g = +document.getElementById("i-g").value;
+  document.getElementById("v-v0").textContent = v0;
+  document.getElementById("v-g").textContent = g.toFixed(1);
+  const tMax = Math.sqrt(2 * (H-50) / g);
+  const xMax = v0 * tMax;
+  const scaleX = (W - 80) / Math.max(xMax, 1);
+  const scaleY = (H - 80) / Math.max(0.5*g*tMax*tMax, 1);
+  const px = 40 + v0 * projT * scaleX;
+  const py = 40 + 0.5*g*projT*projT * scaleY;
+  if (projT > tMax) { projRunning = false; document.getElementById("b-proj").textContent = "开始"; }
+  projTrail.push([px, py]);
+  svg.innerHTML = "";
+  // 地面
+  svg.innerHTML += `<line x1="20" y1="40" x2="${W-20}" y2="40" stroke="#666"/>`;
+  // 完整理论轨迹
+  let path = `M 40 40`;
+  for (let s = 0; s < 200; s++) {
+    const t = (s/200) * tMax;
+    const tx = 40 + v0*t*scaleX, ty = 40 + 0.5*g*t*t*scaleY;
+    path += ` L ${tx.toFixed(1)} ${ty.toFixed(1)}`;
+  }
+  svg.innerHTML += `<path d="${path}" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>`;
+  // 已走轨迹
+  if (projTrail.length > 1) {
+    let trail = `M ${projTrail[0][0]} ${projTrail[0][1]}`;
+    for (let i = 1; i < projTrail.length; i++) trail += ` L ${projTrail[i][0]} ${projTrail[i][1]}`;
+    svg.innerHTML += `<path d="${trail}" fill="none" stroke="#4f8bf9" stroke-width="2"/>`;
+  }
+  // 抛体
+  svg.innerHTML += `<circle cx="${px}" cy="${py}" r="6" fill="#e74c3c"/>`;
+  // 分量箭头
+  svg.innerHTML += `<line x1="40" y1="${py}" x2="${px}" y2="${py}" stroke="#4f8bf9" stroke-dasharray="3 3"/>`;
+  svg.innerHTML += `<text x="${(40+px)/2}" y="${py+14}" fill="#4f8bf9" font-size="10" text-anchor="middle">x=${(v0*projT).toFixed(1)}</text>`;
+  svg.innerHTML += `<line x1="${px}" y1="40" x2="${px}" y2="${py}" stroke="#e74c3c" stroke-dasharray="3 3"/>`;
+  svg.innerHTML += `<text x="${px+8}" y="${(40+py)/2}" fill="#e74c3c" font-size="10">y=${(0.5*g*projT*projT).toFixed(1)}</text>`;
+  // 数据
+  svg.innerHTML += `<text x="${W-30}" y="20" text-anchor="end" fill="#1a4789" font-size="11">t=${projT.toFixed(2)}s</text>`;
+  svg.innerHTML += `<text x="${W-30}" y="34" text-anchor="end" fill="#666" font-size="10">射程=${xMax.toFixed(1)}px</text>`;
+}
+function toggleProj() {
+  projRunning = !projRunning;
+  document.getElementById("b-proj").textContent = projRunning ? "暂停" : "开始";
+  if (!projRunning) projLast = 0;
+}
+
+// ============================================================
+// 重置 / 启动
+// ============================================================
+function reset(which) {
+  if (which === "force") drawForce();
+  else if (which === "shm") { shmT = 0; shmLast = 0; drawShm(); }
+  else if (which === "field") { charges = []; drawField(); }
+  else if (which === "slit") drawSlit();
+  else if (which === "proj") { projT = 0; projTrail = []; projRunning = false; projLast = 0; document.getElementById("b-proj").textContent = "开始"; drawProj(); }
+}
+
+document.getElementById("i-angle").addEventListener("input", drawForce);
+document.getElementById("i-amp").addEventListener("input", drawShm);
+document.getElementById("i-omega").addEventListener("input", drawShm);
+document.getElementById("i-d").addEventListener("input", drawSlit);
+document.getElementById("i-v0").addEventListener("input", drawProj);
+document.getElementById("i-g").addEventListener("input", drawProj);
+
+drawForce(); drawShm(); drawField(); drawSlit(); drawProj();
+requestAnimationFrame(loopShm);
+requestAnimationFrame(loopProj);
+</script>
+
+</body>
+</html>
