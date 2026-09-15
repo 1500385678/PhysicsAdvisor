@@ -25,6 +25,7 @@ uvicorn app:app --reload --port 8000
 open ../frontend/index.html         # 知识图谱(D3 v7 力导向图)
 open ../frontend/formulas.html      # 公式速查(KaTeX 渲染,2026-09-12 上线)
 open ../frontend/visuals.html       # 概念可视化(SVG 动画 × 5,2026-09-15 上线,纯前端无需后端)
+open ../frontend/experiments.html   # 交互实验(SVG 仿真 × 5 + 50 实验清单,2026-09-16 上线)
 ```
 
 ## API 路由
@@ -36,7 +37,8 @@ open ../frontend/visuals.html       # 概念可视化(SVG 动画 × 5,2026-09-15
 | `GET /formulas` | 公式列表 | `?branch=力学` |
 | `GET /formulas/search` | 公式全文检索(2026-09-12 新增) | `?q=关键词&branch=分支` |
 | `GET /cases` | 应用案例 | `?category=故事/应用` |
-| `GET /experiments` | 经典实验分支汇总 | — |
+| `GET /experiments` | 经典实验清单 + 完整元数据(2026-09-16 升级:50 条) | — |
+| `GET /experiments/summary` | 经典实验分支汇总(旧端点保留) | — |
 
 ## 数据资产
 
@@ -145,6 +147,8 @@ for f in d['formulas']:
 
 ## 变更记录
 
+- **0916**:交互实验页 `frontend/experiments.html` 上线(Phase 1 3/8 → **4/8**);单文件含 5 个 SVG 交互仿真(单摆 / 弹簧振子 / 欧姆定律 / 斜抛运动 / 光的折射)+ 50 条经典实验清单(从后端 `/experiments` 拉,按分支过滤);后端 `app.py` `/experiments` 路由升级,返回完整 50 条实验(`source_file` / `branch` / `id` / `name` / `era` / `people` / `discovery` / `significance` / `key_data`),兼容 01(###) + 02-04(####) 两种标题格式;`/experiments/summary` 旧端点保留;`.gitignore` 由 `/*.log` 升级到 `**/*.log` + `!.Log/**` + `!.Log/*.log`(P2 20 天债解套,巡检 `.Log/*.md` 仍可入库);同步 `index.html` / `formulas.html` / `visuals.html` 导航(<a href="experiments.html">交互实验</a>)。
+- **0915**:概念可视化页 `frontend/visuals.html` 上线(Phase 1 2/8 → **3/8**);5 个 SVG 动画组件:① 力的合成(平行四边形法则)· ② 简谐振动· ③ 电场线· ④ 双缝干涉· ⑤ 抛体运动;纯前端 + KaTeX 0.16.x 渲染公式,与 `index.html` / `formulas.html` 统一 header 导航。
 - **0912**:公式速查页 `frontend/formulas.html` 上线(Phase 1 1/8 → **2/8**);后端 `app.py` 新增 `GET /formulas/search?q=&branch=` 全文检索(命中 公式名 / 变量符号 / 变量名,不区分大小写);前端 KaTeX 0.16.x 渲染 LaTeX,搜索框 + 5 分支按钮 + 公式卡片(标题 / LaTeX 表达式 / 变量表 / 适用条件);`index.html` 顶部新增导航;README 新增 Web 启动段 + API 路由表;冒烟测试 `q=动量` → 5 条 / `q=F` → 15 条 / `q=能量` → 9 条 / `q=` → 87 条。
 - **0911**:公式库 LaTeX 化 5/5 收官(`data/formulas/05_近代物理公式_latex.md` 20 条,沿用 01-04 统一格式:`$$...$$` 表达式 + 4 列 markdown 表格 + 适用条件段;LaTeX 化种子累计 14+15+18+20+20 = 87 条,量子物理 14 + 统计物理 2 + 狭义相对论 4);Phase 0 公式层 5/5 全分支就位收官。
 - **0903**:公式层扩到 05 近代物理分支(`data/formulas/05_近代物理公式.md` 20 条,覆盖普朗克黑体辐射/爱因斯坦光电效应/康普顿散射/玻尔氢原子能级/玻尔频率条件/德布罗意波/海森堡不确定/薛定谔方程(1D 时变+定态)/一维无限深势阱/一维谐振子/玻尔磁子/自旋角动量/泡利不相容/费米-狄拉克分布/玻色-爱因斯坦分布/狭义相对论·时间膨胀/狭义相对论·长度收缩/质能等价/洛伦兹变换),公式数 67 → 87,`formula_branch_breakdown` 从 `{"力学": 14, "电磁学": 15, "热学": 18, "光学": 20}` → `{"力学": 14, "电磁学": 15, "热学": 18, "光学": 20, "近代物理": 20}`;🟡 P1 推进 1 步(**5/5 公式分支全部就位**,Phase 0 公式层收官,距 100 目标差 13,后续补分支内细化或新分支)。

@@ -1,6 +1,8 @@
 .DS_Store
-# 只忽略根目录的 *.log(如 app.log / error.log),不忽略 .Log/ 巡检目录
-/*.log
+# 忽略所有 *.log 文件,但保留 .Log/ 巡检目录(包括其下的 .log / .md)可入库
+**/*.log
+!.Log/**
+!.Log/*.log
 node_modules/
 .venv/
 __pycache__/

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>交互实验 · PhysicsAdvisor</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;margin:0;padding:0;background:#fafafa;color:#222}
+header{background:#1a4789;color:#fff;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header h1{font-size:18px;margin:0}
+header nav a{color:#cfe0ff;text-decoration:none;margin-right:14px;font-size:13px}
+header nav a:hover{color:#fff;text-decoration:underline}
+header nav a.active{color:#fff;font-weight:600;border-bottom:2px solid #4f8bf9;padding-bottom:2px}
+.meta{color:#666;font-size:13px;padding:0 24px 12px}
+.section-title{font-size:15px;color:#1a4789;font-weight:600;padding:16px 24px 8px;border-top:1px solid #e0e0e0;background:#f3f6fc}
+.wrap{padding:0 24px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:16px 20px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card h3{margin:0 0 6px;font-size:15px;color:#1a4789;display:flex;align-items:center;gap:8px}
+.card h3 .branch{background:#e8f0fe;color:#1a4789;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:500}
+.card .formula{background:#f5f7fb;border-left:3px solid #4f8bf9;padding:8px 12px;margin:8px 0;font-size:13px}
+.card .desc{color:#555;font-size:13px;line-height:1.6;margin:6px 0}
+.card .ctrl{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;align-items:center}
+.card .ctrl button{background:#fff;border:1px solid #c5d8f7;padding:4px 10px;border-radius:12px;font-size:12px;cursor:pointer}
+.card .ctrl button:hover{background:#e8f0fe}
+.card .ctrl button.active{background:#1a4789;color:#fff;border-color:#1a4789}
+.card .ctrl label{font-size:12px;color:#666;display:flex;align-items:center;gap:6px}
+.card .ctrl input[type=range]{width:110px}
+.card svg{display:block;background:#fdfdfd;border:1px solid #ececec;border-radius:6px;width:100%;height:280px}
+.legend{font-size:11px;color:#888;margin-top:4px}
+
+/* 实验清单样式 */
+.list{padding:0 24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:12px}
+.list .item{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 18px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.list .item h4{margin:0 0 4px;font-size:14px;color:#1a4789;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.list .item h4 .branch{background:#e8f0fe;color:#1a4789;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:500}
+.list .item h4 .id{color:#999;font-size:11px;font-family:Menlo,monospace;font-weight:400;margin-left:auto}
+.list .item .meta{color:#888;font-size:12px;margin:4px 0;padding:0}
+.list .item .body{font-size:13px;color:#444;line-height:1.6;margin-top:4px}
+.list .item .body p{margin:2px 0}
+.list .item .body b{color:#555}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;padding:8px 24px;align-items:center}
+.filter-bar .btn{background:#fff;border:1px solid #c5d8f7;padding:5px 12px;border-radius:14px;font-size:12px;cursor:pointer;user-select:none}
+.filter-bar .btn:hover{background:#e8f0fe}
+.filter-bar .btn.active{background:#1a4789;color:#fff;border-color:#1a4789}
+.filter-bar .btn .count{opacity:.7;margin-left:3px;font-size:11px}
+.loading{color:#999;text-align:center;padding:40px 0;font-size:13px}
+.empty{color:#999;text-align:center;padding:40px 0;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧪 交互实验</h1>
+  <nav>
+    <a href="index.html">知识图谱</a>
+    <a href="formulas.html">公式速查</a>
+    <a href="visuals.html">概念可视化</a>
+    <a href="experiments.html" class="active">交互实验</a>
+  </nav>
+</header>
+
+<div class="meta">首批 5 个 SVG 交互仿真(0916 Phase 1 4/8 破冰)+ 50 条经典实验清单 · 数据 <code>/experiments</code> · 仿真纯前端无需后端</div>
+
+<div class="section-title">🧪 Part 1 · 5 个交互仿真(浏览器内运行,可调参数)</div>
+
+<div class="wrap">
+
+  <!-- 1. 单摆 -->
+  <div class="card">
+    <h3>单摆周期 <span class="branch">力学</span></h3>
+    <div class="formula">$$T = 2\pi\sqrt{\dfrac{L}{g}},\quad \theta(t) = \theta_0\cos(\omega t),\quad \omega=\sqrt{g/L}$$</div>
+    <div class="desc">小角度近似下单摆周期仅与摆长 $L$ 与重力加速度 $g$ 有关,与摆球质量无关。调节 $L$ 与 $g$ 观察周期变化,画摆球轨迹。</div>
+    <div class="ctrl">
+      <label>L: <span id="v-pend-L">1.0</span>m
+        <input id="i-pend-L" type="range" min="0.2" max="2.0" step="0.05" value="1.0"></label>
+      <label>g: <span id="v-pend-g">9.8</span>
+        <input id="i-pend-g" type="range" min="1" max="25" step="0.1" value="9.8"></label>
+      <label>θ₀: <span id="v-pend-A">20</span>°
+        <input id="i-pend-A" type="range" min="5" max="45" value="20"></label>
+      <button id="b-pend" onclick="togglePend()">暂停</button>
+      <button onclick="resetPend()">重置</button>
+    </div>
+    <svg id="svg-pend" viewBox="0 0 400 280"></svg>
+    <div class="legend">● 摆球 · 摆长 L · T = 2π√(L/g) · θ₀ 为初始摆角</div>
+  </div>
+
+  <!-- 2. 弹簧振子(独立于 visuals) -->
+  <div class="card">
+    <h3>弹簧振子(简谐+阻尼) <span class="branch">力学</span></h3>
+    <div class="formula">$$m\ddot{x} = -kx - b\dot{x},\quad \omega_d=\sqrt{\omega_0^2-(b/2m)^2}$$</div>
+    <div class="desc">弹簧振子在阻力 $F_b=-bv$ 下的衰减振动。调节 $b$ 观察欠阻尼/临界阻尼/过阻尼三种状态。</div>
+    <div class="ctrl">
+      <label>阻尼 b: <span id="v-spr-b">0.2</span>
+        <input id="i-spr-b" type="range" min="0" max="2" step="0.05" value="0.2"></label>
+      <button id="b-spr" onclick="toggleSpr()">暂停</button>
+      <button onclick="resetSpr()">重置</button>
+    </div>
+    <svg id="svg-spr" viewBox="0 0 400 280"></svg>
+    <div class="legend">m=1, k=5 · 蓝:位移曲线 · 红:包络线 ±A·e^(-bt/2m)</div>
+  </div>
+
+  <!-- 3. 欧姆定律 -->
+  <div class="card">
+    <h3>欧姆定律 <span class="branch">电磁学</span></h3>
+    <div class="formula">$$U = IR,\quad P = UI = I^2R$$</div>
+    <div class="desc">电压 U = 电流 I × 电阻 R。滑块改变 R 与 U,实时看 I 与 P,绘制 I-V 关系直线。</div>
+    <div class="ctrl">
+      <label>电压 U: <span id="v-ohm-U">6</span>V
+        <input id="i-ohm-U" type="range" min="0" max="20" step="0.5" value="6"></label>
+      <label>电阻 R: <span id="v-ohm-R">100</span>Ω
+        <input id="i-ohm-R" type="range" min="10" max="500" step="10" value="100"></label>
+    </div>
+    <svg id="svg-ohm" viewBox="0 0 400 280"></svg>
+    <div class="legend">实线:I-V 直线(斜率 1/R) · 当前工作点(红) · 功率 P = UI</div>
+  </div>
+
+  <!-- 4. 抛体运动(独立于 visuals,带角度) -->
+  <div class="card">
+    <h3>斜抛运动 <span class="branch">力学</span></h3>
+    <div class="formula">$$x = v_0\cos\theta\cdot t,\quad y = v_0\sin\theta\cdot t - \tfrac{1}{2}gt^2$$</div>
+    <div class="desc">初速度 $v_0$ 与角度 $\theta$ 给定,画完整轨迹 + 实时小球。射程 $R=v_0^2\sin(2\theta)/g$,最高点 $H=v_0^2\sin^2\theta/(2g)$。</div>
+    <div class="ctrl">
+      <label>v₀: <span id="v-proj-V">30</span>m/s
+        <input id="i-proj-V" type="range" min="5" max="60" step="1" value="30"></label>
+      <label>θ: <span id="v-proj-T">45</span>°
+        <input id="i-proj-T" type="range" min="10" max="80" step="1" value="45"></label>
+      <button id="b-proj" onclick="toggleProj()">开始</button>
+      <button onclick="resetProj()">重置</button>
+    </div>
+    <svg id="svg-proj" viewBox="0 0 400 280"></svg>
+    <div class="legend">虚线:理论抛物线 · 实线:已走轨迹 · 红球:当前 · 灰:最高点</div>
+  </div>
+
+  <!-- 5. 光的折射(斯涅尔定律) -->
+  <div class="card">
+    <h3>光的折射(斯涅尔定律) <span class="branch">光学</span></h3>
+    <div class="formula">$$n_1\sin\theta_1 = n_2\sin\theta_2,\quad \theta_c = \arcsin(n_2/n_1)$$</div>
+    <div class="desc">光从介质 1 进入介质 2 时折射。调节入射角 $\theta_1$ 与 $n_1/n_2$ 观察折射角 $\theta_2$;当 $n_1&gt;n_2$ 且 $\theta_1&gt;\theta_c$ 时全反射。</div>
+    <div class="ctrl">
+      <label>入射角 θ₁: <span id="v-refr-A">45</span>°
+        <input id="i-refr-A" type="range" min="0" max="89" step="1" value="45"></label>
+      <label>n₂/n₁: <span id="v-refr-N">1.5</span>
+        <input id="i-refr-N" type="range" min="0.5" max="3" step="0.05" value="1.5"></label>
+    </div>
+    <svg id="svg-refr" viewBox="0 0 400 280"></svg>
+    <div class="legend">↑ 法线 · 蓝色:入射 · 绿色:折射 · 紫色:反射 · 红色:全反射</div>
+  </div>
+
+</div>
+
+<div class="section-title">📜 Part 2 · 50 条经典实验清单(从后端 /experiments 拉取)</div>
+
+<div class="filter-bar" id="filter-bar">
+  <span class="btn active" data-branch="">全部 <span class="count" id="cnt-all">…</span></span>
+  <span class="btn" data-branch="力学">力学 <span class="count" id="cnt-力学">…</span></span>
+  <span class="btn" data-branch="电磁学">电磁学 <span class="count" id="cnt-电磁学">…</span></span>
+  <span class="btn" data-branch="热学">热学 <span class="count" id="cnt-热学">…</span></span>
+  <span class="btn" data-branch="光学">光学 <span class="count" id="cnt-光学">…</span></span>
+  <span class="btn" data-branch="近代物理">近代物理 <span class="count" id="cnt-近代物理">…</span></span>
+</div>
+
+<div class="list" id="list">
+  <div class="loading">加载中…</div>
+</div>
+
+<script>
+const API = "http://localhost:8000";
+
+// =========================================================================
+// 单摆 (Pendulum)
+// =========================================================================
+let pendT = 0, pendLast = 0, pendRunning = true;
+function resetPend() { pendT = 0; pendLast = 0; drawPend(); }
+function togglePend() { pendRunning = !pendRunning; document.getElementById("b-pend").textContent = pendRunning ? "暂停" : "播放"; if (!pendRunning) pendLast = 0; }
+function drawPend() {
+  const L = parseFloat(document.getElementById("i-pend-L").value);
+  const g = parseFloat(document.getElementById("i-pend-g").value);
+  const A = parseFloat(document.getElementById("i-pend-A").value) * Math.PI / 180;
+  document.getElementById("v-pend-L").textContent = L.toFixed(2);
+  document.getElementById("v-pend-g").textContent = g.toFixed(1);
+  document.getElementById("v-pend-A").textContent = (A*180/Math.PI).toFixed(0);
+  const T = 2 * Math.PI * Math.sqrt(L / g);
+  const svg = document.getElementById("svg-pend");
+  // pivot at (200, 30), ball at (200+L*sinθ*100, 30+L*cosθ*100)
+  const pivotX = 200, pivotY = 30, scale = 80;
+  const theta = A * Math.cos(Math.sqrt(g/L) * pendT);
+  const bx = pivotX + L*scale * Math.sin(theta);
+  const by = pivotY + L*scale * Math.cos(theta);
+  svg.innerHTML = `
+    <line x1="20" y1="${pivotY+8}" x2="380" y2="${pivotY+8}" stroke="#888" stroke-width="1"/>
+    <circle cx="${pivotX}" cy="${pivotY}" r="5" fill="#1a4789"/>
+    <line x1="${pivotX}" y1="${pivotY}" x2="${bx}" y2="${by}" stroke="#4f8bf9" stroke-width="2"/>
+    <circle cx="${bx}" cy="${by}" r="10" fill="#e74c3c"/>
+    <line x1="${pivotX}" y1="${pivotY-10}" x2="${pivotX}" y2="${pivotY+30}" stroke="#999" stroke-dasharray="3 2"/>
+    <text x="${pivotX+8}" y="${pivotY-2}" fill="#888" font-size="10">θ=${(theta*180/Math.PI).toFixed(1)}°</text>
+    <text x="20" y="20" fill="#1a4789" font-size="11">T = ${T.toFixed(2)} s</text>
+    <text x="20" y="34" fill="#666" font-size="10">ω = ${Math.sqrt(g/L).toFixed(2)} rad/s</text>
+    <text x="380" y="20" fill="#666" font-size="10" text-anchor="end">t = ${pendT.toFixed(2)} s</text>
+    <text x="380" y="34" fill="#666" font-size="10" text-anchor="end">已周期 ${Math.floor(pendT/T)}</text>
+  `;
+}
+
+// =========================================================================
+// 弹簧振子 (Spring + damping)
+// =========================================================================
+let sprT = 0, sprLast = 0, sprRunning = true, sprX = 1.0; // x = relative position 0..2
+const SPR_M = 1, SPR_K = 5;
+function resetSpr() { sprT = 0; sprLast = 0; sprX = 1.0; drawSpr(); }
+function toggleSpr() { sprRunning = !sprRunning; document.getElementById("b-spr").textContent = sprRunning ? "暂停" : "播放"; if (!sprRunning) sprLast = 0; }
+function stepSpr(dt) {
+  const b = parseFloat(document.getElementById("i-spr-b").value);
+  const omega = Math.sqrt(SPR_K / SPR_M);
+  // analytical: x(t) = A * exp(-b/(2m) t) * cos(omega_d t)
+  const decay = Math.exp(-b / (2*SPR_M) * sprT);
+  sprX = decay * Math.cos(Math.sqrt(Math.max(0, omega*omega - (b/(2*SPR_M))**2)) * sprT);
+}
+function drawSpr() {
+  const b = parseFloat(document.getElementById("i-spr-b").value);
+  document.getElementById("v-spr-b").textContent = b.toFixed(2);
+  const svg = document.getElementById("svg-spr");
+  const cx = 200, baseline = 220;
+  // spring = anchor(left) to mass(x at midline+bx)
+  const mass = cx + sprX * 100;
+  const omega0 = Math.sqrt(SPR_K/SPR_M);
+  // envelope lines
+  const envTop = [], envBot = [];
+  for (let s = 0; s <= 200; s++) {
+    const tt = (s/200) * 6;
+    const e = Math.exp(-b/(2*SPR_M) * tt);
+    envTop.push([40 + (tt/6)*320, baseline - e * 100]);
+    envBot.push([40 + (tt/6)*320, baseline + e * 100]);
+  }
+  // displacement curve
+  const curve = [];
+  for (let s = 0; s <= 200; s++) {
+    const tt = (s/200) * 6;
+    const e = Math.exp(-b/(2*SPR_M) * tt);
+    const wd = Math.sqrt(Math.max(0, omega0*omega0 - (b/(2*SPR_M))**2));
+    const x = e * Math.cos(wd * tt);
+    curve.push([40 + (tt/6)*320, baseline - x * 100]);
+  }
+  let envPathTop = "M " + envTop[0].join(" ");
+  for (let i = 1; i < envTop.length; i++) envPathTop += " L " + envTop[i].join(" ");
+  let envPathBot = "M " + envBot[0].join(" ");
+  for (let i = 1; i < envBot.length; i++) envPathBot += " L " + envBot[i].join(" ");
+  let curvePath = "M " + curve[0].join(" ");
+  for (let i = 1; i < curve.length; i++) curvePath += " L " + curve[i].join(" ");
+  svg.innerHTML = `
+    <line x1="20" y1="${baseline}" x2="380" y2="${baseline}" stroke="#888" stroke-dasharray="3 2"/>
+    <path d="${envPathTop}" fill="none" stroke="#e74c3c" stroke-width="1" stroke-dasharray="3 2"/>
+    <path d="${envPathBot}" fill="none" stroke="#e74c3c" stroke-width="1" stroke-dasharray="3 2"/>
+    <path d="${curvePath}" fill="none" stroke="#4f8bf9" stroke-width="2"/>
+    <circle cx="${mass}" cy="${baseline}" r="8" fill="#1a4789"/>
+    <line x1="20" y1="${baseline}" x2="${mass}" y2="${baseline}" stroke="#999" stroke-width="1"/>
+    <text x="20" y="20" fill="#1a4789" font-size="11">x(t) = exp(-bt/2m) cos(ωt)</text>
+    <text x="380" y="20" fill="#666" font-size="10" text-anchor="end">b=${b.toFixed(2)}, t=${sprT.toFixed(1)}s</text>
+    <text x="380" y="34" fill="#666" font-size="10" text-anchor="end">x=${sprX.toFixed(2)}</text>
+  `;
+}
+
+// =========================================================================
+// 欧姆定律 (Ohm's law)
+// =========================================================================
+function drawOhm() {
+  const U = parseFloat(document.getElementById("i-ohm-U").value);
+  const R = parseFloat(document.getElementById("i-ohm-R").value);
+  document.getElementById("v-ohm-U").textContent = U.toFixed(1);
+  document.getElementById("v-ohm-R").textContent = R.toFixed(0);
+  const I = U / R;
+  const P = U * I;
+  const svg = document.getElementById("svg-ohm");
+  // axes: x = U(0..20V), y = I(0..0.5A)
+  const x0 = 40, y0 = 240, W = 340, H = 200;
+  const xScale = W / 20, yScale = H / 0.5;
+  // I-V straight line: slope 1/R
+  const Umax = 20;
+  const Imax = Umax / R;
+  // current point
+  const cx = x0 + U * xScale, cy = y0 - Math.min(Imax, 0.5) * yScale;
+  const cyReal = y0 - I * yScale;
+  // I-V line
+  const xEnd = x0 + Umax * xScale;
+  const yEnd = y0 - Math.min(Imax, 0.5) * yScale;
+  svg.innerHTML = `
+    <!-- axes -->
+    <line x1="${x0}" y1="${y0}" x2="${x0+W}" y2="${y0}" stroke="#666"/>
+    <line x1="${x0}" y1="${y0-H}" x2="${x0}" y2="${y0}" stroke="#666"/>
+    <text x="${x0+W/2}" y="${y0+15}" fill="#666" font-size="10" text-anchor="middle">U(V) →</text>
+    <text x="${x0-5}" y="${y0-H/2}" fill="#666" font-size="10" text-anchor="end">I(A) ↑</text>
+    <!-- I-V line -->
+    <line x1="${x0}" y1="${y0}" x2="${xEnd}" y2="${yEnd}" stroke="#4f8bf9" stroke-width="2"/>
+    <text x="${x0+5}" y="${yEnd-5}" fill="#4f8bf9" font-size="10">斜率 1/R = ${(1/R).toFixed(3)}</text>
+    <!-- current point -->
+    <circle cx="${cx}" cy="${cyReal}" r="6" fill="#e74c3c"/>
+    <text x="${cx+10}" y="${cyReal+5}" fill="#e74c3c" font-size="11">I = ${I.toFixed(3)} A</text>
+    <!-- info box -->
+    <rect x="240" y="20" width="140" height="64" fill="#f5f7fb" stroke="#c5d8f7" stroke-width="1" rx="4"/>
+    <text x="250" y="40" fill="#1a4789" font-size="11">U = ${U.toFixed(1)} V</text>
+    <text x="250" y="55" fill="#1a4789" font-size="11">R = ${R.toFixed(0)} Ω</text>
+    <text x="250" y="70" fill="#1a4789" font-size="11">I = ${I.toFixed(3)} A</text>
+    <text x="250" y="80" fill="#e74c3c" font-size="11">P = ${P.toFixed(2)} W</text>
+  `;
+}
+
+// =========================================================================
+// 斜抛运动 (Projectile at angle)
+// =========================================================================
+let projT = 0, projLast = 0, projRunning = false;
+let projTrail = [];
+function resetProj() { projT = 0; projLast = 0; projRunning = false; projTrail = []; document.getElementById("b-proj").textContent = "开始"; drawProj(); }
+function toggleProj() { projRunning = !projRunning; document.getElementById("b-proj").textContent = projRunning ? "暂停" : "开始"; if (!projRunning) projLast = 0; }
+function drawProj() {
+  const V = parseFloat(document.getElementById("i-proj-V").value);
+  const theta = parseFloat(document.getElementById("i-proj-T").value) * Math.PI / 180;
+  document.getElementById("v-proj-V").textContent = V.toFixed(0);
+  document.getElementById("v-proj-T").textContent = (theta*180/Math.PI).toFixed(0);
+  const g = 9.8;
+  const tMax = 2 * V * Math.sin(theta) / g;
+  const xMax = V * V * Math.sin(2 * theta) / g;
+  const Hmax = V * V * Math.sin(theta)**2 / (2 * g);
+  const svg = document.getElementById("svg-proj");
+  const W = 400, H = 280;
+  const xScale = (W - 60) / Math.max(xMax, 1);
+  const yScale = (H - 60) / Math.max(Hmax, 0.1);
+  // theoretical trajectory
+  let path = `M 40 ${H-40}`;
+  for (let s = 0; s <= 100; s++) {
+    const tt = (s/100) * tMax;
+    const tx = 40 + V*Math.cos(theta)*tt*xScale;
+    const ty = H-40 - (V*Math.sin(theta)*tt - 0.5*g*tt*tt)*yScale;
+    path += ` L ${tx.toFixed(1)} ${ty.toFixed(1)}`;
+  }
+  // current point
+  const px = 40 + V*Math.cos(theta)*projT*xScale;
+  const py = H-40 - (V*Math.sin(theta)*projT - 0.5*g*projT*projT)*yScale;
+  // ground
+  let trail = "";
+  if (projTrail.length > 1) {
+    trail = `M ${projTrail[0][0]} ${projTrail[0][1]}`;
+    for (let i = 1; i < projTrail.length; i++) trail += ` L ${projTrail[i][0]} ${projTrail[i][1]}`;
+  }
+  svg.innerHTML = `
+    <line x1="20" y1="${H-40}" x2="${W-20}" y2="${H-40}" stroke="#888"/>
+    <path d="${path}" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+    ${trail ? `<path d="${trail}" fill="none" stroke="#4f8bf9" stroke-width="2"/>` : ""}
+    <circle cx="${px}" cy="${py}" r="6" fill="#e74c3c"/>
+    <text x="20" y="20" fill="#1a4789" font-size="11">v₀=${V}m/s, θ=${(theta*180/Math.PI).toFixed(0)}°</text>
+    <text x="20" y="34" fill="#666" font-size="10">g=${g}</text>
+    <text x="380" y="20" fill="#666" font-size="10" text-anchor="end">t=${projT.toFixed(2)}s</text>
+    <text x="380" y="34" fill="#666" font-size="10" text-anchor="end">射程=${xMax.toFixed(1)}m</text>
+    <text x="380" y="48" fill="#666" font-size="10" text-anchor="end">高=${Hmax.toFixed(1)}m</text>
+  `;
+}
+
+// =========================================================================
+// 折射 (Snell's Law)
+// =========================================================================
+function drawRefr() {
+  const theta1 = parseFloat(document.getElementById("i-refr-A").value);
+  const ratio = parseFloat(document.getElementById("i-refr-N").value);
+  document.getElementById("v-refr-A").textContent = theta1.toFixed(0);
+  document.getElementById("v-refr-N").textContent = ratio.toFixed(2);
+  const th1Rad = theta1 * Math.PI / 180;
+  const sin2 = Math.sin(th1Rad) / ratio;
+  const totalInternal = sin2 > 1 ? 1 : 0;
+  const th2Rad = Math.asin(Math.min(1, sin2));
+  const svg = document.getElementById("svg-refr");
+  const W = 400, H = 280;
+  const cx = W/2, cy = H/2;
+  const L = 130; // ray length
+  // surface: horizontal line at cy
+  // normal: vertical line through cx
+  // top medium (1), bottom medium (2)
+  // incident ray: from (cx - L*sin(th1), cy - L*cos(th1)) to (cx, cy)
+  const ix1 = cx - L * Math.sin(th1Rad);
+  const iy1 = cy - L * Math.cos(th1Rad);
+  const ix2 = cx, iy2 = cy;
+  // refracted: from (cx, cy) to (cx + L*sin(th2), cy + L*cos(th2))
+  const rx2 = cx + L * Math.sin(th2Rad);
+  const ry2 = cy + L * Math.cos(th2Rad);
+  // reflected ray
+  const reflY = cy - L * Math.cos(th1Rad);
+  const reflX = cx + L * Math.sin(th1Rad);
+  svg.innerHTML = `
+    <!-- medium boundary -->
+    <line x1="20" y1="${cy}" x2="${W-20}" y2="${cy}" stroke="#666" stroke-width="2"/>
+    <text x="30" y="${cy-6}" fill="#e8f0fe" font-size="11">介质 1 (n₁)</text>
+    <text x="30" y="${cy+18}" fill="#1a4789" font-size="11">介质 2 (n₂)</text>
+    <!-- normal -->
+    <line x1="${cx}" y1="20" x2="${cx}" y2="${H-20}" stroke="#aaa" stroke-dasharray="4 3"/>
+    <text x="${cx+4}" y="22" fill="#aaa" font-size="10">法线</text>
+    <!-- incident ray (blue) -->
+    ${totalInternal ? "" : `<line x1="${ix1}" y1="${iy1}" x2="${ix2}" y2="${iy2}" stroke="#4f8bf9" stroke-width="2" marker-end="url(#arrow)"/>`}
+    <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#4f8bf9"/></marker></defs>
+    <!-- refracted (green) -->
+    ${totalInternal ? "" : `<line x1="${ix2}" y1="${iy2}" x2="${rx2}" y2="${ry2}" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-g)"/>`}
+    <defs><marker id="arrow-g" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#27ae60"/></marker></defs>
+    <!-- reflected (purple) -->
+    <line x1="${ix2}" y1="${iy2}" x2="${reflX}" y2="${reflY}" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrow-p)"/>
+    <defs><marker id="arrow-p" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 z" fill="#9b59b6"/></marker></defs>
+    <!-- angles labels -->
+    <text x="${cx-L*Math.sin(th1Rad)+5}" y="${cy-L*Math.cos(th1Rad)+12}" fill="#4f8bf9" font-size="10">θ₁=${theta1}°</text>
+    ${totalInternal ? "" : `<text x="${cx+L*Math.sin(th2Rad)+5}" y="${cy+L*Math.cos(th2Rad)-5}" fill="#27ae60" font-size="10">θ₂=${(th2Rad*180/Math.PI).toFixed(1)}°</text>`}
+    ${totalInternal ? `<text x="${cx+10}" y="${cy-30}" fill="#e74c3c" font-size="11">⚠ 全反射(θ₁>θ_c)</text>` : ""}
+    <!-- info box -->
+    <rect x="20" y="20" width="140" height="50" fill="#f5f7fb" stroke="#c5d8f7" stroke-width="1" rx="4"/>
+    <text x="30" y="38" fill="#1a4789" font-size="11">n₂/n₁ = ${ratio.toFixed(2)}</text>
+    <text x="30" y="52" fill="#1a4789" font-size="11">θ_c = ${(Math.asin(Math.min(1, 1/ratio))*180/Math.PI).toFixed(1)}°</text>
+    ${totalInternal ? `<text x="30" y="66" fill="#e74c3c" font-size="11">全内反射 → 没有折射</text>` : `<text x="30" y="66" fill="#27ae60" font-size="11">折射角 = ${(th2Rad*180/Math.PI).toFixed(1)}°</text>`}
+  `;
+}
+
+// =========================================================================
+// 主循环(各组件独立 requestAnimationFrame)
+// =========================================================================
+function loop() {
+  const now = performance.now();
+  const dt = (now - (loop._last || now)) / 1000;
+  loop._last = now;
+  if (pendRunning) { pendT += dt; drawPend(); }
+  if (sprRunning) { sprT += dt; stepSpr(dt); drawSpr(); }
+  if (projRunning) {
+    projT += dt;
+    const V = parseFloat(document.getElementById("i-proj-V").value);
+    const theta = parseFloat(document.getElementById("i-proj-T").value) * Math.PI / 180;
+    const W = 400, H = 280;
+    const g = 9.8;
+    const xMax = V * V * Math.sin(2 * theta) / 9.8;
+    const Hmax = V * V * Math.sin(theta)**2 / (2 * 9.8);
+    const tMax = 2 * V * Math.sin(theta) / 9.8;
+    if (projT > tMax) { projRunning = false; document.getElementById("b-proj").textContent = "开始"; }
+    const xScale = (W - 60) / Math.max(xMax, 1);
+    const yScale = (H - 60) / Math.max(Hmax, 0.1);
+    const px = 40 + V*Math.cos(theta)*projT*xScale;
+    const py = H-40 - (V*Math.sin(theta)*projT - 0.5*9.8*projT*projT)*yScale;
+    projTrail.push([px, py]);
+    drawProj();
+  }
+  requestAnimationFrame(loop);
+}
+
+// 绑定事件
+["i-pend-L","i-pend-g","i-pend-A"].forEach(id => document.getElementById(id).addEventListener("input", drawPend));
+["i-spr-b"].forEach(id => document.getElementById(id).addEventListener("input", drawSpr));
+["i-ohm-U","i-ohm-R"].forEach(id => document.getElementById(id).addEventListener("input", drawOhm));
+["i-proj-V","i-proj-T"].forEach(id => document.getElementById(id).addEventListener("input", drawProj));
+["i-refr-A","i-refr-N"].forEach(id => document.getElementById(id).addEventListener("input", drawRefr));
+
+// =========================================================================
+// 50 条经典实验清单
+// =========================================================================
+const state = { branch: "" };
+
+function escapeHtml(s) { return String(s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
+
+function renderItem(it) {
+  return `<div class="item">
+    <h4><span class="branch">${escapeHtml(it.branch)}</span>
+        <span>${escapeHtml(it.name)}</span>
+        <span class="id">${escapeHtml(it.id)}${it.era ? ' · ' + escapeHtml(it.era) : ''}</span></h4>
+    <div class="meta">👤 ${escapeHtml(it.people || "—")}</div>
+    <div class="body">
+      <p><b>发现:</b>${escapeHtml(it.discovery || "—")}</p>
+      <p><b>意义:</b>${escapeHtml(it.significance || "—")}</p>
+      ${it.key_data ? '<p><b>数据:</b>' + escapeHtml(it.key_data) + '</p>' : ''}
+    </div>
+  </div>`;
+}
+
+async function loadExperiments() {
+  const list = document.getElementById("list");
+  list.innerHTML = '<div class="loading">加载中…</div>';
+  let data;
+  try {
+    data = await fetch(API + "/experiments").then(r => r.json());
+  } catch (e) {
+    list.innerHTML = `<div class="empty">❌ 后端未启动 — 请先 <code>cd backend && python3 -m uvicorn app:app --reload --port 8000</code> 后刷新</div>`;
+    console.error(e);
+    return;
+  }
+  const items = data.items || [];
+  // counts
+  const breakdown = {};
+  for (const it of items) breakdown[it.branch] = (breakdown[it.branch] || 0) + 1;
+  document.getElementById("cnt-all").textContent = items.length;
+  for (const k of ["力学","电磁学","热学","光学","近代物理"]) {
+    const el = document.getElementById("cnt-" + k);
+    if (el) el.textContent = breakdown[k] || 0;
+  }
+  // bind filter
+  document.querySelectorAll(".filter-bar .btn[data-branch]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-bar .btn[data-branch]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      state.branch = btn.dataset.branch;
+      renderList(items);
+    });
+  });
+  renderList(items);
+}
+
+function renderList(items) {
+  const list = document.getElementById("list");
+  const filtered = state.branch ? items.filter(i => i.branch === state.branch) : items;
+  if (!filtered.length) { list.innerHTML = '<div class="empty">该分支暂无实验</div>'; return; }
+  list.innerHTML = filtered.map(renderItem).join("");
+}
+
+(async () => {
+  drawPend(); drawSpr(); drawOhm(); drawProj(); drawRefr();
+  loop._last = performance.now();
+  requestAnimationFrame(loop);
+  await loadExperiments();
+})();
+</script>
+
+</body>
+</html>

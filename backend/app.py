@@ -81,13 +81,82 @@ def cases(category: Optional[str] = None):
     return {"count": len(items), "items": items}
 
 
+# === 实验条目元数据字段(2026-09-16 实验页扩展) ===
+_EXP_FIELDS = ["年代", "人物", "核心发现", "物理意义", "关键数据"]
+
+
+def _parse_experiments_md(text: str, source_file: str, branch_hint: str = ""):
+    """解析实验 md:
+    - 01 经典实验.md 用 `### N. 实验名` 顶层标题 + `## <branch>(N 条)` 区块
+    - 02-04 补充文件用 `#### N. 实验名` 子标题(在 ### 子分类下)+ `## <branch>(N 条)` 区块
+    每条实验返回 {source_file, branch, id, name, era, people, discovery, significance, key_data}
+    """
+    items = []
+    current_branch = branch_hint
+    # 先扫描 ## <branch>(N 条) 段,记录每个分支
+    branch_ranges = []  # [(branch, start_line, end_line)]
+    lines = text.split("\n")
+    for i, ln in enumerate(lines):
+        m = re.match(r"^## (.+?)\((\d+) 条\)$", ln.strip())
+        if m:
+            branch_ranges.append((m.group(1).strip(), i))
+    # 边界:每个分支结束于下一个 ## 标题
+    for idx, (b, start) in enumerate(branch_ranges):
+        end = branch_ranges[idx + 1][1] if idx + 1 < len(branch_ranges) else len(lines)
+        current_branch = b
+        # 在 [start, end) 范围内找 ### N. 实验名 或 #### N. 实验名
+        for j in range(start, end):
+            line = lines[j].strip()
+            # 标题格式:### <num>. <name> 或 #### <num>. <name>
+            m2 = re.match(r"^#{3,4}\s+(\d+)\.\s+(.+)$", line)
+            if not m2:
+                continue
+            num, name = int(m2.group(1)), m2.group(2).strip()
+            # 抓后续 5 个元数据字段
+            entry = {
+                "source_file": source_file, "branch": current_branch,
+                "id": f"EXP-{num:03d}", "name": name,
+                "era": "", "people": "", "discovery": "",
+                "significance": "", "key_data": ""
+            }
+            for k in range(j + 1, min(j + 30, end)):
+                ln2 = lines[k].strip()
+                # 遇到下一个标题(### 或 #### 或更高级)则中止
+                if re.match(r"^#{2,}\s", ln2):
+                    break
+                for fld in _EXP_FIELDS:
+                    pm = re.match(r"^- \*\*" + re.escape(fld) + r"\*\*\s*[:：]\s*(.+)$", ln2)
+                    if pm:
+                        entry[fld_to_key(fld)] = pm.group(1).strip()
+                        break
+            items.append(entry)
+    return items
+
+
+def fld_to_key(fld):
+    return {"年代": "era", "人物": "people", "核心发现": "discovery",
+            "物理意义": "significance", "关键数据": "key_data"}[fld]
+
+
 @app.get("/experiments")
 def experiments():
-    """经典实验清单(从 md 解析 H2 章节 + ### 实验名)"""
+    """经典实验清单(2026-09-16 扩展):
+    - 返回每个实验的完整元数据:id / name / branch / era / people / discovery / significance / key_data
+    - 兼容 01(### N. 实验名)+ 02-04(#### N. 实验名) 两种标题格式
+    """
     out = []
     for fp in sorted(EXP_DIR.glob("*.md")):
         text = fp.read_text(encoding="utf-8")
-        # 解析 ## <分支>(N 条) 块
+        out.extend(_parse_experiments_md(text, source_file=fp.name))
+    return {"count": len(out), "items": out}
+
+
+@app.get("/experiments/summary")
+def experiments_summary():
+    """经典实验分支汇总(保留旧端点:返回按分支的实验计数)"""
+    out = []
+    for fp in sorted(EXP_DIR.glob("*.md")):
+        text = fp.read_text(encoding="utf-8")
         for m in re.finditer(r"^## (.+?)\((\d+) 条\)$", text, re.MULTILINE):
             out.append({"branch": m.group(1).strip(), "count": int(m.group(2)),
                         "source_file": fp.name})
